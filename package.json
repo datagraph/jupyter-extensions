@@ -1,0 +1,40 @@
+{
+  "name": "dd",
+  "version": "0.1.0",
+  "description": "A JupyterLab extension for rendering dd files.",
+  "author": " <>",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension"
+  ],
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "jupyterlab": {
+    "mimeExtension": true
+  },
+  "scripts": {
+    "clean": "rimraf lib && rimraf tsconfig.tsbuildinfo",
+    "build": "tsc",
+    "prepare": "npm run clean && npm run build",
+    "watch": "tsc -w",
+    "extension:install": "jupyter labextension install dd",
+    "extension:uninstall": "jupyter labextension uninstall  dd",
+    "extension:enable": "jupyter labextension enable dd",
+    "extension:disable": "jupyter labextension disable dd"
+  },
+  "dependencies": {
+    "@jupyterlab/rendermime-interfaces": "^1.3.0",
+    "@phosphor/widgets": "^1.5.0",
+    "@types/uuid": "^3.4.5"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.3",
+    "typescript": "~3.5.2"
+  }
+}
