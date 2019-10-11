@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "composite": true,
-    "declaration": true,
+    "composite": false,
+    "declaration": false,
     "esModuleInterop": true,
     "incremental": true,
     "jsx": "react",
@@ -18,7 +18,8 @@
     "sourceMap": true,
     "strict": false,
     "target": "es2017",
-    "types": []
+    "types": [],
+    "allowJs": true
   },
   "include": ["src/*"]
 }

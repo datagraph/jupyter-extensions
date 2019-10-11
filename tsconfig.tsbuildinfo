@@ -1,339 +1,381 @@
 {
   "program": {
     "fileInfos": {
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es5.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es5.d.ts": {
         "version": "1f753cee573dea40df8a9dc873fef5566957b19ad513874f6643d8dfb14842d0",
         "signature": "1f753cee573dea40df8a9dc873fef5566957b19ad513874f6643d8dfb14842d0"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.d.ts": {
         "version": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96",
         "signature": "7994d44005046d1413ea31d046577cdda33b8b2470f30281fd9c8b3c99fe2d96"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2016.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2016.d.ts": {
         "version": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1",
         "signature": "5f217838d25704474d9ef93774f04164889169ca31475fe423a9de6758f058d1"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.d.ts": {
         "version": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743",
         "signature": "459097c7bdd88fc5731367e56591e4f465f2c9de81a35427a7bd473165c34743"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.dom.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.dom.d.ts": {
         "version": "973df4e41aea3780ce77073777d37dd5896f684124f4c42409f3a832133837a4",
         "signature": "973df4e41aea3780ce77073777d37dd5896f684124f4c42409f3a832133837a4"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.dom.iterable.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.dom.iterable.d.ts": {
         "version": "eb843da29336c7d5840bb439b24cf68a4a1652fd01c6e4e66ec74d8b136e944a",
         "signature": "eb843da29336c7d5840bb439b24cf68a4a1652fd01c6e4e66ec74d8b136e944a"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
         "version": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b",
         "signature": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.scripthost.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.scripthost.d.ts": {
         "version": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9",
         "signature": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.core.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.core.d.ts": {
         "version": "2a0390a665763bcc90f0670e43c587928d8fefe2a94a11209c1e22cba7b09f52",
         "signature": "2a0390a665763bcc90f0670e43c587928d8fefe2a94a11209c1e22cba7b09f52"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.collection.d.ts": {
         "version": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0",
         "signature": "dd94d8ef48c562389eb58af8df3a3a34d11367f7c818192aa5f16470d469e3f0"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.generator.d.ts": {
         "version": "828413486bdcaa342558e8e4570b1b287b776cb61b4b70b0214bd10c5d9a94c3",
         "signature": "828413486bdcaa342558e8e4570b1b287b776cb61b4b70b0214bd10c5d9a94c3"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
         "version": "6c9f73334f8bf47aea685ca5b46a8f7e992a223e96fbceb030f26a4d2324ba21",
         "signature": "6c9f73334f8bf47aea685ca5b46a8f7e992a223e96fbceb030f26a4d2324ba21"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.promise.d.ts": {
         "version": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2",
         "signature": "e6b8ff2798f8ebd7a1c7afd8671f2cb67ee1901c422f5964d74b0b34c6574ea2"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
         "version": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe",
         "signature": "5e72f949a89717db444e3bd9433468890068bb21a5638d8ab15a1359e05e54fe"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
         "version": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976",
         "signature": "f5b242136ae9bfb1cc99a5971cccc44e99947ae6b5ef6fd8aa54b5ade553b976"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
         "version": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230",
         "signature": "9ae2860252d6b5f16e2026d8a2c2069db7b2a3295e98b6031d01337b96437230"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
         "version": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303",
         "signature": "3e0a459888f32b42138d5a39f706ff2d55d500ab1031e0988b5568b0f67c2303"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
         "version": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0",
         "signature": "3f96f1e570aedbd97bf818c246727151e873125d0512e4ae904330286c721bc0"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.object.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.object.d.ts": {
         "version": "ff8ad203e83338289b0f5defc1a5b5c253fb7d251b464db497383f915a0df3f4",
         "signature": "ff8ad203e83338289b0f5defc1a5b5c253fb7d251b464db497383f915a0df3f4"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
         "version": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f",
         "signature": "b8667586a618c5cf64523d4e500ae39e781428abfb28f3de441fc66b56144b6f"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.string.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.string.d.ts": {
         "version": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c",
         "signature": "21df2e0059f14dcb4c3a0e125859f6b6ff01332ee24b0065a741d121250bc71c"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.intl.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.intl.d.ts": {
         "version": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6",
         "signature": "c1759cb171c7619af0d2234f2f8fb2a871ee88e956e2ed91bb61778e41f272c6"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
         "version": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46",
         "signature": "28569d59e07d4378cb3d54979c4c60f9f06305c9bb6999ffe6cab758957adc46"
       },
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.full.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.full.d.ts": {
         "version": "873c09f1c309389742d98b7b67419a8e0a5fa6f10ce59fd5149ecd31a2818594",
         "signature": "873c09f1c309389742d98b7b67419a8e0a5fa6f10ce59fd5149ecd31a2818594"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxengine.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxengine.d.ts": {
         "version": "518f0974b55341500d4234068f32fa9750c3d373f41edebbb99c47798b2d102b",
         "signature": "518f0974b55341500d4234068f32fa9750c3d373f41edebbb99c47798b2d102b"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts": {
         "version": "6d4bce054cce22306edccc85e738a800ea0364a82e85f9bf61156ed03604d24f",
         "signature": "6d4bce054cce22306edccc85e738a800ea0364a82e85f9bf61156ed03604d24f"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/array.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/array.d.ts": {
         "version": "5275faae938513e793a5ea551efa77b43a47bbfac8ed8550753ec217376f24ca",
         "signature": "5275faae938513e793a5ea551efa77b43a47bbfac8ed8550753ec217376f24ca"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts": {
         "version": "b0fe7c947694eb4f0f736af28a853b0a8dc59074329a3d9a3eb5967fbe83c10d",
         "signature": "b0fe7c947694eb4f0f736af28a853b0a8dc59074329a3d9a3eb5967fbe83c10d"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/chain.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/chain.d.ts": {
         "version": "5d3db7107b3138edf0ddb9851bbba99caeb6b3e32074da4c7b45e751c296183b",
         "signature": "5d3db7107b3138edf0ddb9851bbba99caeb6b3e32074da4c7b45e751c296183b"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/empty.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/empty.d.ts": {
         "version": "b86137c60e0c62f7acfd8f0e761170bc6920c105ef03868c0518be562a5c5908",
         "signature": "b86137c60e0c62f7acfd8f0e761170bc6920c105ef03868c0518be562a5c5908"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/enumerate.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/enumerate.d.ts": {
         "version": "7ba39fedc2104c6d69f7f583e10ced54256f8d8e42770c754097e75f041cfb7d",
         "signature": "7ba39fedc2104c6d69f7f583e10ced54256f8d8e42770c754097e75f041cfb7d"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/filter.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/filter.d.ts": {
         "version": "69d5afc46850b54ef3388769cd339f8dc88e15cd74a189bf71dac3937b4e8850",
         "signature": "69d5afc46850b54ef3388769cd339f8dc88e15cd74a189bf71dac3937b4e8850"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/find.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/find.d.ts": {
         "version": "a8db70d3ad601f4cf3c779623a3ca232606db0c1d052cf3f1d7a3a695bcbd368",
         "signature": "a8db70d3ad601f4cf3c779623a3ca232606db0c1d052cf3f1d7a3a695bcbd368"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/map.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/map.d.ts": {
         "version": "6256ad6e7c41a9f9ecb6349b5d5be72ea2c60ba1c6c6b3954929eb59a6980688",
         "signature": "6256ad6e7c41a9f9ecb6349b5d5be72ea2c60ba1c6c6b3954929eb59a6980688"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/range.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/range.d.ts": {
         "version": "77596a948c8deffc8f059fa0f3c38688f3b05caefa303506074034b5cb1a56ae",
         "signature": "77596a948c8deffc8f059fa0f3c38688f3b05caefa303506074034b5cb1a56ae"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/reduce.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/reduce.d.ts": {
         "version": "81ef0fab583499ba45dab44490620e7b870597d90c5e562ec5a9b38b6bd3fcdf",
         "signature": "81ef0fab583499ba45dab44490620e7b870597d90c5e562ec5a9b38b6bd3fcdf"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/repeat.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/repeat.d.ts": {
         "version": "f2b309d4f1bdf8e9f4fa03bf2183eb1b2f7cb66efb5b16da52e378ce75ac17bb",
         "signature": "f2b309d4f1bdf8e9f4fa03bf2183eb1b2f7cb66efb5b16da52e378ce75ac17bb"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/retro.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/retro.d.ts": {
         "version": "9cbaf0317ec49acb6c84d142077670a301015979260c4ecded7705fd2141379c",
         "signature": "9cbaf0317ec49acb6c84d142077670a301015979260c4ecded7705fd2141379c"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/sort.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/sort.d.ts": {
         "version": "5a49d16b6f7d3ca5c66569784290c0ed7a3d74821095e2ab91e17ea444ac4657",
         "signature": "5a49d16b6f7d3ca5c66569784290c0ed7a3d74821095e2ab91e17ea444ac4657"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/stride.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/stride.d.ts": {
         "version": "2e5fab5fe6e398cb14f695da07044a65f4e32c8d0fe9b31f5fe52d2cc7656230",
         "signature": "2e5fab5fe6e398cb14f695da07044a65f4e32c8d0fe9b31f5fe52d2cc7656230"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/string.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/string.d.ts": {
         "version": "92e581f3d154511056bfba03e72ed3cffa92681b4b9bb1953b0b724f67a664bc",
         "signature": "92e581f3d154511056bfba03e72ed3cffa92681b4b9bb1953b0b724f67a664bc"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/take.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/take.d.ts": {
         "version": "c9deb61903fd8318e6845e4e0f03b3bd813cdae1778f8dc9ee0ec05f9ca22094",
         "signature": "c9deb61903fd8318e6845e4e0f03b3bd813cdae1778f8dc9ee0ec05f9ca22094"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/zip.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/zip.d.ts": {
         "version": "7bc3152a4c8adf395ad486da44acb6e8c98dedd2becc83810b076114338a5045",
         "signature": "7bc3152a4c8adf395ad486da44acb6e8c98dedd2becc83810b076114338a5045"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts": {
         "version": "30a8688575aeada46c1268d671b2a1de78705ebc0d5343e75b96c25f149caa98",
         "signature": "30a8688575aeada46c1268d671b2a1de78705ebc0d5343e75b96c25f149caa98"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts": {
         "version": "c8a24a2440a34aea602f23947c59ce8d9d3bbd5301fd80160e9067b3ac3cce6b",
         "signature": "c8a24a2440a34aea602f23947c59ce8d9d3bbd5301fd80160e9067b3ac3cce6b"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts": {
         "version": "57191ebd5f6e04ee890df9f370761972c84013e5393fb08663dd8b61b347e9e3",
         "signature": "57191ebd5f6e04ee890df9f370761972c84013e5393fb08663dd8b61b347e9e3"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts": {
         "version": "02906328718f740db2bd453ed956e9b954b5ca10511695a44f6e8c25c3db8a40",
         "signature": "02906328718f740db2bd453ed956e9b954b5ca10511695a44f6e8c25c3db8a40"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts": {
         "version": "b532781d9096fd879f4292fbbe656fac7cf51a3d3628a562d40fe0b29cb3d8ff",
         "signature": "b532781d9096fd879f4292fbbe656fac7cf51a3d3628a562d40fe0b29cb3d8ff"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts": {
         "version": "5350283d2aee045bf447f38aa46474cc2dc46c5e304ff05fd71a4539c6de67f9",
         "signature": "5350283d2aee045bf447f38aa46474cc2dc46c5e304ff05fd71a4539c6de67f9"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts": {
         "version": "f9e8dc69b67c409b6dd500317065381e70eeb45774a2b6a2d267797277789856",
         "signature": "f9e8dc69b67c409b6dd500317065381e70eeb45774a2b6a2d267797277789856"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": {
         "version": "61bfa4334dbf9c4bd1d9fcd66243f15e9bd1aa9d6c57d329c1f976e706b3b07a",
         "signature": "61bfa4334dbf9c4bd1d9fcd66243f15e9bd1aa9d6c57d329c1f976e706b3b07a"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts": {
         "version": "d9bda13de04067b09bd723693fd3c87583b958d3593f0881e333fb75fa9e79e3",
         "signature": "d9bda13de04067b09bd723693fd3c87583b958d3593f0881e333fb75fa9e79e3"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": {
         "version": "6742b16104faa968b6daf0d577348e7be96c5988492c8bf5616fa79209de3906",
         "signature": "6742b16104faa968b6daf0d577348e7be96c5988492c8bf5616fa79209de3906"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/json.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/json.d.ts": {
         "version": "9d441989d1cbb52939625e57621620524bf19c3c223f01007941ecd10335d0d1",
         "signature": "9d441989d1cbb52939625e57621620524bf19c3c223f01007941ecd10335d0d1"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/mime.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/mime.d.ts": {
         "version": "28e06b63c3f364ef754eedfb0cb0f5127011f3d685e102f07ff5c56aa87d1562",
         "signature": "28e06b63c3f364ef754eedfb0cb0f5127011f3d685e102f07ff5c56aa87d1562"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/promise.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/promise.d.ts": {
         "version": "b0ee12813f8d26468aba1fd860db8180eb9e332183ad839dd554a2f19c8983cc",
         "signature": "b0ee12813f8d26468aba1fd860db8180eb9e332183ad839dd554a2f19c8983cc"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/random.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/random.d.ts": {
         "version": "b407b6761debdcd11022f0157535e7bc4977433fc09b6c188cd7c324ded64a5d",
         "signature": "b407b6761debdcd11022f0157535e7bc4977433fc09b6c188cd7c324ded64a5d"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/token.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/token.d.ts": {
         "version": "4873fe69c2bd7be609e6f3f033db4534b88735ff0769e18cb100cbf24f25e0f1",
         "signature": "4873fe69c2bd7be609e6f3f033db4534b88735ff0769e18cb100cbf24f25e0f1"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/uuid.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/uuid.d.ts": {
         "version": "094815f0e8d3c53c1b983debb0559cb347ad78142419654b6093ce285aa150cd",
         "signature": "094815f0e8d3c53c1b983debb0559cb347ad78142419654b6093ce285aa150cd"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts": {
         "version": "cc0fca544c9ee63d754899e93ebae35c8ba8304a100126b9c3dadee2c91a2250",
         "signature": "cc0fca544c9ee63d754899e93ebae35c8ba8304a100126b9c3dadee2c91a2250"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/commands/lib/index.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts": {
         "version": "f7a4e242113dbee5fdbc1340ae8fa59fa1d92eeb41d3a9f2a7f34434036d8e87",
         "signature": "f7a4e242113dbee5fdbc1340ae8fa59fa1d92eeb41d3a9f2a7f34434036d8e87"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/virtualdom/lib/index.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts": {
         "version": "e582863f95c72400f8ddadeee51f6339c484aad6815b62a646b6bbedf4f579e2",
         "signature": "e582863f95c72400f8ddadeee51f6339c484aad6815b62a646b6bbedf4f579e2"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": {
         "version": "1db72b5c0ab78997e0ce774d3ec782288690a3527c9afa2395fd8f0aea1d1dae",
         "signature": "1db72b5c0ab78997e0ce774d3ec782288690a3527c9afa2395fd8f0aea1d1dae"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menu.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts": {
         "version": "5d2d8228652d10324f96849e4ae8cc8eeadcf6ca72ef6e0398f6998e94d19915",
         "signature": "5d2d8228652d10324f96849e4ae8cc8eeadcf6ca72ef6e0398f6998e94d19915"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": {
         "version": "a58928566bd438cace363dd567a9a8df609a82166d487dff5e6820b0215fd01e",
         "signature": "a58928566bd438cace363dd567a9a8df609a82166d487dff5e6820b0215fd01e"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts": {
         "version": "4e34c1aefcb13a420bc0255e2ee6452110d3d4c2a58821f681d81fc51c280f50",
         "signature": "4e34c1aefcb13a420bc0255e2ee6452110d3d4c2a58821f681d81fc51c280f50"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/docklayout.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/docklayout.d.ts": {
         "version": "647ef68c9129fd074bfe02783c4202c1768cd9c490632b574a246f0a5ec7ccd9",
         "signature": "647ef68c9129fd074bfe02783c4202c1768cd9c490632b574a246f0a5ec7ccd9"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": {
         "version": "6fb0cad19f294c0e0f12adf0d3404649a6779186d9499f9a7b4b234531736491",
         "signature": "6fb0cad19f294c0e0f12adf0d3404649a6779186d9499f9a7b4b234531736491"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/focustracker.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/focustracker.d.ts": {
         "version": "269a9559f1d701c5c31cac903e6d6cecd2116321b0113a62bfe21433e85ed236",
         "signature": "269a9559f1d701c5c31cac903e6d6cecd2116321b0113a62bfe21433e85ed236"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": {
         "version": "cc71c2b4ac696b027eff499027d4d5febb9a6ead9cc3f81a310bb7d8e39752ff",
         "signature": "cc71c2b4ac696b027eff499027d4d5febb9a6ead9cc3f81a310bb7d8e39752ff"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menubar.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menubar.d.ts": {
         "version": "e64e93eca04ceacfaf726ba306e41b04f7a29943aa57c36486f016e27321894c",
         "signature": "e64e93eca04ceacfaf726ba306e41b04f7a29943aa57c36486f016e27321894c"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": {
         "version": "2f3b5535020128e321e7e24c186ae8079267c213965315b08e29af9c93bf44df",
         "signature": "2f3b5535020128e321e7e24c186ae8079267c213965315b08e29af9c93bf44df"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": {
         "version": "a47f0b0ea63dc40176bfea2bd26f40e59dda410acce93594c4bd0fb25d314c08",
         "signature": "a47f0b0ea63dc40176bfea2bd26f40e59dda410acce93594c4bd0fb25d314c08"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": {
         "version": "07f9bd74c94fc6337534679f78e91e113bfbbec0e6994e4ea4d12002800a9221",
         "signature": "07f9bd74c94fc6337534679f78e91e113bfbbec0e6994e4ea4d12002800a9221"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": {
         "version": "f49aecef81c20d28b6c02d0b541aa6fd27c92cb577eb8b6cc809fee5cfb4c87d",
         "signature": "f49aecef81c20d28b6c02d0b541aa6fd27c92cb577eb8b6cc809fee5cfb4c87d"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": {
         "version": "6e771f66549892608000cb2ced46e2f6b1bd32498357166d2b972edb996e917e",
         "signature": "6e771f66549892608000cb2ced46e2f6b1bd32498357166d2b972edb996e917e"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": {
         "version": "e669ba06b92a6457dbd3d8fa2a2cc8652f17f177a985ad8d7d4a716be960496f",
         "signature": "e669ba06b92a6457dbd3d8fa2a2cc8652f17f177a985ad8d7d4a716be960496f"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": {
         "version": "e0b9646e6407be4123c23fd79c53f899f8484cfe6af5f7dd1ed6f12eda7e0dbe",
         "signature": "e0b9646e6407be4123c23fd79c53f899f8484cfe6af5f7dd1ed6f12eda7e0dbe"
       },
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/index.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts": {
         "version": "ce75ab9766be65e1b6837cba39ea25ebfbe25f431e0f97e1863743817fad2d91",
         "signature": "ce75ab9766be65e1b6837cba39ea25ebfbe25f431e0f97e1863743817fad2d91"
       },
-      "c:/users/skork/desktop/dd/src/comment.ts": {
-        "version": "bbf3aea6c5d17cb1c9d58fb8de32a37cfee45f75c2e74befc26b206d23060233",
-        "signature": "c52525e9900b83f34f60479b29d687cd70ef70ff8329645992faaa485e263887"
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/comment.ts": {
+        "version": "3cae6bd592c8432e8d03b55073de9b8d353f022373f2552972922f19e881afc1",
+        "signature": "68a29439a40a055f56fc30100367974a5a5fc35c4acdc1cfa01163648fdced0d"
       },
-      "c:/users/skork/desktop/dd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts": {
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts": {
         "version": "600398810bc4abd29d85cb566f2a2c6a8925aa500934b52014d00008f6c805d7",
         "signature": "600398810bc4abd29d85cb566f2a2c6a8925aa500934b52014d00008f6c805d7"
       },
-      "c:/users/skork/desktop/dd/src/index.ts": {
-        "version": "04c8838a64b3cfe8a42e6091b07a0739ac16d29f248a6dc090a0f7d0005d0871",
-        "signature": "87ad8241eb6a52c519d8949b7d94e3c3aaadc4dabc2612414996944153332ed9"
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/nearley/lib/nearley.js": {
+        "version": "f468950fd3fcbd7d3c38dec759626647d2a0aa92d429cb7074324ad207ad10a0"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/moo/moo.js": {
+        "version": "ea75eb0d2af0e94634324bb16701b5a563d939bb9c8a09ea685eb1a4e75e7e2b"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/multipart-grammar.js": {
+        "version": "a20ececcd7beaa6caa1002b88763f5d1fdf5049c9b488afd6538f4136fa7ea68"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/uuid-v1.js": {
+        "version": "2197c68845f6c9de0c375c4af1810f50256458991a18a9ef8803f39e837716be"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/revision-identifier.js": {
+        "version": "250186a6651a65c1f81a70943f8e4d2125f4420b256a971cd8a6a0e7209ddc4f"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-environment.js": {
+        "version": "424f8637a7496d8172bdd2efa12cce3f220a58a8350b3843925db3fb118fdcdd"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-object.js": {
+        "version": "e0c77fd0b42287afb01eb68c7b7bca188072123fde143907786923cca6118920"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-environment.js": {
+        "version": "facdcfdc8a7a1c90d7ec0be0e7b0dd4c4e78b52a58870daf9b18c3a033b4e2ca"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/n-quads-grammar.js": {
+        "version": "d8f440e20e4e5162192b42f0298feeb21c1c56c8cf00fceeabe398d5d76539e8"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/errors.js": {
+        "version": "fb729c1f4c4d308cc2642a15c699febc17074652e1e9216b7464be36f86ec5a9"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-database.js": {
+        "version": "a91b84738f7f44059de1fb7657ce2c2eb7a6755a8b078af282052524de8d967f"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-graph-store.js": {
+        "version": "4db61157dee73578f33b5bb9e9f91832abd33c5a807688dd1976264357ec9b56"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-database.js": {
+        "version": "fabde522717a7f6412817946a82c4196afdb804039464714ad62642f6e125c7a"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-client.js": {
+        "version": "777545bf18f0d64f5ece9a9bd3d9af99dfd35d396df25f5362f26bf1ea523f7f"
+      },
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/index.ts": {
+        "version": "e9edc286afe40d0e5aa3879ac27873d24acac98325837368b5d6ff32dd8c0e9a",
+        "signature": "f89950af77e67ac9b55af22a5f65f55f46d2002c58ef8bab611633994b7c12ea"
       }
     },
     "options": {
       "allowSyntheticDefaultImports": true,
-      "composite": true,
-      "declaration": true,
+      "composite": false,
+      "declaration": false,
       "esModuleInterop": true,
       "incremental": true,
       "jsx": 2,
@@ -342,602 +384,658 @@
       "noEmitOnError": true,
       "noImplicitAny": true,
       "noUnusedLocals": true,
-      "outDir": "C:/Users/skork/Desktop/dd/lib",
+      "outDir": "/Users/jamesanderson/jupyter/jupyter-extensions/lib",
       "preserveWatchOutput": true,
       "resolveJsonModule": true,
-      "rootDir": "C:/Users/skork/Desktop/dd/src",
+      "rootDir": "/Users/jamesanderson/jupyter/jupyter-extensions/src",
       "sourceMap": true,
       "strict": false,
       "target": 4,
       "types": [],
-      "configFilePath": "C:/Users/skork/Desktop/dd/tsconfig.json"
+      "allowJs": true,
+      "configFilePath": "/Users/jamesanderson/jupyter/jupyter-extensions/tsconfig.json"
     },
     "referencedMap": {
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/chain.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/chain.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/empty.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/empty.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/enumerate.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/enumerate.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/filter.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/filter.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/find.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/find.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/map.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/map.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/range.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/range.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/reduce.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/reduce.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/repeat.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/repeat.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/retro.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/retro.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/sort.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/sort.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/stride.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/stride.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/take.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/take.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/zip.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/zip.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/array.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/chain.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/empty.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/enumerate.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/filter.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/find.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/map.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/range.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/reduce.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/repeat.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/retro.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/sort.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/stride.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/string.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/take.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/zip.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/array.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/chain.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/empty.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/enumerate.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/filter.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/find.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/map.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/range.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/reduce.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/repeat.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/retro.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/sort.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/stride.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/string.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/take.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/zip.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/json.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/mime.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/promise.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/random.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/token.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/uuid.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/json.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/mime.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/promise.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/random.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/token.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/uuid.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/commands/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menu.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menu.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/docklayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/docklayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/focustracker.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/focustracker.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menubar.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menu.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menubar.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menu.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menubar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menubar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/src/comment.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/comment.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/src/index.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/src/comment.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/multipart-grammar.js": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/moo/moo.js"
+      ],
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/revision-identifier.js": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/uuid-v1.js"
+      ],
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-environment.js": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/n-quads-grammar.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/multipart-grammar.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/revision-identifier.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-environment.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-object.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/nearley/lib/nearley.js"
+      ],
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/n-quads-grammar.js": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-environment.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/moo/moo.js"
+      ],
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-database.js": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-environment.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-object.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/errors.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/revision-identifier.js"
+      ],
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-database.js": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-database.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-graph-store.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-environment.js"
+      ],
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-client.js": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/nearley/lib/nearley.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/n-quads-grammar.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-environment.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-environment.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-object.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-database.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-database.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-graph-store.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/uuid-v1.js"
+      ],
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/index.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/comment.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-client.js",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts"
       ]
     },
     "exportedModulesMap": {
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menu.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menubar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menubar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/src/index.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/index.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/src/comment.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/comment.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menubar.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menu.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menubar.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/docklayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/docklayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menu.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menu.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/commands/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/focustracker.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/focustracker.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/array.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/chain.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/empty.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/enumerate.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/filter.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/find.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/map.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/range.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/reduce.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/repeat.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/retro.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/sort.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/stride.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/string.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/take.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/zip.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/array.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/chain.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/empty.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/enumerate.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/filter.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/find.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/map.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/range.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/reduce.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/repeat.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/retro.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/sort.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/stride.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/string.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/take.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/zip.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/commands/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/zip.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/zip.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/take.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/take.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/stride.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/stride.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/sort.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/sort.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/retro.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/retro.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/repeat.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/repeat.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/reduce.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/reduce.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/range.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/range.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/map.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/map.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/find.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/find.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/filter.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/filter.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/enumerate.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/enumerate.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/empty.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/empty.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/chain.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/chain.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts"
       ],
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts": [
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/json.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/mime.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/promise.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/random.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/token.d.ts",
-        "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/uuid.d.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts": [
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/json.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/mime.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/promise.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/random.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/token.d.ts",
+        "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/uuid.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es5.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2016.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.dom.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.dom.iterable.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.scripthost.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.core.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.collection.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.generator.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.promise.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.object.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.string.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.intl.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/typescript/lib/lib.es2017.full.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/messaging/lib/index.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/array.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/iter.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/chain.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/empty.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/enumerate.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/filter.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/find.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/map.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/range.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/reduce.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/repeat.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/retro.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/sort.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/stride.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/string.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/take.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/zip.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/algorithm/lib/index.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/signaling/lib/index.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/disposable/lib/index.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/title.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/widget.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/layout.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/panel.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/json.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/mime.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/promise.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/random.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/token.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/uuid.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/coreutils/lib/index.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/commands/lib/index.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/virtualdom/lib/index.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menu.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/menubar.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
-      "c:/users/skork/desktop/dd/node_modules/@phosphor/widgets/lib/index.d.ts",
-      "c:/users/skork/desktop/dd/src/comment.ts",
-      "c:/users/skork/desktop/dd/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-      "c:/users/skork/desktop/dd/src/index.ts"
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es5.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2016.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.dom.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.dom.iterable.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.scripthost.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.object.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.string.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/typescript/lib/lib.es2017.full.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/array.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/chain.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/empty.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/enumerate.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/filter.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/find.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/map.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/range.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/reduce.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/repeat.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/retro.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/sort.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/stride.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/string.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/take.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/zip.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/widget.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/layout.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/json.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/mime.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/promise.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/random.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/token.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/uuid.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/menubar.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/comment.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/nearley/lib/nearley.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/moo/moo.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/multipart-grammar.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/lib/uuid-v1.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/revision-identifier.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-environment.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-object.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-environment.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/n-quads-grammar.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/errors.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/graph-database.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-graph-store.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-database.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/replication/rdf-client.js",
+      "/users/jamesanderson/jupyter/jupyter-extensions/src/index.ts"
     ]
   },
   "version": "3.5.3"

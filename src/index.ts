@@ -1,6 +1,11 @@
 import { IRenderMime } from '@jupyterlab/rendermime-interfaces';
 import {Comment} from './comment';
 
+// import { GSP, SPARQL } from './replication/rdf-client';
+//
+import { GSP, SPARQL } from './replication/rdf-client';
+console.log(GSP);
+console.log(SPARQL);
 //import { JSONObject } from '@phosphor/coreutils';
 
 
