@@ -3,22 +3,43 @@ Comment widget easiest one , test the Canvas
 */
 import { Widget } from '@phosphor/widgets';
 //import { v4 as uuid } from '@types/uuid';
+import { SPARQL } from './replication/rdf-client';
+import { Parser } from 'sparqljs';
+var parser = new Parser();
 
+//import {
+ // VirtualDOM, VirtualElement, VirtualText, h
+//} from '@phosphor/virtualdom';
+  
 export class Comment extends Widget {
   id: string;
   type: string;
 
-  constructor(widget_id: string) {
+  constructor(widget_id: string, query: string) {
     /* Constructor takes an optional id for reconstruction
     of an existing canvas, otherwise a new id is assigned*/
     if (widget_id) {
       super({ node: Comment.createNode(widget_id) });
     } else {
-      super({ node: Comment.createNode('asas') });
+      super({ node: Comment.createNode('comment') });
     }
     // To make tsc happy
     this.id = widget_id;
     this.type = 'sth';
+    console.log('node', this.node);
+    let divs = this.node.getElementsByTagName('div');
+    console.log('divs', divs);
+    let theDiv = divs.item(3);
+    console.log('div', theDiv);
+    let theText = theDiv.getElementsByTagName('textarea').item(0);
+    let parsedQuery = parser.parse(query);
+
+    SPARQL.get('https://nl4.dydra.com/james/foaf', query)
+              .then(function(response: any) {
+	        console.log(response);
+		response.text().then(function(text: string) {
+		  theText.innerHTML =  query + ' =\n' + JSON.stringify(parsedQuery) + ' =\n' + text ;
+		}) });
   }
 
   static createNode(widget_id: string): HTMLElement {
