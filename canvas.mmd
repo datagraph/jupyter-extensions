@@ -1,0 +1,61 @@
+classDiagram
+  class Geometry { }
+  class Canvas { }
+
+  class Layer {
+  }
+
+  class Operation {
+  }
+  class NullaryOperation {
+  }
+  class UnaryOperation {
+  }
+  class BinaryOperation { }
+
+  class Extend { }
+
+  class Filter { }
+
+  class InnerJoin { }
+
+  class Match { }
+
+  class OptionalJoin { }
+
+  class Project { }
+
+  class Values { }
+
+
+
+
+  Operation <|-- NullaryOperation
+  Operation <|-- UnaryOperation
+  Operation <|-- BinaryOperation
+  NullaryOperation <|-- Match
+  NullaryOperation <|-- Values
+  UnaryOperation <|-- Extend
+  UnaryOperation  <|-- Filter
+  UnaryOperation  <|-- Project
+  UnaryOperation : +Operation base
+  BinaryOperation  <|-- InnerJoin
+  BinaryOperation <|-- OptionalJoin
+  BinaryOperation : +Operation base
+  BinaryOperation : +Operation complement
+
+
+  Operation : setView(view)
+  Operation : getModel()
+  Operation : setArguments(arguments)
+  Operation : execute()
+  Operation : present(view)
+  Operation *-- Layer : view
+
+  Canvas o-- Operation : operations
+  Canvas o-- Geometry : locations
+  Geometry *-- Operation : operation
+
+  Layer : title
+  Layer : present(operation)
+
