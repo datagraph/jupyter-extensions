@@ -1,5 +1,5 @@
 import { IRenderMime } from '@jupyterlab/rendermime-interfaces';
-import {Comment} from './comment';
+//import {Comment} from './comment';
 
 // import { GSP, SPARQL } from './replication/rdf-client';
 //
@@ -7,7 +7,8 @@ import { GSP, SPARQL } from './replication/rdf-client';
 console.log(GSP);
 console.log(SPARQL);
 //import { JSONObject } from '@phosphor/coreutils';
-
+import { FilterOperation } from './algebra';
+import { SparqlLayer } from './layer.js';
 
 import { Widget } from '@phosphor/widgets';
 
@@ -37,15 +38,12 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
    // https://cdn.jsdelivr.net/npm/jui@2.0.3/dist/ui.js
    // https://cdn.jsdelivr.net/npm/jui-core@2.0.4/dist/core.min.js
 
-    let comment = new Comment("a", "select * where { { graph ?g {?s ?p ?o} } union {?s ?p ?o} } limit 10");
-    let comment_node = comment.node;
-    console.log(comment_node);
-    this._div.appendChild(comment_node);
+//    let comment = new Comment("a", "select * where { { graph ?g {?s ?p ?o} } union {?s ?p ?o} } limit 10");
+//    let comment_node = comment.node;
+    let layer = new SparqlLayer(new FilterOperation());
+    console.log(layer);
+    this._div.appendChild(layer.node);
     this.node.appendChild(this._div);
-
-
-
-
     this.addClass(CLASS_NAME);
   }
 

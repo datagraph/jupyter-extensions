@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "A JupyterLab extension for rendering dd files.",
   "author": " <>",
+  "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "style": "style/index.css",
@@ -29,10 +30,14 @@
     "extension:disable": "jupyter labextension disable dd"
   },
   "dependencies": {
+    "@jupyterlab/codemirror": "^1.1.3",
     "@jupyterlab/rendermime-interfaces": "^1.3.0",
     "@phosphor/widgets": "^1.5.0",
+    "@types/codemirror": "0.0.79",
     "@types/sparqljs": "^2.1.0",
     "@types/uuid": "^3.4.5",
+    "codemirror": "^5.49.2",
+    "phosphor-dockpanel": "^0.9.7",
     "sparqljs": ""
   },
   "devDependencies": {

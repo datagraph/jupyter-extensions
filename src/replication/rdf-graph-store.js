@@ -5,13 +5,8 @@
  - fetch network operators
  - rdf codecs and data model
 
- The operations are defined as static function for the GSP and SPARQL classes.
+ The operations are defined as static functions for the GSP and SPARQL classes.
  */
-
-/*if ("function" === typeof importScripts) {
-  importScripts('https://solid.github.io/releases/rdflib.js/rdflib-0.12.2.min.js');
-}
-*/
 
 const now = Date.now;
 
