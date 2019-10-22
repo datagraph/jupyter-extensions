@@ -27,7 +27,6 @@
 
 import { JSONObject } from '@phosphor/coreutils';
 import { Layer, SparqlLayer } from './layer';
-// import { Message, MessageLoop } from '@phosphor/messaging';
 import { Parser, Generator, SparqlQuery } from 'sparqljs';
 var parser = new Parser();
 var generator = new Generator({});
@@ -42,10 +41,9 @@ export class Operation {
     location: string;
     _view: Layer;
     _expression: string;
-    _form: any;
+    _form: SparqlQuery;
     responseText: string;
     responseObject: JSONObject;
-    layerConstructor: Function;
     acceptMediaType: string = 'application/sparql-results+json';
     
     constructor(options: JSONObject = {}) {
@@ -85,7 +83,7 @@ export class Operation {
 	return ( {} );
     }
     computeExpression() : string {
-	return( "" );
+	return( generator.stringify(this.form) );
     }
     get expression() {
 	if (! this._expression ) {
@@ -111,50 +109,50 @@ export class Operation {
 	return( null );
     }
 
-    get form() : any {
+    get form() : SparqlQuery{
+	if (! this._form) {
+	    this._form = this.computeForm();
+	}
 	return( this._form );
     }
+    get innerForm() : any {
+	return( this.computeInnerForm() );
+    }
+    computeForm(): SparqlQuery {
+	return( <SparqlQuery>{} );
+    }
+    computeInnerForm() {
+	return( {} );
+    }
 }
-
-class NullaryOperation extends Operation {
-}
-
-class UnaryOperation extends Operation {
-    base: Operation;
-}
-
-class BinaryOperation extends Operation {
-    base: Operation;
-    complement: Operation;
-}
-
-export class Extend extends UnaryOperation {
+class SparqlOperation extends Operation {
     computeView() : Layer {
 	let view = new SparqlLayer(this);
 	return( view );
     }
 }
 
-export class FilterOperation extends UnaryOperation {
-    predicateForm: JSONObject = {};
-    computeForm() {
-	return( { 'type': 'FILTER',
-		  'expression': this.predicateForm } );
+export class Extend extends SparqlOperation {
+}
+
+export class FilterOperation extends SparqlOperation {
+    base: Operation;
+    predicate: JSONObject = {};
+    constructor(base: Operation, predicate: JSONObject, options: JSONObject = {}) {
+	super(options);
+	this.base = base;
+	this.predicate = predicate;
     }
-    computeExpression() {
-	var form = { type: 'query',
-		     queryType: 'SELECT',
-		     where: [ this.base.form, this.computeForm() 
-		     ],
-		     variables: [
-			 {
-			     termType: "Wildcard",
-			     value: "*"
-			 }
-		     ],
-		     prefixes: {}
+    computeInnerForm() {
+	return( { 'type': 'FILTER',
+		  'expression': this.predicate } );
+    }
+    computeForm(): SparqlQuery {
+	var form = { type: 'query', queryType: 'SELECT', variables: [ '*'], prefixes: {},
+
+		     where: [ this.base.form, this.computeInnerForm() ]
 		   }
-	return( generator.stringify(<SparqlQuery>form) );
+	return( <SparqlQuery>form );
     }
 }
 
@@ -165,28 +163,98 @@ export class FilterOperation extends UnaryOperation {
  The combination is a JOIN object.
  The expression wraps the combination in a select-where
  */
-export class InnerJoin extends BinaryOperation {
-    constructExpression() {
-	return ( {'type': 'join', 'arguments': [ this.base, this.complement ] } );
+export class InnerJoin extends SparqlOperation {
+    base: Operation;
+    complement: Operation;
+    constructor(base: Operation, complement: Operation, options: JSONObject = {}) {
+	super(options);
+	this.base = base;
+	this.complement = complement;
+    }
+    computeInnerForm() {
+	return( [ this.base, this.complement ] );
+    }
+    computeForm(): SparqlQuery {
+	var form =<unknown> {type: 'query', queryType: 'SELECT', variables: [ '*' ], prefixes: {},
+		    where: this.computeInnerForm() };
+	return( <SparqlQuery>form );
     }
 }
 
-export class Match extends NullaryOperation {
-    pattern: Triple;
-    computeExpression() {
-	var form = { type: 'query',
-		     queryType: "SELECT",
-		     where: [ { type: 'FILTER', expression: this.pattern }
-		     ],
-		     variables: [ '*' ],
-		     prefixes: {}
+/*
+ The Match class comprises a sequence of statement patterns
+ */
+export class Match extends SparqlOperation {
+    patterns: Triple[];
+    constructor(patterns: Triple[], options: JSONObject = {}) {
+	super(options);
+	this.patterns = patterns;
+    }
+    
+    computeInnferForm() {
+	return( {type: 'bgp', triples: this.patterns} );
+    }
+    computeForm(): SparqlQuery {
+	var form =<unknown> { type: 'query',  queryType: "SELECT", variables: [ '*' ], prefixes: {},
+		     where: [ this.computeInnerForm ]
 		   }
-	return( generator.stringify(<SparqlQuery>form) );
+	return( <SparqlQuery>form );
     }
 }
-export class OptionalJoin extends BinaryOperation {
+
+export class OptionalJoin extends SparqlOperation {
+    base: Operation;
+    complement: Operation;
+    constructor(base: Operation, complement: Operation, options: JSONObject = {}) {
+	super(options);
+	this.base = base;
+	this.complement = complement;
+    }
+    computeInnerForm() {
+	return( [ this.base, {type: 'optional', patterns: [ this.complement] } ] );
+    }
+    computeForm(): SparqlQuery {
+	var form =<unknown> {type: 'query', queryType: 'SELECT', variables: [ '*' ], prefixes: {},
+		    where: this.computeInnerForm() };
+	return( <SparqlQuery>form );
+    }
 }
-export class Project extends UnaryOperation {
+export class Project extends SparqlOperation {
+    base: Operation;
+    variables: string[];
+    constructor(base: Operation, variables: string[], options: JSONObject = {}) {
+	super(options);
+	this.base = base;
+	this.variables = variables;
+    }
+    computeInnerForm() {
+	return( <unknown>{type: 'query', queryType: 'SELECT',
+		 variables: this.variables.forEach(function(name) { return( {termType: 'Variable', value: name} ); }),
+		 where: this.base } );
+    }
+	computeForm(): SparqlQuery {
+	return( <SparqlQuery>this.computeInnerForm() );
+    }
 }
-export class Values extends NullaryOperation {
+export class Values extends SparqlOperation {
+    base: Operation;
+    values: Array<JSONObject>;
+    constructor(base: Operation, values: Array<JSONObject>, options: JSONObject = {}) {
+	super(options);
+	this.base = base;
+	this.values = values;
+    }
+    computeInnerForm() {
+	return( <unknown>{where: [ this.base,
+			  {type: 'values',
+			   values: this.values.forEach(function (binding) {
+			       return( { variable: binding[0],
+					 value: {termType: 'Literal', value: binding[1]}} );
+			   })}]} );
+    }
+    computeForm(): SparqlQuery {
+	var form = {type: 'query', queryType: 'SELECT', variables: [ '*' ], prefixes: {},
+		    where: [this.base, this.computeInnerForm()] };
+	return( <SparqlQuery>form );
+    }
 }

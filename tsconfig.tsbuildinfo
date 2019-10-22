@@ -682,8 +682,8 @@
         "signature": "1a9e2005eebb9180ca695e2e314bd6d02a4bdb3d3533f807e38c743b34656973"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts": {
-        "version": "cd6a03ac95a86fa047094d4a311c6707ad1c4caf87a9431bf2784ae15cd93b2b",
-        "signature": "84ff689b61df5fd59b55d4defa5e1ead776a959af85de1070322c26cb653a3e1"
+        "version": "94a803589903b950f11a805a00084794baad6a2f30653f0d7b13aa62fe50fc6d",
+        "signature": "c8426e8ae59189ad9a8889280ee33693e3030c4c93074b8e6f55529f0d16dfd7"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts": {
         "version": "e0d20bff73530c5960b122aa6ef5779df18e897c46bb43d142a2dc9d5fb3708c",
@@ -732,8 +732,8 @@
         "version": "777545bf18f0d64f5ece9a9bd3d9af99dfd35d396df25f5362f26bf1ea523f7f"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts": {
-        "version": "466c7e63a08e7e08f43e90250184d1b71fcadc6107eeaab8b1111eaea11851b3",
-        "signature": "d6a766ed93244574076955bd9a12fa7978b93fccac84a77b10810bbfe78630c3"
+        "version": "bae4eca6f42629c92264aa88f4d540bb662e09d88b5ed66999889575d7e13a46",
+        "signature": "293e6b1666592eb43176553876ed59acecfbdf89aee7c5d312cebffaff9df178"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts": {
         "version": "e5ea8b6292e04a385538cd09a2937a7921ce901e12a1ef0301f7fb17c4ea481d",
@@ -2249,6 +2249,7 @@
       ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts"
       ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts": [
@@ -2449,11 +2450,33 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/rdf-graph-store.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/rdf-database.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/rdf-client.js",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts"
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
+      [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts",
+        [
+          {
+            "file": "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts",
+            "start": 1386,
+            "length": 21,
+            "messageText": "Expected 2-3 arguments, but got 0.",
+            "category": 1,
+            "code": 2554,
+            "relatedInformation": [
+              {
+                "file": "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
+                "start": 3633,
+                "length": 15,
+                "messageText": "An argument for 'base' was not provided.",
+                "category": 3,
+                "code": 6210
+              }
+            ]
+          }
+        ]
+      ]
     ]
   },
   "version": "3.5.3"

@@ -27,10 +27,10 @@ import { CodeEditor } from '@jupyterlab/codeeditor';
 export class Layer extends Widget {
     id: string;
     operation: Operation;
-    panes: Array<SparqlQueryPane> = [];
+    panes: Array<LayerPane> = [];
     body: DockPanel = null;
     
-    constructor(id: string, operation: Operation, panes: Array<SparqlQueryPane>, options: JSONObject = {}) {
+    constructor(id: string, operation: Operation, panes: Array<LayerPane>, options: JSONObject = {}) {
 	super({ node: Layer.createFrame(id) });
 	this.operation = operation;
 	this.panes = panes;
@@ -56,7 +56,7 @@ export class Layer extends Widget {
 	frame.setAttribute('class', 'window');
 	return frame;
     }
-    static createBody(panes: Array<SparqlQueryPane>) {
+    static createBody(panes: Array<LayerPane>) {
 	var panel = new DockPanel();
 	var left = panes[0];
 	panel.addWidget(left);
@@ -68,7 +68,7 @@ export class Layer extends Widget {
     }
     
     present(operation: Operation = this.operation) {
-	this.panes.forEach(function(pane: SparqlQueryPane) { pane.present(operation); });
+	this.panes.forEach(function(pane: LayerPane) { pane.present(operation); });
     }
 }
 
@@ -89,24 +89,20 @@ export class LayerPane extends Widget {
 	let node = document.createElement('div');
 	return( node );
     }
-    constructor() {
+    constructor(title: string) {
 	super({node: LayerPane.createNode()});
+	this.title.label = title;
+	this.title.closable = false;
     }
     present(operation: Operation) {} 
 }
 
-export class SparqlQueryPane extends Widget {
+export class SparqlQueryPane extends LayerPane {
     _editor: CodeMirrorEditor;
-    static createNode(): HTMLElement {
-	let node = document.createElement('div');
-	return( node );
-    }
     constructor(title: string = 'SPARQL') {
-	super({node: SparqlQueryPane.createNode()});
+	super(title);
 	this.addClass('CodeMirrorWidget');
 	this._editor = new CodeMirrorEditor({ host: this.node, model: new CodeEditor.Model() });
-	this.title.label = title;
-	this.title.closable = false;
     }
     present(operation: Operation) {
 	var doc = this._editor.editor.getDoc();
@@ -116,11 +112,8 @@ export class SparqlQueryPane extends Widget {
 }
 
 export class SparqlResultsPane extends LayerPane {
-    _editor: CodeMirrorEditor;
-    constructor() {
-	super();
-	this.title.label = 'Results';
-	this.title.closable = false;
+    constructor(title: string = 'Results') {
+	super(title);
     }
     present(operation: Operation) {
 	var text = operation.responseText;
