@@ -1,4 +1,5 @@
 import { IRenderMime } from '@jupyterlab/rendermime-interfaces';
+// exists as style/index.css import './canvas.css';
 //import {Comment} from './comment';
 
 // import { GSP, SPARQL } from './replication/rdf-client';
@@ -6,10 +7,11 @@ import { IRenderMime } from '@jupyterlab/rendermime-interfaces';
 import { GSP, SPARQL } from './replication/rdf-client';
 console.log(GSP);
 console.log(SPARQL);
-//import { JSONObject } from '@phosphor/coreutils';
+import { JSONValue } from '@phosphor/coreutils';
 import { FilterOperation } from './algebra';
 import { SparqlLayer } from './layer.js';
 
+import { JSONObject } from '@phosphor/coreutils';
 import { Widget } from '@phosphor/widgets';
 
 /**
@@ -26,25 +28,42 @@ const CLASS_NAME = 'mimerenderer-dd';
  * A widget for rendering dd.
  */
 export class OutputWidget extends Widget implements IRenderMime.IRenderer {
+    private mimeType: string;
+    private canvas: HTMLElement;
+    private graph: HTMLElement;
   /**
    * Construct a new output widget.
+   * modeled after the PDF mime renderer example ( https://github.com/jupyterlab/jupyterlab/blob/master/packages/pdf-extension/src/index.ts )
    */
   constructor(options: IRenderMime.IRendererOptions) {
-    super();
-
-    //this._mimeType = options.mimeType;
-    this._div = document.createElement('div');
-    this._div.innerHTML =  '<div id="graphContainer" class="jui" style=" overflow-x: auto; overflow-y: scroll; width:4000px; height:800px;"> </div>';
-   // https://cdn.jsdelivr.net/npm/jui@2.0.3/dist/ui.js
-   // https://cdn.jsdelivr.net/npm/jui-core@2.0.4/dist/core.min.js
-
-//    let comment = new Comment("a", "select * where { { graph ?g {?s ?p ?o} } union {?s ?p ?o} } limit 10");
-//    let comment_node = comment.node;
-    let layer = new SparqlLayer(new FilterOperation());
-    console.log(layer);
-    this._div.appendChild(layer.node);
-    this.node.appendChild(this._div);
-    this.addClass(CLASS_NAME);
+      super();
+      let thisWidget = this;
+      console.log("canvas.node: ", this.node);
+      this.addClass(CLASS_NAME);
+      this.mimeType = options.mimeType;
+      const canvas  = document.createElement('component');
+      canvas.style.width = '600px';
+      canvas.style.height = '400px';
+      this.canvas = canvas;
+      this.node.appendChild(this.canvas);
+      new Promise((resolve) => {
+	  const graph = document.createElement('div');
+	  thisWidget.graph = graph;
+	  graph.id = 'graphContainer';
+	  graph.className = 'jui';
+	  graph.style.overflowX = 'auto';
+	  graph.style.overflowY = 'scroll';
+	  graph.style.width = '100%';
+	  graph.style.height = '100%';
+	  canvas.appendChild(graph);
+	  console.log('Canvas node: ', thisWidget.node);
+	  console.log('Canvas canvas: ', thisWidget.canvas);
+	  console.log('Canvas graph: ', thisWidget.graph);
+	  console.log("is node attached? ", document.body.contains(thisWidget.node));
+	  console.log("is canvas attached? ", document.body.contains(thisWidget.canvas));
+	  console.log("is graph attached? ", document.body.contains(thisWidget.graph));
+          resolve (new SparqlLayer(new FilterOperation(), {host: <JSONValue>(<unknown>thisWidget.graph)}));
+      });
   }
 
   /**
@@ -52,30 +71,14 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
    */
   renderModel(model: IRenderMime.IMimeModel): Promise<void> {
 
-    //let data = model.data[this._mimeType] as JSONObject
-
-
-    //   <div id="graphContainer" style=" overflow-x: auto; overflow-y: scroll; height:800px; width:4000px;"> </div>
-
-
-    /*
-    let node = document.createElement('div');
-    node.innerHTML =  '<div id="graphContainer" style=" overflow-x: auto; overflow-y: scroll; width:4000px;"> </div>';
-    */
-
-    /*
-    this.canvas  = document.createElement('div');
-    this.canvas.innerHTML =  '<div id="graphContainer" style=" overflow-x: auto; overflow-y: scroll; width:4000px;"> </div>';
-    this.node.appendChild(this.canvas);
-    */
-
-    //this.node.textContent = JSON.stringify(data) + "Yeah it works:"  + this.node.id
-    this.node.setAttribute('xyz', 'abc');
-    return Promise.resolve();
+      let data = model.data[this.mimeType] as JSONObject;
+      console.log("renderModel.data: ", data);
+      console.log("is node attached? ", document.body.contains(this.node));
+      console.log("is canvas attached? ", document.body.contains(this.canvas));
+      
+      return Promise.resolve();
   }
 
-  //private _mimeType: string;
-  private _div: HTMLElement;
 }
 
 /**

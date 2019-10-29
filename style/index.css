@@ -1,0 +1,33 @@
+.dydra-close-button {
+    display: inline-block;
+    background: var(--jp-icon-stop);
+    margin-left: 4px; margin-right: 4px;
+    width:16px; height: 16px
+}
+
+.dydra-execute-button {
+    display: inline-block;
+    background: var(--jp-icon-search);
+    margin-left: 4px; margin-right: 4px;
+    width:16px; height: 16px
+}
+
+.dydra-mode-open {
+    display: inline-block;
+    background: var(--jp-icon-caretdown);
+    margin-left: 4px; margin-right: 4px;
+    width:16px; height: 16px
+}
+
+.dydra-mode-closed {
+    display: inline-block;
+    background: var(--jp-icon-caretleft);
+    margin-left: 4px; margin-right: 4px;
+    width:16px; height: 16px
+}
+
+.dydra-layer-title {
+    font-weight: bold;
+    border: solid black 1px;
+}
+

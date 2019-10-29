@@ -125,10 +125,29 @@ export class Operation {
 	return( {} );
     }
 }
-class SparqlOperation extends Operation {
+
+
+export class SparqlOperation extends Operation {
     computeView() : Layer {
 	let view = new SparqlLayer(this);
 	return( view );
+    }
+}
+
+export class Unit extends SparqlOperation {
+    constructor( options: JSONObject = {}) {
+	super(options);
+    }
+    computeInnerForm() {
+	return( { type: 'group',
+		  patterns: <Triple>[] } );
+    }
+    computeForm(): SparqlQuery {
+	var form =<unknown> { type: 'query', queryType: 'SELECT', variables: [ '*'], prefixes: {},
+
+		     where: this.computeInnerForm()
+		   }
+	return( <SparqlQuery>form );
     }
 }
 
@@ -138,7 +157,7 @@ export class Extend extends SparqlOperation {
 export class FilterOperation extends SparqlOperation {
     base: Operation;
     predicate: JSONObject = {};
-    constructor(base: Operation, predicate: JSONObject, options: JSONObject = {}) {
+    constructor(base: Operation = new Unit(), predicate: JSONObject = {}, options: JSONObject = {}) {
 	super(options);
 	this.base = base;
 	this.predicate = predicate;
