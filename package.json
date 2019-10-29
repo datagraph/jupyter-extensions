@@ -38,6 +38,7 @@
     "@types/uuid": "^3.4.5",
     "codemirror": "^5.49.2",
     "phosphor-dockpanel": "^0.9.7",
+    "phosphor-float-area": "^0.1.2",
     "sparqljs": ""
   },
   "devDependencies": {

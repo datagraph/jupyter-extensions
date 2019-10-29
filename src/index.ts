@@ -14,18 +14,25 @@ import { SparqlLayer } from './layer.js';
 import { JSONObject } from '@phosphor/coreutils';
 import { Widget } from '@phosphor/widgets';
 
+//import { DockPanel } from '@phosphor/widgets';
+//    import '@phosphor/dragdrop/style/index.css!';
+//    import '@phosphor/widgets/style/index.css!';
+//    import 'phosphor-float-area/style/index.css!';
+//    import { FloatArea } from 'phosphor-float-area';
+
+
 /**
  * The default mime type for the extension.
  */
-const MIME_TYPE = 'd/d';
+const MIME_TYPE = 'application/sparql-query+json';
 
 /**
  * The class name added to the extension.
  */
-const CLASS_NAME = 'mimerenderer-dd';
+const CLASS_NAME = 'mimerenderer-sparql-query-json';
 
 /**
- * A widget for rendering dd.
+ * A widget for rendering application/sparql-query+json.
  */
 export class OutputWidget extends Widget implements IRenderMime.IRenderer {
     private mimeType: string;
@@ -94,22 +101,22 @@ export const rendererFactory: IRenderMime.IRendererFactory = {
  * Extension definition.
  */
 const extension: IRenderMime.IExtension = {
-  id: 'dd:plugin',
+  id: 'sparql-query-json:plugin',
   rendererFactory,
   rank: 0,
   dataType: 'json',
   fileTypes: [
     {
-      name: 'dd',
+      name: 'sparql-query-json',
       mimeTypes: [MIME_TYPE],
-      extensions: ['dd']
+      extensions: ['rqj']
     }
   ],
   documentWidgetFactoryOptions: {
-    name: 'dd',
-    primaryFileType: 'dd',
-    fileTypes: ['dd'],
-    defaultFor: ['dd']
+    name: 'sparql-query-json',
+    primaryFileType: 'rqj',
+    fileTypes: ['rqj'],
+    defaultFor: ['rqj']
   }
 };
 

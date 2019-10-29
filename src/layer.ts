@@ -24,6 +24,7 @@ import { Widget, DockPanel } from '@phosphor/widgets';
 import { CodeMirrorEditor } from '@jupyterlab/codemirror';
 import { CodeEditor } from '@jupyterlab/codeeditor';
 import { MessageLoop } from '@phosphor/messaging';
+
 export class Layer extends Widget {
     id: string;
     operation: Operation;
@@ -33,39 +34,29 @@ export class Layer extends Widget {
     modeIcon: HTMLElement = null;
     
     constructor(id: string, operation: Operation, panes: Array<LayerPane>, options: JSONObject = {}) {
-	super({ node: Layer.createFrame(id) });
+	super({ node: Layer.createLayerFrame(id) });
 	let thisLayer = this;
-	console.log('options: ', options);
 	let host = <HTMLElement>(<unknown>options.host) || document.body;
 	this.operation = operation;
 	this.panes = panes;
-	this.body = Layer.createBody(panes);
+	this.body = Layer.createLayerPanes(panes);
 	//this.body.node.style.width = "200px";
 	this.body.node.style.height = "100px";
 	let divs = this.node.getElementsByTagName('div');
-	console.log('host: ', host);
-	console.log('divs: ', divs);
 	let bodyDiv = divs.item(1);
-	console.log('layer.bodyDiv: ', bodyDiv);
-	console.log('layer.body: ', this.body);
-	console.log("is host attached? ", document.body.contains(host));
-	console.log("is node attached? ", document.body.contains(this.node));
-	console.log("is body attached? ", document.body.contains(this.body.node));
 
-	// bodyDiv.appendChild(this.body.node);
-	//Widget.attach(this.body, bodyDiv);
 	host.appendChild(this.node);
+	// cannot use Widget.attach as that fails because the layer dom element is not yet in the document
+	//Widget.attach(this.body, bodyDiv);
 	MessageLoop.sendMessage(this.body, Widget.Msg.BeforeAttach);
 	bodyDiv.appendChild(this.body.node);
 	MessageLoop.sendMessage(this.body, Widget.Msg.AfterAttach);
-	//Widget.attach(this.body, document.body); // bodyDiv);
 	this.modeIcon = this.node.getElementsByTagName('span').item(0).getElementsByTagName('i').item(0);
 	this.modeIcon.onclick = function(element) { thisLayer.changeMode(thisLayer.mode); };
-	this.body.node.onclick = function() { console.log('this: ', this, 'event: ', event); };
 	this.update();
     }
     
-    static createFrame(id: string) {
+    static createLayerFrame(id: string) {
 	let frame = document.createElement('div');
 	frame.id = id;
 	frame.style.width = '300px';
@@ -87,7 +78,7 @@ export class Layer extends Widget {
 	frame.setAttribute('class', 'window');
 	return frame;
     }
-    static createBody(panes: Array<LayerPane>) {
+    static createLayerPanes(panes: Array<LayerPane>) {
 	var panel = new DockPanel();
 	var left = panes[0];
 	panel.addWidget(left);

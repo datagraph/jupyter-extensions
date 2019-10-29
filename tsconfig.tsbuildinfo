@@ -682,8 +682,8 @@
         "signature": "1a9e2005eebb9180ca695e2e314bd6d02a4bdb3d3533f807e38c743b34656973"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts": {
-        "version": "0904ad7c5ac40f6066b764dd73ee6a378b5eda3a46a36cdb8c0d7e2a8d469126",
-        "signature": "2a016a60495a11f3ff00a6348089c0b55905968eac1351228e8a2f1476db26e4"
+        "version": "08b754bdf5876d687ca554910c2de038ea98f79c01a8bffcc5e484665f6ef2cc",
+        "signature": "f626be629a22c8022a027b798212826fd63ac9ee9d77b008743085c81e4712c3"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts": {
         "version": "e0d20bff73530c5960b122aa6ef5779df18e897c46bb43d142a2dc9d5fb3708c",
@@ -744,8 +744,8 @@
         "signature": "600398810bc4abd29d85cb566f2a2c6a8925aa500934b52014d00008f6c805d7"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts": {
-        "version": "5ecd3c51a1f13982abcafe9433e459fd430b9baed9464bae637ea49539b1cd21",
-        "signature": "8d3962794e78bb2fa7a7bab723c8270c29412b1278e96ed8676a13945813b40d"
+        "version": "088e93d9aaba1eeda9aa47f74e5315d7e0e0fd08bc210018f6b51e6ae84d26ea",
+        "signature": "7f2fdc1445f8dfeaff4fa6d68d9955af93644f11b55377ed2aaca1ef1d8d3bd4"
       }
     },
     "options": {
@@ -2437,6 +2437,7 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/apputils/lib/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/syntaxstatus.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/index.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/nearley/lib/nearley.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/moo/moo.js",
@@ -2455,8 +2456,7 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts"
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts"
     ]
   },
   "version": "3.5.3"
