@@ -41,7 +41,7 @@ export class Layer extends Widget {
 	this.panes = panes;
 	this.body = Layer.createLayerPanes(panes);
 	//this.body.node.style.width = "200px";
-	this.body.node.style.height = "100px";
+	//this.body.node.style.height = "100px";
 	let divs = this.node.getElementsByTagName('div');
 	let bodyDiv = divs.item(1);
 
@@ -59,8 +59,8 @@ export class Layer extends Widget {
     static createLayerFrame(id: string) {
 	let frame = document.createElement('div');
 	frame.id = id;
-	frame.style.width = '300px';
-	frame.style.height = '200px';
+	frame.style.width = '100px';
+	frame.style.height = '100px';
 	frame.style.border = 'solid black 1px';
 	//frame.style.position = 'absolute';
 	frame.style.top = '10px';

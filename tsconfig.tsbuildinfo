@@ -682,7 +682,7 @@
         "signature": "1a9e2005eebb9180ca695e2e314bd6d02a4bdb3d3533f807e38c743b34656973"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts": {
-        "version": "08b754bdf5876d687ca554910c2de038ea98f79c01a8bffcc5e484665f6ef2cc",
+        "version": "8358691dde1635edd6b56f975d88874755a399601cf32b2591e579c6275d9531",
         "signature": "f626be629a22c8022a027b798212826fd63ac9ee9d77b008743085c81e4712c3"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts": {
@@ -744,7 +744,7 @@
         "signature": "600398810bc4abd29d85cb566f2a2c6a8925aa500934b52014d00008f6c805d7"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts": {
-        "version": "088e93d9aaba1eeda9aa47f74e5315d7e0e0fd08bc210018f6b51e6ae84d26ea",
+        "version": "7d9a6655e82cb5997448ba7f7b4c1c7c2634306b5a22e78ca37feaaa6a9a7024",
         "signature": "7f2fdc1445f8dfeaff4fa6d68d9955af93644f11b55377ed2aaca1ef1d8d3bd4"
       }
     },

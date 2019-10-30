@@ -48,9 +48,10 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
       console.log("canvas.node: ", this.node);
       this.addClass(CLASS_NAME);
       this.mimeType = options.mimeType;
-      const canvas  = document.createElement('component');
+      const canvas  = document.createElement('div');
       canvas.style.width = '600px';
       canvas.style.height = '400px';
+      canvas.style.border = 'solid black 3px';
       this.canvas = canvas;
       this.node.appendChild(this.canvas);
       new Promise((resolve) => {
