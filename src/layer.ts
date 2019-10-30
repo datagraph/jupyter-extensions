@@ -63,8 +63,8 @@ export class Layer extends Widget {
 	frame.style.height = '100px';
 	frame.style.border = 'solid black 1px';
 	//frame.style.position = 'absolute';
-	frame.style.top = '10px';
-	frame.style.left = '10px';
+	frame.style.top = '20px';
+	frame.style.left = '30px';
 	frame.style.display = 'block';
 	frame.innerHTML =
       '<div class="head" style="border solid red 1px">' +
