@@ -45,8 +45,10 @@ export class Operation {
     responseText: string;
     responseObject: JSONObject;
     acceptMediaType: string = 'application/sparql-results+json';
+    static defaultLocation = window.location.origin;
     
     constructor(options: JSONObject = {}) {
+	this.location = (<string>options.location) || Operation.defaultLocation;
 	this.mode = 'DORMANT';
     }
 

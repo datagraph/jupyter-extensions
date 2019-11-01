@@ -13,7 +13,7 @@ import { SparqlLayer } from './layer.js';
 
 import { JSONObject } from '@phosphor/coreutils';
 import { Widget } from '@phosphor/widgets';
-
+import * as $uuid from './replication/lib/uuid-v1.js';
 //import { DockPanel } from '@phosphor/widgets';
 //    import '@phosphor/dragdrop/style/index.css!';
 //    import '@phosphor/widgets/style/index.css!';
@@ -70,7 +70,13 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
 	  console.log("is node attached? ", document.body.contains(thisWidget.node));
 	  console.log("is canvas attached? ", document.body.contains(thisWidget.canvas));
 	  console.log("is graph attached? ", document.body.contains(thisWidget.graph));
-          resolve (new SparqlLayer(new FilterOperation(), {host: <JSONValue>(<unknown>thisWidget.graph)}));
+          resolve (new SparqlLayer(new FilterOperation(),
+				   {host: <JSONValue>(<unknown>thisWidget.graph),
+				    id: $uuid.v1(),
+				    title: "SPARQL",
+				    top: "100px", left: "100px",
+				    query: {title: '.rq', expression: "select * where {?s ?p ?o}"},
+				    results: {title: ".nq", text: "<http://example.org/s> <http://example.org/p> <http://example.org/o> ."}}));
       });
   }
 

@@ -12,6 +12,16 @@
     width:16px; height: 16px
 }
 
+.dydra-layer-title {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 128px;
+    max-width: 128px;
+    height: 16px;
+}
+
 .dydra-mode-open {
     display: inline-block;
     background: var(--jp-icon-caretdown);
@@ -31,3 +41,12 @@
     border: solid black 1px;
 }
 
+.CodeMirror-gutter.CodeMirror-linenumbers {
+    width: 2em;
+    font: normal 9pt fixed;
+}
+
+.CodeMirror-scroll {
+    overflow-y: auto;
+    overflow-x: auto;
+}

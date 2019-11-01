@@ -681,9 +681,12 @@
         "version": "1a9e2005eebb9180ca695e2e314bd6d02a4bdb3d3533f807e38c743b34656973",
         "signature": "1a9e2005eebb9180ca695e2e314bd6d02a4bdb3d3533f807e38c743b34656973"
       },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js": {
+        "version": "2197c68845f6c9de0c375c4af1810f50256458991a18a9ef8803f39e837716be"
+      },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts": {
-        "version": "8358691dde1635edd6b56f975d88874755a399601cf32b2591e579c6275d9531",
-        "signature": "f626be629a22c8022a027b798212826fd63ac9ee9d77b008743085c81e4712c3"
+        "version": "fcaab468346639c2d1dcb8287743d7202725c3e6ceb1f8ff02da1e1ad31c21af",
+        "signature": "6535293fd748a170da3dd9b066e63ad96491334ec913d5e232fc6a9e6aa8cbe2"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts": {
         "version": "e0d20bff73530c5960b122aa6ef5779df18e897c46bb43d142a2dc9d5fb3708c",
@@ -697,9 +700,6 @@
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/multipart-grammar.js": {
         "version": "a20ececcd7beaa6caa1002b88763f5d1fdf5049c9b488afd6538f4136fa7ea68"
-      },
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js": {
-        "version": "2197c68845f6c9de0c375c4af1810f50256458991a18a9ef8803f39e837716be"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/revision-identifier.js": {
         "version": "250186a6651a65c1f81a70943f8e4d2125f4420b256a971cd8a6a0e7209ddc4f"
@@ -732,8 +732,8 @@
         "version": "777545bf18f0d64f5ece9a9bd3d9af99dfd35d396df25f5362f26bf1ea523f7f"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts": {
-        "version": "ca69f3d7cbe94099749c21b3f3abe04c1d0ddb3e3db360d16e28dc9daff31b57",
-        "signature": "e586062d55b766bbe93258caa138c9ca6acb1396807b7d1768f5082123f897d1"
+        "version": "68ca7bb18f11fd987b76be098e4fe893bad842cc85326008b3eecb1fdaf91fb2",
+        "signature": "f72daa768d02d0b0c6657ee8541ad3ea47cacaf7457886b6813b3fbea91f34fb"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts": {
         "version": "e5ea8b6292e04a385538cd09a2937a7921ce901e12a1ef0301f7fb17c4ea481d",
@@ -744,7 +744,7 @@
         "signature": "600398810bc4abd29d85cb566f2a2c6a8925aa500934b52014d00008f6c805d7"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts": {
-        "version": "7d9a6655e82cb5997448ba7f7b4c1c7c2634306b5a22e78ca37feaaa6a9a7024",
+        "version": "323cfa7309af14f04a3d96502078374d8ac1db020a084b5da0a687468d9c0e91",
         "signature": "7f2fdc1445f8dfeaff4fa6d68d9955af93644f11b55377ed2aaca1ef1d8d3bd4"
       }
     },
@@ -1477,7 +1477,8 @@
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codeeditor/lib/index.d.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts"
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js"
       ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/multipart-grammar.js": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/moo/moo.js"
@@ -1540,7 +1541,8 @@
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts"
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js"
       ]
     },
     "exportedModulesMap": {
@@ -2437,12 +2439,11 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/apputils/lib/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/syntaxstatus.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/index.d.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/nearley/lib/nearley.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/moo/moo.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/multipart-grammar.js",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/revision-identifier.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/graph-environment.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/graph-object.js",
@@ -2456,7 +2457,8 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts"
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts"
     ]
   },
   "version": "3.5.3"
