@@ -9,6 +9,7 @@ A JupyterLab extension for rendering dd files.
 ## Installation
 
 ```bash
+npm install
 jlpm run build
 jupyter labextension install dd
 ```
