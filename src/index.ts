@@ -4,15 +4,14 @@ import { IRenderMime } from '@jupyterlab/rendermime-interfaces';
 
 // import { GSP, SPARQL } from './replication/rdf-client';
 //
-import { GSP, SPARQL } from './replication/rdf-client';
-console.log(GSP);
-console.log(SPARQL);
+import { SPARQL } from './replication/rdf-client';
 import { JSONValue } from '@phosphor/coreutils';
-import { FilterOperation } from './algebra';
-import { SparqlLayer } from './layer.js';
-
+import { SparqlOperation, ConnectionOperation } from './algebra';
+import { SparqlLayer, MetadataLayer } from './layer.js';
+import { MessageLoop } from '@phosphor/messaging';
 import { JSONObject } from '@phosphor/coreutils';
-import { Widget } from '@phosphor/widgets';
+import { CommandRegistry } from '@phosphor/commands';
+import { Menu, MenuBar, Widget } from '@phosphor/widgets';
 import * as $uuid from './replication/lib/uuid-v1.js';
 //import { DockPanel } from '@phosphor/widgets';
 //    import '@phosphor/dragdrop/style/index.css!';
@@ -36,67 +35,141 @@ const CLASS_NAME = 'mimerenderer-sparql-query-json';
  */
 export class OutputWidget extends Widget implements IRenderMime.IRenderer {
     private mimeType: string;
-    private canvas: HTMLElement;
+    canvas: HTMLElement;
+    menuBar: MenuBar;
     private graph: HTMLElement;
+    connectionOperation : ConnectionOperation = null;
   /**
    * Construct a new output widget.
    * modeled after the PDF mime renderer example ( https://github.com/jupyterlab/jupyterlab/blob/master/packages/pdf-extension/src/index.ts )
    */
-  constructor(options: IRenderMime.IRendererOptions) {
-      super();
-      let thisWidget = this;
-      console.log("canvas.node: ", this.node);
-      this.addClass(CLASS_NAME);
-      this.mimeType = options.mimeType;
-      const canvas  = document.createElement('div');
-      canvas.style.width = '600px';
-      canvas.style.height = '400px';
-      canvas.style.border = 'solid black 3px';
-      this.canvas = canvas;
-      this.node.appendChild(this.canvas);
-      new Promise((resolve) => {
-	  const graph = document.createElement('div');
-	  thisWidget.graph = graph;
-	  graph.id = 'graphContainer';
-	  graph.className = 'jui';
-	  graph.style.overflowX = 'auto';
-	  graph.style.overflowY = 'scroll';
-	  graph.style.width = '100%';
-	  graph.style.height = '100%';
-	  canvas.appendChild(graph);
-	  console.log('Canvas node: ', thisWidget.node);
-	  console.log('Canvas canvas: ', thisWidget.canvas);
-	  console.log('Canvas graph: ', thisWidget.graph);
-	  console.log("is node attached? ", document.body.contains(thisWidget.node));
-	  console.log("is canvas attached? ", document.body.contains(thisWidget.canvas));
-	  console.log("is graph attached? ", document.body.contains(thisWidget.graph));
-          resolve (new SparqlLayer(new FilterOperation(),
-				   {host: <JSONValue>(<unknown>thisWidget.graph),
-				    id: $uuid.v1(),
-				    title: "SPARQL",
-				    top: "100px", left: "100px",
-				    query: {title: '.rq', expression: "select * where {?s ?p ?o}"},
-				    results: {title: ".nq", text: "<http://example.org/s> <http://example.org/p> <http://example.org/o> ."}}));
-      });
-  }
+    constructor(options: IRenderMime.IRendererOptions) {
+	super();
+	let thisWidget = this;
+	
+	console.log("canvas.node: ", this.node, options);
+	this.addClass(CLASS_NAME);
+	this.mimeType = options.mimeType;
+	this.node.style.resize = 'both';
+	const canvas  = this.node;
+	this.canvas = canvas;
+	canvas.style.width = '600px';
+	canvas.style.height = '400px';
+	canvas.style.border = 'solid black 3px';
+	new Promise((resolve) => {
+	    const graph = document.createElement('div');
+	    const menuBar = thisWidget.createMenuBar();
+	    thisWidget.menuBar = menuBar;
+	    thisWidget.graph = graph;
+
+	    MessageLoop.sendMessage(menuBar, Widget.Msg.BeforeAttach);
+	    canvas.appendChild(menuBar.node);
+	    MessageLoop.sendMessage(menuBar, Widget.Msg.AfterAttach);
+
+	    graph.id = 'graphContainer';
+	    graph.className = 'jui';
+	    graph.style.position = 'absolute';
+	    graph.style.overflowX = 'auto';
+	    graph.style.overflowY = 'scroll';
+	    graph.style.top = "border: solid blie 1px";
+	    graph.style.left = "0px";
+	    graph.style.top = "30px";
+	    graph.style.width = '100%';
+	    graph.style.bottom = '0px';
+	    console.log("graph style: ", graph.style);
+	    canvas.appendChild(graph);
+	    resolve(thisWidget);
+	});
+    }
+
+    private createMenuBar(): MenuBar {
+	let fileCommands = new CommandRegistry();
+	fileCommands.addCommand('connect', {
+	    label: 'Connect', execute: function() { console.log('connect...'); } });
+	let fileMenu = new Menu({ commands: fileCommands });
+	fileMenu.title.label = 'File';
+	fileMenu.addItem({command: 'connect'});
+
+	let createMenu = new Menu({ commands: new CommandRegistry() });
+	createMenu.title.label = 'Create';
+
+	let addMenu = new Menu({ commands: new CommandRegistry() });
+	addMenu.title.label = 'Add';
+
+	let operateCommands =  new CommandRegistry();
+	fileCommands.addCommand('filter', {
+	    label: 'Filter', execute: function() { console.log('filter...'); } });
+	let operateMenu = new Menu({ commands: operateCommands });
+	operateMenu.title.label = 'Operate';
+	fileMenu.addItem({command: 'filter'});
+
+	let viewCommands =  new CommandRegistry();
+	viewCommands.addCommand('test-it', {
+	    label: 'Test It', execute: function () { console.log('testing'); } });
+	let viewMenu = new Menu({commands: viewCommands});
+	viewMenu.title.label = 'View';
+
+	viewMenu.addItem({command: 'test-it'});
+
+	let shareMenu = new Menu({ commands: new CommandRegistry() });
+	shareMenu.title.label = 'Share';
+
+	let menubar = new MenuBar();
+	menubar.addMenu(fileMenu);
+	menubar.addMenu(createMenu);
+	menubar.addMenu(addMenu);
+	menubar.addMenu(operateMenu);
+	menubar.addMenu(viewMenu);
+	menubar.addMenu(shareMenu);
+
+	return menubar;
+    }
 
   /**
-   * Render dd into this widget's node.
+   * Render sparql-query into this widget's node.
+   * - retrieve the text from the given location
+   * - delegate to the Operation method to deconstruct it into a sequence of related operions
+   * - construct and display the linked layers
    */
   renderModel(model: IRenderMime.IMimeModel): Promise<void> {
-
+      var thisWidget = this;
+      console.log("renderModel.model: ", model);
+      console.log("renderModel.model.data: ", model.data);
       let data = model.data[this.mimeType] as JSONObject;
-      console.log("renderModel.data: ", data);
-      console.log("is node attached? ", document.body.contains(this.node));
-      console.log("is canvas attached? ", document.body.contains(this.canvas));
+      let location : string =<string> data.location;
+      let authorization : string =<string> data.authorization;
+      let view = data.view;
+      this.connectionOperation = new ConnectionOperation({location: location});
       
+      console.log("renderModel.data.mimetype: ", data);
+      let handleQueryText = function(text : string) : string {
+	  console.log("Canvas query text: ", text);
+	  var operation : SparqlOperation = SparqlOperation.translateSparqlExpression(text)
+	  var count = 0;
+	  SparqlOperation.mapSources(operation, function(operation: SparqlOperation) {
+	      var position = (100 + (count * 10)) + "px";
+	      return( new SparqlLayer(operation,
+				      {host: <JSONValue>(<unknown>thisWidget.graph),
+				       id: $uuid.v1(),
+				       top: position, left: position}) );
+	  });
+	  return( text );
+      };
+      new MetadataLayer(new ConnectionOperation({location: "https://nl4.dydra.com/james/test"}),
+			{host: <JSONValue>(<unknown>this.graph)});
+      var requestString = location + '/' + view;
+      let queryText = SPARQL.get(requestString, "", {authorization: authorization,
+						     accept: 'application/sparql-query'
+      						    }).then(handleQueryText);
+      console.log("renderModel: text: ", queryText);
       return Promise.resolve();
   }
 
 }
 
+
 /**
- * A mime renderer factory for dd data.
+ * A mime renderer factory for sparql-query+json data.
  */
 export const rendererFactory: IRenderMime.IRendererFactory = {
   safe: true,

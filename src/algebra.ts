@@ -1,12 +1,25 @@
 // Copyright (c) 2019 datagraph gmbh
 
 /**
- Implement SPARQL algebra operations as a collection of operator-specific classes.
+ Implement operations as a collection of operator-specific classes.
+ Each relates an operator with its arguments and a presentation view.
 
- The root class implements the inter-operator communication and execution.
- Each communicates with its argument operations to compose its expression from those of its arguments.
- Execution proceeds asynchronously with each operator formulating and executing its own requests to the data service.
- Expression, results and parameters are presented with a paired widget.
+ SPARQL algebra operators extend this with
+ - a source with which to describe the reduction chain
+ - the respective operator-specific forms
+ - a static method to translate from the parsed expression object
+ - methods to construct the immediate form, compose the effective query
+   and generate expressions for the immediate form and for the composite
+   query.
+
+ Other method, such as connection configuration, have their own constitution
+
+ The algebra operators are intended to serve and the process data- flow
+ description. The source and view relations are used to lay out the views.
+ The source relation contributes to the composite query.
+ The view presents results of an executed operator.
+ Execution proceeds asynchronously with each operator formulating and executing
+ its own requests to the data service.
 
  The intermediate abstract classes implement nullary, unary, and binary operator arities.
  Concrete specializations are defined for
@@ -17,37 +30,60 @@
    OptionalJoin (base complement)
    Project (base)
    Values ()
-
-
- !!! instnatiation should follow three distinct phaese
- 1. the algebra operation as an instance
- 2. connect its arguments
- 3. show it- create the widget, connect them and asser the css properties
  */
 
 import { JSONObject } from '@phosphor/coreutils';
+// import { JSONValue } from '@phosphor/coreutils';
 import { Layer, SparqlLayer } from './layer';
-import { Parser, Generator, SparqlQuery } from 'sparqljs';
+import { Parser, Generator,
+	 SparqlQuery, BaseQuery, Query, // Update,
+	 AskQuery, ConstructQuery, DescribeQuery, SelectQuery,
+	 Pattern, BindPattern, BlockPattern, FilterPattern, GroupPattern, ValuesPattern,
+	 ValuePatternRow, Variable, Term, Expression,
+	 Triple} from 'sparqljs';
 var parser = new Parser();
 var generator = new Generator({});
 import { SPARQL } from './replication/rdf-client';
+import * as $uuid from './replication/lib/uuid-v1.js';
 
-class Dataset {}
-class Triple {}
+interface VariableForm {
+    type: string,
+    variables:  Variable[] | ['*'];
+}
+type SparqlForm = BaseQuery | Pattern | VariableForm;
 
+// alternative to the sparqljs definitions, there correspond more directly to the parsed results
+interface TypedTerm {termType: string, value: string};
+//type TypedVariable = Variable | TypedTerm;
+type VariableList = Variable[] | ['*'];
+type TypedTermList = TypedTerm[];
+
+//interface Variable {termType: 'Variable'|'Wildcard', value: string}
+interface SparqlOptions extends OperationOptions {
+    dimensions?: string[],
+    variables?: TypedTermList,
+    expression?: string,
+    form?: SparqlForm
+};
+interface OperationOptions {
+    id?: string,
+    location? : string,
+    mode?: string
+}
 export class Operation {
-    source: Dataset;
+    id: string;
+    operator: string = undefined;
     mode: string;
     location: string;
     _view: Layer;
-    _expression: string;
-    _form: SparqlQuery;
+    _expression : string;
     responseText: string;
     responseObject: JSONObject;
     acceptMediaType: string = 'application/sparql-results+json';
     static defaultLocation = window.location.origin;
     
-    constructor(options: JSONObject = {}) {
+    constructor(options: OperationOptions = {}) {
+	this.id = <string> options.id || $uuid.v1();
 	this.location = (<string>options.location) || Operation.defaultLocation;
 	this.mode = 'DORMANT';
     }
@@ -64,8 +100,25 @@ export class Operation {
 	    this.execute();
 	}
     }
+
+    /* the base expression is an empty string
+     */
+    computeExpression() : string {
+	return( "" );
+    }
+    get expression() : string {
+	if (! this._expression ) {
+	    this._expression = this.computeExpression();
+	}
+	return ( this._expression );
+    }
+    /* set the expression string and synchronize the form obkect
+     */
+    set expression(expression: string) {
+	this._expression = expression;
+    }		 
+    
     execute() {
-	SPARQL.get(this.location, this.expression).then(this.acceptResponse);
     }
     acceptResponse(response: any) {
 	response.text().then(function(text: string) {
@@ -78,25 +131,13 @@ export class Operation {
 	view.present(this);
     }
     model() {
-	return ({'expression': this.expression, 'response': this.responseText,
-		 'data': this.responseObject});
+	return ({});
     }
     parseResponse(text: string) {
 	return ( {} );
     }
-    computeExpression() : string {
-	return( generator.stringify(this.form) );
-    }
-    get expression() {
-	if (! this._expression ) {
-	    this._expression = this.computeExpression();
-	}
-	return ( this._expression );
-    }
-    set expression(expression: string) {
-    	this._form = parser.parse(expression);
-	this._expression = expression;
-    }		 
+    /* compute the expression string given a form object
+     */
     set view(view: Layer) {
 	this._view = view;
 	this.present();
@@ -110,172 +151,592 @@ export class Operation {
     computeView() : Layer {
 	return( null );
     }
+}
 
-    get form() : SparqlQuery{
+export class MetadataOperation extends Operation {
+    present(view: Layer = this.view) {
+	view.present(this);
+    }
+}
+export class ConnectionOperation extends MetadataOperation {
+    authorization: string = null;
+    model() {
+	return( {location: this.location, authorization: this.authorization} );
+    }
+}
+
+class SparqlTranslatorMap extends Map {
+    get(type : string) : ((form:SparqlForm) => SparqlOperation) {
+	return( <(form:SparqlForm) => SparqlOperation> super.get(type) ||
+		function(sparqlObject: SparqlForm) {
+		    var type : string = sparqlObject.type;
+		    console.log(`translation failed: ${type}: ${JSON.stringify(sparqlObject)}`);
+		    return( new Unit({form: sparqlObject}) );
+		} );
+    };
+}
+
+export class SparqlOperation extends Operation {
+    // the query form object and expression are always generated on-the-fly
+    // from the immediate expression
+    _form: SparqlForm ; // the immediate sparql form object
+    source: SparqlOperation = null;
+    dimensions : Array<string> = null;
+    dimensionToProperty = {};
+    propertyToDimension = {}
+    static formTranslators = new SparqlTranslatorMap();
+
+    
+    constructor(options: SparqlOptions = {}) {
+	super(options);
+	this.operator = this.constructor.name;
+	this.dimensions = options.dimensions
+	    || SparqlOperation.translateVariables(options.variables)
+	    || this.dimensions;
+	var expression : string =<string> options.expression;
+	if (expression) {
+	    this.expression = expression;
+	} else {
+	    var form =<SparqlForm> (<unknown> options.form);
+	    if (form) {
+		this._form = form;
+	    }
+	}
+    }
+    get variableForms() : TypedTermList {
+	var forms : TypedTermList = new Array();
+	if (this.dimensions) {
+	    this.dimensions.forEach(function(name : string) {
+		if (name == '*') {
+		    forms.push({termType: "Wildcard", value: "*"});
+		} else {
+		    forms.push({termType: "Variable", value: name});
+		}
+	    });
+	} else {
+	    var wildcard : TypedTerm = {termType: "Wildcard", value: "*" };
+	    forms.push(wildcard);
+	}
+	return( forms );
+    }
+    static wildcardVariableList : VariableList =<VariableList> (<unknown>[{termType: "Wildcard", value: "*"}]);
+    static translateVariables(terms : TypedTermList) : Array<string> {
+	var dimensions = new Array();
+	if (terms) {
+	    terms.forEach(function(term : TypedTerm) {
+		if (term.termType == 'Variable') {
+		    dimensions.push(term.value);
+		}});
+	}
+	return( dimensions );
+    }
+    static translateNamedNodes(terms : TypedTermList) : Array<string> {
+	var namedNodes = new Array();
+	if (terms) {
+	    terms.forEach(function(term : TypedTerm) {
+		if (term.termType == 'NamedNode') {
+		    namedNodes.push(term.value);
+		}});
+	}
+	return( namedNodes );
+    }
+    model() {
+	return( {'expression': this.expression, 'response': this.responseText,
+		 'data': this.responseObject} );
+    }
+    execute() {
+	SPARQL.get(this.location, this.queryExpression).then(this.acceptResponse);
+    }
+    computeView() : Layer {
+	let view = new SparqlLayer(this);
+	return( view );
+    }
+    computeExpression() : string {
+	return( generator.stringify(<SparqlQuery>this.form) );
+    }
+    /* set the expression string and synchronize the form obkect
+     */
+    set expression(expression : string) {
+	super.expression = expression;
+    	this._form =<SparqlForm> parser.parse(expression);
+    }		 
+    get form() : SparqlForm {
 	if (! this._form) {
 	    this._form = this.computeForm();
 	}
 	return( this._form );
     }
-    get innerForm() : any {
-	return( this.computeInnerForm() );
+    computeForm() : SparqlForm {
+	return( <BaseQuery>{} );
     }
-    computeForm(): SparqlQuery {
+    get query(): SparqlQuery {
 	return( <SparqlQuery>{} );
     }
-    computeInnerForm() {
-	return( {} );
+    get queryExpression() : string {
+	return( generator.stringify(this.query) );
+    }
+
+
+    /*
+     * deconstruct a SPARQL text into the corresponding linked operation tree
+     * - parse into a json object
+     * - walt the object creating an operation for each recognized node
+     */
+    static translateSparqlExpression(text: string) {
+	var queryObject =<SparqlForm> parser.parse(text);
+	if (queryObject) {
+	    return( SparqlOperation.translateSparqlForm(queryObject) );
+	} else {
+	    alert(`failed to parse: '${text}'`);
+	    return( null );
+	}
+    }
+
+    static translateSparqlForm(sparqlObject: SparqlForm, type:string = sparqlObject.type) : SparqlOperation {
+	var translator = SparqlOperation.formTranslators.get(type);
+	var operation : SparqlOperation = translator(sparqlObject);
+	operation._form = sparqlObject;
+	return( operation );
+    }
+    static translateSparqlWhere(forms: SparqlForm[]) : SparqlOperation {
+	var source : SparqlOperation = null;
+	forms.forEach(function(form) {
+	    var operation = SparqlOperation.translateSparqlForm(form);
+	    operation.source = source;
+	    source = operation;
+	});
+	return( source );
+    }
+    /* apply the function to the operator an its successive source until that is null.
+     * collect the result in a new array.
+     * nb. static in order to be able to apply it to a null operation argument
+     */
+    static mapSources(operation : SparqlOperation, op : (operation:SparqlOperation) => any, results: Array<any> = new Array()) : Array<any>{
+	if (operation) {
+	    var result = op(operation);
+	    results.push(result);
+	    SparqlOperation.mapSources(operation.source, op, results);
+	}
+	return( results )
     }
 }
 
+/* concreate sparql classes - one for each operator
+ */
 
-export class SparqlOperation extends Operation {
-    computeView() : Layer {
-	let view = new SparqlLayer(this);
-	return( view );
-    }
+function translationErrorUnit(message: string, form: SparqlForm) : SparqlOperation {
+    var unit = new Unit({form: form});
+    console.log(`translation failed: ${message}: ${JSON.stringify(form)}`);
+    return( unit );
 }
 
-export class Unit extends SparqlOperation {
-    constructor( options: JSONObject = {}) {
+/*
+ * the Ask operator is just a wrapper around the respective where
+ */
+export class Ask extends SparqlOperation {
+    constructor(options: SparqlOptions = {}) {
 	super(options);
     }
-    computeInnerForm() {
-	return( { type: 'group',
-		  patterns: <Triple>[] } );
+    computeForm() : AskQuery {
+	return( {queryType: 'ASK',
+		 type: 'query',
+		 prefixes: {}} );
     }
-    computeForm(): SparqlQuery {
-	var form =<unknown> { type: 'query', queryType: 'SELECT', variables: [ '*'], prefixes: {},
-
-		     where: this.computeInnerForm()
-		   }
-	return( <SparqlQuery>form );
-    }
-}
-
-export class Extend extends SparqlOperation {
-}
-
-export class FilterOperation extends SparqlOperation {
-    base: Operation;
-    predicate: JSONObject = {};
-    constructor(base: Operation = new Unit(), predicate: JSONObject = {}, options: JSONObject = {}) {
-	super(options);
-	this.base = base;
-	this.predicate = predicate;
-    }
-    computeInnerForm() {
-	return( { 'type': 'FILTER',
-		  'expression': this.predicate } );
-    }
-    computeForm(): SparqlQuery {
-	var form = { type: 'query', queryType: 'SELECT', variables: [ '*'], prefixes: {},
-
-		     where: [ this.base.form, this.computeInnerForm() ]
-		   }
+    get query(): SparqlQuery {
+	var where = SparqlOperation.mapSources(this.source, function(operation: SparqlOperation) { return( operation.form ); });
+	var form = Object.assign({}, this.form, {where: where});
 	return( <SparqlQuery>form );
     }
 }
 
 /*
- The InnerJoin class manages a natural join of two constituent fields.
-
- The base and complement are each which yield a field.
- The combination is a JOIN object.
- The expression wraps the combination in a select-where
+ The BGP class comprises a sequence of statement patterns
  */
-export class InnerJoin extends SparqlOperation {
-    base: Operation;
-    complement: Operation;
-    constructor(base: Operation, complement: Operation, options: JSONObject = {}) {
+export class BGP extends SparqlOperation {
+    _triples: Triple[];
+    constructor(triples: Triple[], options: SparqlOptions = {}) {
 	super(options);
-	this.base = base;
-	this.complement = complement;
-    }
-    computeInnerForm() {
-	return( [ this.base, this.complement ] );
-    }
-    computeForm(): SparqlQuery {
-	var form =<unknown> {type: 'query', queryType: 'SELECT', variables: [ '*' ], prefixes: {},
-		    where: this.computeInnerForm() };
-	return( <SparqlQuery>form );
-    }
-}
-
-/*
- The Match class comprises a sequence of statement patterns
- */
-export class Match extends SparqlOperation {
-    patterns: Triple[];
-    constructor(patterns: Triple[], options: JSONObject = {}) {
-	super(options);
-	this.patterns = patterns;
+	this.triples = triples;
     }
     
-    computeInnferForm() {
-	return( {type: 'bgp', triples: this.patterns} );
+    computeForm() : GroupPattern {
+	return( {type: "group",
+		 patterns: [{type: 'bgp',
+			     triples: this.triples}]} );
     }
-    computeForm(): SparqlQuery {
-	var form =<unknown> { type: 'query',  queryType: "SELECT", variables: [ '*' ], prefixes: {},
-		     where: [ this.computeInnerForm ]
-		   }
+    get query(): SparqlQuery {
+	var query =<unknown> {queryType: "SELECT",
+			      variables: [ '*' ],
+			      where: [ this.form ],
+			      type: 'query',
+			      prefixes: {}};
+	return( <SparqlQuery>query );
+    }
+
+    set triples(triples: Triple[]) {
+	this._triples = triples;
+	this.propertyToDimension = {};
+	this.dimensionToProperty = {};
+	triples.forEach(function(triple) {
+	    var predicate : JSONObject =<JSONObject> triple.predicate;
+	    var object : JSONObject =<JSONObject> triple.object;
+	    if (isNamedNode(predicate) && isVariable(object)) {
+		this.dimensionToProperty[<string>object.value] = predicate.value;
+		this.propertyToDimension[<string>predicate.value] = object.value;
+	    };
+	});
+    }
+    get triples() : Triple[] {
+	return( this._triples )
+    }
+}
+
+function isNamedNode(object: JSONObject) {
+    return( object.termType == 'NamedNode' );
+}
+function isVariable(object: JSONObject) {
+    return( object.termType == 'Variable' );
+}
+
+/*
+ * the Construct operator combines its pattern with the respective where
+ */
+export class Construct extends SparqlOperation {
+    template: Triple[];
+    constructor(template: Triple[], options: SparqlOptions = {}) {
+	super(options);
+	this.template = template;
+    }
+    computeForm() : ConstructQuery {
+	return( {queryType: 'CONSTRUCT',
+		 template: this.template,
+		 type: 'query',
+		 prefixes: {}} );
+    }
+    get query(): SparqlQuery {
+	var where = SparqlOperation.mapSources(this.source, function(operation: SparqlOperation) { return( operation.form ); });
+	var query = Object.assign({}, this.form, {where: where});
+	return( <SparqlQuery>query );
+    }
+}
+
+export class Describe extends SparqlOperation {
+    constants : string[] = [];
+    constructor(variables: TypedTermList, options: SparqlOptions = {}) {
+	super(Object.assign({}, {dimensions: SparqlOperation.translateVariables(variables)}, options));
+	this.constants = SparqlOperation.translateNamedNodes(variables);
+    }
+    computeForm() : DescribeQuery {
+	var describeTerms : TypedTermList = new Array();
+	this.variableForms.forEach(function(term: TypedTerm) { describeTerms.push(term); });
+	this.constantForms.forEach(function(term: TypedTerm) { describeTerms.push(term); });
+	return( {queryType: 'DESCRIBE',
+		 variables: <VariableList>(<unknown>describeTerms),
+		 type: 'query',
+		 prefixes: {}} );
+    }
+    get query(): SparqlQuery {
+	var where = SparqlOperation.mapSources(this.source, function(source) { return( source.form )});
+	var query = Object.assign(this.form, {where: where});
+	return( <SparqlQuery>query );
+    }
+
+    get constantForms() : TypedTermList {
+	var constants : TypedTermList = new Array();
+	this.constants.forEach(function(value) {
+	    constants.push({termType: "NamedNode", value: value});
+	});
+	return( constants );		       
+    }
+}
+
+
+export class Extend extends SparqlOperation {
+    valueExpression : Expression = null;
+    constructor(variable : Variable, expression : Expression, options : JSONObject = {}) {
+	super(Object.assign({variables: [variable]}, options));
+	this.valueExpression = expression;
+    }
+    computeForm() : BindPattern {
+	return( {variable: <Term>(<unknown>this.variableForms[0]),
+		 expression: this.valueExpression,
+		 type: 'bind'} );
+    }
+    get query(): SparqlQuery {
+	var where = SparqlOperation.mapSources(this.source, function(operation: SparqlOperation) { return( operation.form ); });
+	var query = {queryType: "SELECT",
+		     variables: SparqlOperation.wildcardVariableList,
+		     where: where,
+		     prefixes: {}};
+	return( <SparqlQuery>query );
+    }
+}
+
+/*
+ * a FIlter combines a predicate expression with a source field.
+ */
+
+export class Filter extends SparqlOperation {
+    predicate : Expression = null;
+    constructor(predicate: Expression, options: SparqlOptions = {}) {
+	super(options);
+	this.predicate = predicate;
+    }
+    computeForm() : FilterPattern {
+	return( { 'type': 'filter',
+		  'expression': this.predicate } );
+    }
+    get query(): SparqlQuery {
+	var where = SparqlOperation.mapSources(this.source, function(operation: SparqlOperation) { return( operation.form ); });
+	var query = {queryType: 'SELECT',
+		     variables: [ '*'],
+		     where: where,
+		     type: 'query',
+		     prefixes: {},
+		    }
+	return( <SparqlQuery>query );
+    }
+}
+
+/*
+ The InnerJoin class represents a natural join of two constituent fields.
+ It is a concrete algebra component, but does not appear in the parsed query forms.
+ They represent joins implicitly, either as the sequence of patterns in a BGP or
+ as the sequence of groups in a where clause.
+ It is included here to provide API support to construct the join given groups.
+ The standard use in connection with a parsed sparql form connects a chain of
+ operations - one for each group in a where clause.
+ The InnerJoin constructor expects just the complement group and binds it,
+ while expecting the source to be set subsequently as for the other operators.
+ */
+export class Join extends SparqlOperation {
+    group: SparqlOperation;
+    constructor(group: SparqlOperation, options: SparqlOptions = {}) {
+	super(options);
+	this.group = group;
+    }
+    computeForm() : SparqlForm {
+	return( this.group.form );
+    }
+    computeQuery(): SparqlQuery {
+	var where = SparqlOperation.mapSources(this, function(operation: SparqlOperation) { return( operation.form ); });
+	var query =<unknown> {queryType: 'SELECT',
+			      variables: [ '*' ],
+			      where: where,
+			      type: 'query', 
+			      prefixes: {}}
+	return( <SparqlQuery>query );
+    }
+}
+
+export class Optional extends SparqlOperation {
+    group: SparqlOperation;
+    constructor(group: SparqlOperation, options: SparqlOptions = {}) {
+	super(options);
+	this.group = group;
+    }
+    computeForm() : BlockPattern {
+	var where =<Pattern[]> SparqlOperation.mapSources(this.group, function(operation: SparqlOperation) { return( operation.form ); });
+	return( {type: 'optional', patterns: where} );
+    }
+    computeQuery(): SelectQuery {
+	var where =<SparqlForm[]> SparqlOperation.mapSources(this, function(operation: SparqlOperation) { return( operation.form ); });
+	var query =<unknown> {queryType: 'SELECT',
+			      variables: [ '*' ],
+			      where: where,
+			      type: 'query',
+			      prefixes: {}}
+	return( <SelectQuery>query );
+    }
+}
+
+export class Select extends SparqlOperation {
+    constructor(options: SparqlOptions = {}) {
+	super(options);
+    }
+    computeForm() : SelectQuery {
+	var where =<Pattern[]> SparqlOperation.mapSources(this.source, function(operation: SparqlOperation) { return( operation.form ); });
+	var form =<unknown>
+	    {type: 'query', queryType: 'SELECT',
+	     variables: this.dimensions.forEach(function(name) { return( {termType: 'Variable', value: name} ); }),
+	     where: where,
+	     prefixes: {}};
+	return( <SelectQuery> form );
+    }
+    computeQuery(): SparqlQuery {
+	return( <SparqlQuery> (this.form) );
+    }
+}
+
+
+/*
+ * a Unit represents a dimensioned, null field with no source.
+ */
+
+export class Unit extends SparqlOperation {
+    constructor(options: SparqlOptions = {}) {
+	super(options);
+    }
+    computeForm() : GroupPattern {
+	return( { type: 'group',
+		  patterns: <Pattern[]>[] } );
+    }
+    get query(): SparqlQuery {
+	var query =<unknown> { type: 'query',
+			       queryType: 'SELECT',
+			       variables: this.variableForms,
+			       prefixes: {},
+			       where: [ this.form ]
+			     };
+	return( <SparqlQuery>query );
+    }
+}
+
+
+export class Values extends SparqlOperation {
+    values: ValuePatternRow[];
+    constructor(values: ValuePatternRow[], options: SparqlOptions = {}) {
+	super(options);
+	this.values = values;
+    }
+    computeForm() : ValuesPattern {
+	return( {type: 'values',
+		 values: this.values} );
+    }
+    computeQuery(): SparqlQuery {
+	var where =<SparqlForm[]> SparqlOperation.mapSources(this, function(operation: SparqlOperation) { return( operation.form ); });	
+	var form = {type: 'query', queryType: 'SELECT', variables: [ '*' ], prefixes: {},
+		    where: where };
 	return( <SparqlQuery>form );
     }
 }
 
-export class OptionalJoin extends SparqlOperation {
-    base: Operation;
-    complement: Operation;
-    constructor(base: Operation, complement: Operation, options: JSONObject = {}) {
-	super(options);
-	this.base = base;
-	this.complement = complement;
+
+/*
+ * Translate parsed forms into operations
+ * for some forms (filter, values, bgp) this is direct as the type and the
+ * immediate fields describe the operation.
+ * for others (query, group) either a secondary type is needed or a component
+ * object described the operation.
+ */
+    
+function translateAskForm (sparqlForm: AskQuery) : SparqlOperation {
+    var where =<SparqlForm[]> sparqlForm.where;
+    if (where) {
+	var source = SparqlOperation.translateSparqlWhere(where);
+	var ask = new Ask();
+	ask.source = source;
+	return( ask );
     }
-    computeInnerForm() {
-	return( [ this.base, {type: 'optional', patterns: [ this.complement] } ] );
-    }
-    computeForm(): SparqlQuery {
-	var form =<unknown> {type: 'query', queryType: 'SELECT', variables: [ '*' ], prefixes: {},
-		    where: this.computeInnerForm() };
-	return( <SparqlQuery>form );
-    }
+    return( translationErrorUnit("invalid ASK form", sparqlForm) );
 }
-export class Project extends SparqlOperation {
-    base: Operation;
-    variables: string[];
-    constructor(base: Operation, variables: string[], options: JSONObject = {}) {
-	super(options);
-	this.base = base;
-	this.variables = variables;
+SparqlOperation.formTranslators.set('ASK', translateAskForm);
+
+function translateBGPForm(sparqlForm: BlockPattern) : SparqlOperation {
+    var patterns = sparqlForm.patterns;
+    if (patterns) {
+	var pattern = patterns[0];
+	if (pattern.type == "bgp") {
+	    var triples = pattern.triples;
+	    if ( triples ) {
+		return( new BGP(triples) );
+	    }
+	}
     }
-    computeInnerForm() {
-	return( <unknown>{type: 'query', queryType: 'SELECT',
-		 variables: this.variables.forEach(function(name) { return( {termType: 'Variable', value: name} ); }),
-		 where: this.base } );
-    }
-	computeForm(): SparqlQuery {
-	return( <SparqlQuery>this.computeInnerForm() );
-    }
+    return( translationErrorUnit("invalid BGP form", sparqlForm) );
 }
-export class Values extends SparqlOperation {
-    base: Operation;
-    values: Array<JSONObject>;
-    constructor(base: Operation, values: Array<JSONObject>, options: JSONObject = {}) {
-	super(options);
-	this.base = base;
-	this.values = values;
+SparqlOperation.formTranslators.set('bgp', translateBGPForm);
+
+function translateConstructForm (sparqlForm: ConstructQuery) : SparqlOperation {
+    var where = sparqlForm.where;
+    var template = sparqlForm.template;
+    if (where) {
+	var source = SparqlOperation.translateSparqlWhere(where);
+	var construct = new Construct(<Triple[]> template);
+	construct.source = source;
+	return( construct );
     }
-    computeInnerForm() {
-	return( <unknown>{where: [ this.base,
-			  {type: 'values',
-			   values: this.values.forEach(function (binding) {
-			       return( { variable: binding[0],
-					 value: {termType: 'Literal', value: binding[1]}} );
-			   })}]} );
-    }
-    computeForm(): SparqlQuery {
-	var form = {type: 'query', queryType: 'SELECT', variables: [ '*' ], prefixes: {},
-		    where: [this.base, this.computeInnerForm()] };
-	return( <SparqlQuery>form );
-    }
+    return( translationErrorUnit("invalid CONSTRUCT form", sparqlForm) );
 }
+SparqlOperation.formTranslators.set('CONSTRUCT', translateConstructForm);
+
+function translateDescribeForm (sparqlForm: DescribeQuery) : SparqlOperation {
+    var where = sparqlForm.where;
+    var variables : TypedTermList =<TypedTermList> (<unknown>sparqlForm.variables);
+    if (where && variables) {
+	var source = SparqlOperation.translateSparqlWhere(where);
+	var describe = new Describe(variables);
+	describe.source = source;
+	return( describe );
+    }
+    return( translationErrorUnit("invalid DESCRIBE form", sparqlForm) );
+}
+SparqlOperation.formTranslators.set('DESCRIBE', translateDescribeForm);
+
+function translateExtendForm (sparqlForm: BindPattern) : SparqlOperation {
+    var variable : Variable =<Variable> sparqlForm.variable;
+    var expression = sparqlForm.expression;
+    if (variable && expression) {
+	var extend = new Extend(variable, expression);
+	return( extend );
+    }
+    return( translationErrorUnit("invalid EXTEND form", sparqlForm) );
+}
+SparqlOperation.formTranslators.set('extend', translateExtendForm);
+
+function translateFilterForm(sparqlForm: FilterPattern) : SparqlOperation {
+    var expression = sparqlForm.expression;
+    if (expression) {
+	return( new Filter(expression) );
+    }
+    return( translationErrorUnit("invalid FILTER form", sparqlForm) );
+}
+SparqlOperation.formTranslators.set('filter', translateFilterForm);
+
+// no Join as it does not appear in parsed forms
+
+function translateOptionalForm (sparqlForm: BlockPattern) : SparqlOperation {
+    var patterns =<SparqlForm[]> (<unknown> sparqlForm.patterns);
+    if (patterns) {
+	return( new Optional(SparqlOperation.translateSparqlWhere(patterns)) );
+    }
+    return( translationErrorUnit("invalid OPTIONAL form", sparqlForm) );
+}
+SparqlOperation.formTranslators.set('optional', translateOptionalForm);
+
+function translateQueryForm(sparqlForm: Query) : SparqlOperation {
+    var queryType = sparqlForm.queryType;
+    if (queryType) {
+	return( SparqlOperation.translateSparqlForm(sparqlForm, queryType) );
+    }
+    return( translationErrorUnit("invalid QUERY form", sparqlForm) );
+}
+SparqlOperation.formTranslators.set('query', translateQueryForm);
+
+function translateSelectForm(sparqlForm: SelectQuery)  : SparqlOperation {
+    var where =<SparqlForm[]> (<unknown> sparqlForm.where);
+    var variables =<TypedTermList> (<unknown>sparqlForm.variables);
+    if (where) {
+	var source = SparqlOperation.translateSparqlWhere(where);
+	var select = new Select({variables: variables});
+	select.source = source;
+	return( select );
+    }
+    return( translationErrorUnit("invalid SELECT form", sparqlForm) );
+}
+SparqlOperation.formTranslators.set('SELECT', translateSelectForm);
+
+function translateUnitForm(sparqlForm: SelectQuery) : SparqlOperation {
+    var variables =<TypedTermList> (<unknown>sparqlForm.variables);
+    return( new Unit({variables: variables}) );
+}
+SparqlOperation.formTranslators.set('unit', translateUnitForm);
+
+function translateValuesForm(sparqlForm: SparqlForm) : SparqlOperation {
+    var values =(<ValuesPattern> sparqlForm).values;
+    if (values) {
+	return( new Values(values) );
+    }
+    return( translationErrorUnit("invalid VALUES form", sparqlForm) );
+}
+SparqlOperation.formTranslators.set('values', translateValuesForm);

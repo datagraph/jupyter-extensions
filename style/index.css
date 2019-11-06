@@ -24,16 +24,21 @@
 
 .dydra-mode-open {
     display: inline-block;
-    background: var(--jp-icon-caretdown);
+    background-image: url('./icon-16-16-bottom.png');
+    background-position: 0px 2px;
+    background-repeat: no-repeat;
     margin-left: 4px; margin-right: 4px;
-    width:16px; height: 16px
+    
+    width:16px; height: 16px;
 }
 
 .dydra-mode-closed {
     display: inline-block;
-    background: var(--jp-icon-caretleft);
+    background-image: url('./icon-16-16-left.png');
+    background-position: 0px 4px;
+    background-repeat: no-repeat;
     margin-left: 4px; margin-right: 4px;
-    width:16px; height: 16px
+    width:16px; height: 16px;
 }
 
 .dydra-layer-title {
