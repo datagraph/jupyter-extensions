@@ -66,8 +66,8 @@ String.prototype.encode = {
  @param {string} location - the host and target repository name
  @param {Object} [options]
  @param {string} options.etag - the client revision identifer to identify the transaction
- @param {string} options.authorization - the basic authoentication string
- @param {string} options.accept - the media type for the confirmation response
+ @param {string} options.authentication - the basic authoentication string
+ @param {string} options.Accept - the media type for the confirmation response
  @param {string} options.contentDisposition - the replication disposition route
  @param {string} options.graph - the target graph
  @param {function} [continuation] - if supplied, used to invoke the fetch promise.
@@ -75,7 +75,7 @@ String.prototype.encode = {
  */
 
 GSP.delete = function(location, options = {}, continuation) {
-  var headers = new Headers({ "Accept": GSP.delete.acceptMediaType });
+  var headers = new Headers({ "Accept": (options["Accept"] || GSP.get.acceptMediaType) });
   if (options['authentication']) {
     headers.set("Authorization",
                 'Basic ' + btoa(":" + options['authentication']));
@@ -108,8 +108,8 @@ GSP.delete.acceptMediaType = 'text/turtle';
  @param {string} location - the host and target repository name
  @param {Object} [options]
  @param {string} options.etag - the client revision identifer to identify the transaction
- @param {string} options.authorization - the basic authoentication string
- @param {string} options.accept - the media type for the response document
+ @param {string} options.authentication - the basic authoentication string
+ @param {string} options.Accept - the media type for the response document
  @param {string} options.subject - a subject constraint
  @param {string} options.predicate - a predicate constraint
  @param {string} options.object - an object constraint
@@ -147,7 +147,7 @@ GSP.get.acceptMediaType = 'application/n-quads';
  GSP.head
  @param {string} location - the host and target repository name
  @param {Object} [options]
- @param {string} options.authorization - the basic authoentication string
+ @param {string} options.authentication - the basic authoentication string
  @param {function} [continuation] - if supplied, used to invoke the fetch promise.
  */
 
@@ -178,8 +178,8 @@ GSP.head = function(location, options, continuation) {
  @param {Patch} content - the request content
  @param {Object} [options]
  @param {string} options.etag - the client revision identifer to identify the transaction
- @param {string} options.authorization - the basic authentication string
- @param {string} options.accept - the media type for the response document
+ @param {string} options.authentication - the basic authentication string
+ @param {string} options.Accept - the media type for the response document
  @param {string} options.contentDisposition - the replication disposition route
  @param {function} [continuation] - if supplied, used to invoke the fetch promise.
  */
@@ -231,8 +231,8 @@ GSP.patch.locationSuffix = GSP.locationSuffix;
  @param {Graph} content - the request content
  @param {Object} [options]
  @param {string} options.etag - the client revision identifer to identify the transaction
- @param {string} options.authorization - the basic authentication string
- @param {string} options.accept - the media type for the response document
+ @param {string} options.authentication - the basic authentication string
+ @param {string} options.Accept - the media type for the response document
  @param {string} options.contentDisposition - the replication disposition route
  @param {function} [continuation] - if supplied, used to invoke the fetch promise.
  */
@@ -272,8 +272,8 @@ GSP.post.contentMediaType = 'application/n-quads';
  @param {Graph} content - the request content
  @param {Object} [options]
  @param {string} options.etag - the client revision identifer to identify the transaction
- @param {string} options.authorization - the basic authentication string
- @param {string} options.accept - the media type for the response document
+ @param {string} options.authentication - the basic authentication string
+ @param {string} options.Accept - the media type for the response document
  @param {string} options.contentDisposition - the replication disposition route
  @param {function} [continuation] - if supplied, used to invoke the fetch promise.
  */
@@ -317,12 +317,12 @@ GSP.put.ContentType = 'application/n-quads';
  @param {string} location - the host and target repository name
  @param {string} query - the request content
  @param {Object} [options]
- @param {string} options.authorization - the basic authentication string
- @param {string} options.accept - the media type for the response document
+ @param {string} options.authentication - the basic authentication string
+ @param {string} options.Accept - the media type for the response document
  @param {function} [continuation] - if supplied, used to invoke the fetch promise.
  */
 
-SPARQL.get = function(location, query, options = {}, continuation) {
+SPARQL.get = function(location, query, options = {}, continuation = null) {
   // console.log("SPARQL.get ", query, options);
   var headers = new Headers({ "Accept": (options["Accept"] || SPARQL.get.acceptMediaType) });
   if (options['authentication']) {
@@ -338,6 +338,8 @@ SPARQL.get = function(location, query, options = {}, continuation) {
     var queryArgument = (query ? ("query=" + encodeURIComponent(query)) : null);
     location = location + SPARQL.locationSuffix;
     location += "?" + queryArgument;
+  } else if (location.split('/').length = 6) {
+      // it is a view
   } else {
     throw (new Error(`SPARQL.get: a query text is required: '${location}'`));
   }

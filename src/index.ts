@@ -137,7 +137,7 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
       console.log("renderModel.model.data: ", model.data);
       let data = model.data[this.mimeType] as JSONObject;
       let location : string =<string> data.location;
-      let authorization : string =<string> data.authorization;
+      let authentication : string =<string> data.authentication;
       let view = data.view;
       this.connectionOperation = new ConnectionOperation({location: location});
       
@@ -158,9 +158,9 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
       new MetadataLayer(new ConnectionOperation({location: "https://nl4.dydra.com/james/test"}),
 			{host: <JSONValue>(<unknown>this.graph)});
       var requestString = location + '/' + view;
-      let queryText = SPARQL.get(requestString, "", {authorization: authorization,
-						     accept: 'application/sparql-query'
-      						    }).then(handleQueryText);
+      let queryText = SPARQL.get(requestString, "",
+				 {authentication: authentication, Accept: 'application/sparql-query'}).
+	  then(handleQueryText);
       console.log("renderModel: text: ", queryText);
       return Promise.resolve();
   }

@@ -723,7 +723,7 @@
         "version": "a91b84738f7f44059de1fb7657ce2c2eb7a6755a8b078af282052524de8d967f"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/rdf-graph-store.js": {
-        "version": "0b95cd317c2a357f58120ac987d10f998307787306cb49c5c83e360a753f3645"
+        "version": "695fe9af2151c3ea6d3326a7e4ad9e797c946caaa30f169664c7e54a22d0af57"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/rdf-database.js": {
         "version": "fabde522717a7f6412817946a82c4196afdb804039464714ad62642f6e125c7a"
@@ -744,7 +744,7 @@
         "signature": "600398810bc4abd29d85cb566f2a2c6a8925aa500934b52014d00008f6c805d7"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts": {
-        "version": "f5a5ade65d3e81d6cde2cb0efd5c6e51099edb4bd1f73eda27ef4135a349b6f7",
+        "version": "597fe6bebb0ea870686a5a6540ff7b05dd7fedd8cd4332df793d1ad4e016a7fc",
         "signature": "53bc54aaf8ccaae2cb5510d086dd768be199b7d862a446a899371fd1f60b7f7d"
       }
     },
@@ -2456,12 +2456,12 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/n-quads-grammar.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/errors.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/graph-database.js",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/rdf-graph-store.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/rdf-database.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/rdf-client.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts"
     ]
   },
