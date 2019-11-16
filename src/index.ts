@@ -7,12 +7,13 @@ import { IRenderMime } from '@jupyterlab/rendermime-interfaces';
 import { SPARQL } from './replication/rdf-client';
 import { JSONValue } from '@phosphor/coreutils';
 import { SparqlOperation, ConnectionOperation } from './algebra';
-import { SparqlLayer, MetadataLayer } from './layer.js';
+import { SparqlOperationView } from './view.js';
+import { MetadataLayer } from './layer.js';
 import { MessageLoop } from '@phosphor/messaging';
 import { JSONObject } from '@phosphor/coreutils';
 import { CommandRegistry } from '@phosphor/commands';
 import { Menu, MenuBar, Widget } from '@phosphor/widgets';
-import * as $uuid from './replication/lib/uuid-v1.js';
+//import * as $uuid from './replication/lib/uuid-v1.js';
 //import { DockPanel } from '@phosphor/widgets';
 //    import '@phosphor/dragdrop/style/index.css!';
 //    import '@phosphor/widgets/style/index.css!';
@@ -76,7 +77,7 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
 	    graph.style.top = "30px";
 	    graph.style.width = '100%';
 	    graph.style.bottom = '0px';
-	    console.log("graph style: ", graph.style);
+	    // console.log("graph style: ", graph.style);
 	    canvas.appendChild(graph);
 	    resolve(thisWidget);
 	});
@@ -132,36 +133,46 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
    * - construct and display the linked layers
    */
   renderModel(model: IRenderMime.IMimeModel): Promise<void> {
-      var thisWidget = this;
+      console.log("renderModel this: ", this);
       console.log("renderModel.model: ", model);
-      console.log("renderModel.model.data: ", model.data);
+      // console.log("renderModel.model.data: ", model.data);
       let data = model.data[this.mimeType] as JSONObject;
+      console.log("renderModel.data: ", data);
       let location : string =<string> data.location;
       let authentication : string =<string> data.authentication;
       let view = data.view;
       this.connectionOperation = new ConnectionOperation({location: location});
       
-      console.log("renderModel.data.mimetype: ", data);
-      let handleQueryText = function(text : string) : string {
-	  console.log("Canvas query text: ", text);
+      var thisCanvas = this;
+      let handleQueryResponse = function(response: Response) : Response {
+	  // console.log("Canvas query response: ", response);
+	  response.text().then(handleResponseText);
+	  return( response );
+      }
+      let handleResponseText = function(text: string) : SparqlOperationView {
 	  var operation : SparqlOperation = SparqlOperation.translateSparqlExpression(text)
-	  var count = 0;
-	  SparqlOperation.mapSources(operation, function(operation: SparqlOperation) {
-	      var position = (100 + (count * 10)) + "px";
-	      return( new SparqlLayer(operation,
-				      {host: <JSONValue>(<unknown>thisWidget.graph),
-				       id: $uuid.v1(),
-				       top: position, left: position}) );
-	  });
-	  return( text );
+	  if (operation) {
+	      return ( new SparqlOperationView(operation, {host: <JSONValue>(<unknown>thisCanvas.graph)}) );
+
+	      /*operation.mapSourceTree(function(operation: SparqlOperation, location: JSONObject) {
+		  var position = (100 + (count * 20)) + "px";
+		  count ++;
+		  return( new SparqlLayer(operation,
+					  {host: <JSONValue>(<unknown>thisWidget.graph),
+					   id: $uuid.v1(),
+					   top: position, left: position,
+					   //!!! this is backwards
+					   mode: 'open'}) );
+	      });*/
+	  }
+	  return( null );
       };
       new MetadataLayer(new ConnectionOperation({location: "https://nl4.dydra.com/james/test"}),
 			{host: <JSONValue>(<unknown>this.graph)});
       var requestString = location + '/' + view;
-      let queryText = SPARQL.get(requestString, "",
-				 {authentication: authentication, Accept: 'application/sparql-query'}).
-	  then(handleQueryText);
-      console.log("renderModel: text: ", queryText);
+      SPARQL.get(requestString, "", {authentication: authentication, Accept: 'application/sparql-query'}).
+	  then(handleQueryResponse);
+      console.log("renderModel: retrieving text: ");
       return Promise.resolve();
   }
 

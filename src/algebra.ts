@@ -25,10 +25,11 @@
  Concrete specializations are defined for
    Extend (base)
    Filter (base)
-   InnerJoin (base complement)
+   Join (base complement)
    Match ()
-   OptionalJoin (base complement)
+   Optional (base complement)
    Project (base)
+   Union
    Values ()
  */
 
@@ -38,7 +39,7 @@ import { Layer, SparqlLayer } from './layer';
 import { Parser, Generator,
 	 SparqlQuery, BaseQuery, Query, // Update,
 	 AskQuery, ConstructQuery, DescribeQuery, SelectQuery,
-	 Pattern, BindPattern, BlockPattern, FilterPattern, GroupPattern, ValuesPattern,
+	 Pattern, BgpPattern, BindPattern, BlockPattern, FilterPattern, GraphPattern, GroupPattern, ValuesPattern,
 	 ValuePatternRow, Variable, Term, Expression,
 	 Triple} from 'sparqljs';
 var parser = new Parser();
@@ -51,12 +52,25 @@ interface VariableForm {
     variables:  Variable[] | ['*'];
 }
 type SparqlForm = BaseQuery | Pattern | VariableForm;
+export interface OperationRelation {
+    operation: Operation;
+    source?: Operation;
+    child?: Operation;
+}
+export interface SparqlOperationRelation extends OperationRelation {
+    operation: SparqlOperation;
+    source?: SparqlOperation;
+    group?: SparqlOperation;
+}
 
 // alternative to the sparqljs definitions, there correspond more directly to the parsed results
 interface TypedTerm {termType: string, value: string};
 //type TypedVariable = Variable | TypedTerm;
 type VariableList = Variable[] | ['*'];
 type TypedTermList = TypedTerm[];
+type PatternList = Pattern[];
+type SparqlOperationList = SparqlOperation[];
+type SparqlFormList = SparqlForm[];
 
 //interface Variable {termType: 'Variable'|'Wildcard', value: string}
 interface SparqlOptions extends OperationOptions {
@@ -133,6 +147,9 @@ export class Operation {
     model() {
 	return ({});
     }
+    get form() {
+	return( {} );
+    }
     parseResponse(text: string) {
 	return ( {} );
     }
@@ -167,10 +184,11 @@ export class ConnectionOperation extends MetadataOperation {
 
 class SparqlTranslatorMap extends Map {
     get(type : string) : ((form:SparqlForm) => SparqlOperation) {
-	return( <(form:SparqlForm) => SparqlOperation> super.get(type) ||
+	var translator = <(form:SparqlForm) => SparqlOperation> super.get(type.toLowerCase())
+	// console.log("translator map:", type, translator);
+	return( translator ||
 		function(sparqlObject: SparqlForm) {
-		    var type : string = sparqlObject.type;
-		    console.log(`translation failed: ${type}: ${JSON.stringify(sparqlObject)}`);
+		    // console.log(`translation failed: ${sparqlObject.type}: ${JSON.stringify(sparqlObject)}`);
 		    return( new Unit({form: sparqlObject}) );
 		} );
     };
@@ -181,6 +199,7 @@ export class SparqlOperation extends Operation {
     // from the immediate expression
     _form: SparqlForm ; // the immediate sparql form object
     source: SparqlOperation = null;
+    child: SparqlOperation = null;
     dimensions : Array<string> = null;
     dimensionToProperty = {};
     propertyToDimension = {}
@@ -293,21 +312,33 @@ export class SparqlOperation extends Operation {
     }
 
     static translateSparqlForm(sparqlObject: SparqlForm, type:string = sparqlObject.type) : SparqlOperation {
+	console.log('tSF: form: ', type, sparqlObject);
 	var translator = SparqlOperation.formTranslators.get(type);
 	var operation : SparqlOperation = translator(sparqlObject);
 	operation._form = sparqlObject;
+	console.log('tSF: operation: ', type, operation);
 	return( operation );
     }
+    /* in order to handle the variant element, either the successive element
+       id combined with the predecessors with a join or predecessor feeds the element
+       operation as the source */
     static translateSparqlWhere(forms: SparqlForm[]) : SparqlOperation {
 	var source : SparqlOperation = null;
+	console.log('tW: ', forms);
 	forms.forEach(function(form) {
 	    var operation = SparqlOperation.translateSparqlForm(form);
-	    operation.source = source;
-	    source = operation;
+	    if (form.type == 'group') {
+		source = new Join(source, operation);
+	    } else {
+		if (source) {
+	      	    operation.source = source
+		}
+		source = operation;
+	    };
 	});
 	return( source );
     }
-    /* apply the function to the operator an its successive source until that is null.
+    /* apply the function to the operator and its successive source until that is null.
      * collect the result in a new array.
      * nb. static in order to be able to apply it to a null operation argument
      */
@@ -318,6 +349,18 @@ export class SparqlOperation extends Operation {
 	    SparqlOperation.mapSources(operation.source, op, results);
 	}
 	return( results )
+    }
+    mapSourceTree(op : (operation:SparqlOperation, location: JSONObject) => any, results: Array<any> = new Array(), state: JSONObject = {}) : Array<any>{
+	var result = op(this, state);
+	var source = this.source;
+	results.push(result);
+	if (source) {
+	    source.mapSourceTree(op, results, state);
+	}
+	return( results );
+    }
+    get relations() : OperationRelation {
+	return( {operation: this, source: this.source} );
     }
 }
 
@@ -499,7 +542,47 @@ export class Filter extends SparqlOperation {
 }
 
 /*
- The InnerJoin class represents a natural join of two constituent fields.
+ * a FIlter combines a predicate expression with a source field.
+ */
+
+export class Graph extends SparqlOperation {
+    name : TypedTerm;
+    constructor(name : TypedTerm, patterns: SparqlOperation, options: SparqlOptions = {}) {
+	super(options);
+	this.name = name;
+	this.child = patterns;
+    }
+    computeForm() : GraphPattern {
+	var patterns : PatternList =<PatternList> SparqlOperation.mapSources(this.child, function(operation: SparqlOperation) {
+	    return( operation.form ); });
+	return( { type: 'graph',
+		  patterns: patterns,
+		  name: <Term>(<unknown>this.name)} );
+    }
+    get query(): SparqlQuery {
+	var where = this.form;
+	var query = {queryType: 'SELECT',
+		     variables: [ '*'],
+		     where: where,
+		     type: 'query',
+		     prefixes: {},
+		    }
+	return( <SparqlQuery> (<unknown>query) );
+    }
+    mapSourceTree(op : (operation:SparqlOperation, location: JSONObject) => any, results: Array<any> = new Array(), state: JSONObject = {}) : Array<any>{
+	super.mapSourceTree(op, results, state);
+	if (this.child) {
+	    this.child.mapSourceTree(op, results, state);
+	}
+	return( results );
+    }
+    get relations() {
+	return( Object.assign({}, {child: this.child} , super.relations) );
+    }
+}
+
+/*
+ The Join class represents a natural join of two constituent fields.
  It is a concrete algebra component, but does not appear in the parsed query forms.
  They represent joins implicitly, either as the sequence of patterns in a BGP or
  as the sequence of groups in a where clause.
@@ -510,13 +593,13 @@ export class Filter extends SparqlOperation {
  while expecting the source to be set subsequently as for the other operators.
  */
 export class Join extends SparqlOperation {
-    group: SparqlOperation;
-    constructor(group: SparqlOperation, options: SparqlOptions = {}) {
+    constructor(source: SparqlOperation, group: SparqlOperation, options: SparqlOptions = {}) {
 	super(options);
-	this.group = group;
+	this.source = source;
+	this.child = group;
     }
     computeForm() : SparqlForm {
-	return( this.group.form );
+	return( this.child.form );
     }
     computeQuery(): SparqlQuery {
 	var where = SparqlOperation.mapSources(this, function(operation: SparqlOperation) { return( operation.form ); });
@@ -527,17 +610,78 @@ export class Join extends SparqlOperation {
 			      prefixes: {}}
 	return( <SparqlQuery>query );
     }
+    mapSourceTree(op : (operation:SparqlOperation, location: JSONObject) => any, results: Array<any> = new Array(), state: JSONObject = {}) : Array<any>{
+	super.mapSourceTree(op, results, state);
+	if (this.child) {
+	    this.child.mapSourceTree(op, results, state);
+	}
+	return( results );
+    }
+    get relations() {
+	return( Object.assign({}, {child: this.child} , super.relations) );
+    }
 }
 
+/*
+ The Optional class represents an Oouter join
+ */
 export class Optional extends SparqlOperation {
-    group: SparqlOperation;
     constructor(group: SparqlOperation, options: SparqlOptions = {}) {
 	super(options);
-	this.group = group;
+	this.child = group;
     }
     computeForm() : BlockPattern {
-	var where =<Pattern[]> SparqlOperation.mapSources(this.group, function(operation: SparqlOperation) { return( operation.form ); });
+	var where =<PatternList> SparqlOperation.mapSources(this.child, function(operation: SparqlOperation) { return( operation.form ); });
 	return( {type: 'optional', patterns: where} );
+    }
+    computeQuery(): SelectQuery {
+	var query =<unknown> {queryType: 'SELECT',
+			      variables: [ '*' ],
+			      where: this.form,
+			      type: 'query',
+			      prefixes: {}}
+	return( <SelectQuery>query );
+    }
+    mapSourceTree(op : (operation:SparqlOperation, location: JSONObject) => any, results: Array<any> = new Array(), state: JSONObject = {}) : Array<any>{
+	super.mapSourceTree(op, results, state);
+	if (this.child) {
+	    this.child.mapSourceTree(op, results, state);
+	}
+	return( results );
+    }
+    get relations() {
+	return( Object.assign({}, {child: this.child} , super.relations) );
+    }
+}
+
+export class Select extends SparqlOperation {
+    constructor(options: SparqlOptions = {}) {
+	super(options);
+    }
+    computeForm() : SelectQuery {
+	var where =<PatternList> SparqlOperation.mapSources(this.source, function(operation: SparqlOperation) { return( operation.form ); });
+	var form =<unknown>
+	    {type: 'query', queryType: 'SELECT',
+	     variables: this.dimensions.map(function(name) { return( {termType: 'Variable', value: name} ); }),
+	     where: where,
+	     prefixes: {}};
+	return( <SelectQuery> form );
+    }
+    computeQuery(): SparqlQuery {
+	return( <SparqlQuery> (this.form) );
+    }
+}
+
+/* a UNION is represented as a typed pattern sequence. */
+export class Union extends SparqlOperation {
+    constructor(source: SparqlOperation, group: SparqlOperation, options: SparqlOptions = {}) {
+	super(options);
+	this.source = source;
+	this.child = group;
+    }
+    computeForm() : BlockPattern {
+	var where =<PatternList> [<Pattern>this.source.form, <Pattern>this.child.form];
+	return( {type: 'group', patterns: [{type: 'union', patterns: where}]} );
     }
     computeQuery(): SelectQuery {
 	var where =<SparqlForm[]> SparqlOperation.mapSources(this, function(operation: SparqlOperation) { return( operation.form ); });
@@ -548,23 +692,15 @@ export class Optional extends SparqlOperation {
 			      prefixes: {}}
 	return( <SelectQuery>query );
     }
-}
-
-export class Select extends SparqlOperation {
-    constructor(options: SparqlOptions = {}) {
-	super(options);
+    mapSourceTree(op : (operation:SparqlOperation, location: JSONObject) => any, results: Array<any> = new Array(), state: JSONObject = {}) : Array<any>{
+	super.mapSourceTree(op, results, state);
+	if (this.child) {
+	    this.child.mapSourceTree(op, results, state);
+	}
+	return( results );
     }
-    computeForm() : SelectQuery {
-	var where =<Pattern[]> SparqlOperation.mapSources(this.source, function(operation: SparqlOperation) { return( operation.form ); });
-	var form =<unknown>
-	    {type: 'query', queryType: 'SELECT',
-	     variables: this.dimensions.forEach(function(name) { return( {termType: 'Variable', value: name} ); }),
-	     where: where,
-	     prefixes: {}};
-	return( <SelectQuery> form );
-    }
-    computeQuery(): SparqlQuery {
-	return( <SparqlQuery> (this.form) );
+    get relations() {
+	return( Object.assign({}, {child: this.child} , super.relations) );
     }
 }
 
@@ -579,7 +715,7 @@ export class Unit extends SparqlOperation {
     }
     computeForm() : GroupPattern {
 	return( { type: 'group',
-		  patterns: <Pattern[]>[] } );
+		  patterns: <PatternList>[] } );
     }
     get query(): SparqlQuery {
 	var query =<unknown> { type: 'query',
@@ -630,17 +766,17 @@ function translateAskForm (sparqlForm: AskQuery) : SparqlOperation {
     }
     return( translationErrorUnit("invalid ASK form", sparqlForm) );
 }
-SparqlOperation.formTranslators.set('ASK', translateAskForm);
+SparqlOperation.formTranslators.set('ask', translateAskForm);
 
-function translateBGPForm(sparqlForm: BlockPattern) : SparqlOperation {
-    var patterns = sparqlForm.patterns;
-    if (patterns) {
-	var pattern = patterns[0];
-	if (pattern.type == "bgp") {
-	    var triples = pattern.triples;
-	    if ( triples ) {
-		return( new BGP(triples) );
-	    }
+function translateBGPForm(sparqlForm: BgpPattern | BlockPattern) : SparqlOperation {
+    if (sparqlForm.type == 'group') {
+	var patterns = sparqlForm.patterns;
+	sparqlForm =<BgpPattern> patterns[0];
+    }
+    if (sparqlForm.type == "bgp") {
+	var triples = sparqlForm.triples;
+	if (triples) {
+	    return( new BGP(triples) );
 	}
     }
     return( translationErrorUnit("invalid BGP form", sparqlForm) );
@@ -658,7 +794,7 @@ function translateConstructForm (sparqlForm: ConstructQuery) : SparqlOperation {
     }
     return( translationErrorUnit("invalid CONSTRUCT form", sparqlForm) );
 }
-SparqlOperation.formTranslators.set('CONSTRUCT', translateConstructForm);
+SparqlOperation.formTranslators.set('construct', translateConstructForm);
 
 function translateDescribeForm (sparqlForm: DescribeQuery) : SparqlOperation {
     var where = sparqlForm.where;
@@ -671,7 +807,7 @@ function translateDescribeForm (sparqlForm: DescribeQuery) : SparqlOperation {
     }
     return( translationErrorUnit("invalid DESCRIBE form", sparqlForm) );
 }
-SparqlOperation.formTranslators.set('DESCRIBE', translateDescribeForm);
+SparqlOperation.formTranslators.set('describe', translateDescribeForm);
 
 function translateExtendForm (sparqlForm: BindPattern) : SparqlOperation {
     var variable : Variable =<Variable> sparqlForm.variable;
@@ -693,7 +829,30 @@ function translateFilterForm(sparqlForm: FilterPattern) : SparqlOperation {
 }
 SparqlOperation.formTranslators.set('filter', translateFilterForm);
 
-// no Join as it does not appear in parsed forms
+function translateGraphForm(sparqlForm: GraphPattern) : SparqlOperation {
+    var name =<TypedTerm> (<unknown>sparqlForm.name);
+    var patterns = SparqlOperation.translateSparqlWhere(sparqlForm.patterns);
+    console.log('tGF: patterns: ', patterns);
+    if (name && patterns) {
+	return( new Graph(name, patterns) );
+    }
+    return( translationErrorUnit("invalid GRAPH form", sparqlForm) );
+}
+SparqlOperation.formTranslators.set('graph', translateGraphForm);
+
+function translateGroupForm(sparqlForm: GraphPattern) : SparqlOperation {
+    var patterns = sparqlForm.patterns;
+    if (patterns) {
+	var operation = SparqlOperation.translateSparqlWhere(patterns);
+	return( operation );
+    }
+    return( translationErrorUnit("invalid GROUP form", sparqlForm) );
+}
+
+
+SparqlOperation.formTranslators.set('group', translateGroupForm);
+
+// no Join as it does not appear explicitly in parsed forms
 
 function translateOptionalForm (sparqlForm: BlockPattern) : SparqlOperation {
     var patterns =<SparqlForm[]> (<unknown> sparqlForm.patterns);
@@ -724,7 +883,23 @@ function translateSelectForm(sparqlForm: SelectQuery)  : SparqlOperation {
     }
     return( translationErrorUnit("invalid SELECT form", sparqlForm) );
 }
-SparqlOperation.formTranslators.set('SELECT', translateSelectForm);
+SparqlOperation.formTranslators.set('select', translateSelectForm);
+
+function translateUnionForm (sparqlForm: BlockPattern) : SparqlOperation {
+    var patterns =<SparqlFormList> (<unknown> sparqlForm.patterns);
+    console.log("tuf: patterns", patterns);
+    if (patterns && patterns.length == 2) {
+	var operations =<SparqlOperationList> (<unknown>patterns.map(function(pattern) {
+	    return( SparqlOperation.translateSparqlForm(pattern) );
+	}));
+	console.log("tuf: operations", operations);
+	var source : SparqlOperation = operations[0];
+	var child : SparqlOperation = operations[1];
+	return( new Union(source, child) );
+    }
+    return( translationErrorUnit("invalid UNION form", sparqlForm) );
+}
+SparqlOperation.formTranslators.set('union', translateUnionForm);
 
 function translateUnitForm(sparqlForm: SelectQuery) : SparqlOperation {
     var variables =<TypedTermList> (<unknown>sparqlForm.variables);
