@@ -685,8 +685,8 @@
         "version": "2197c68845f6c9de0c375c4af1810f50256458991a18a9ef8803f39e837716be"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts": {
-        "version": "de97472519935c9328cb1944267b0554ab3c6997cddc2ab4171734b456060262",
-        "signature": "28ca187d1a9b5d74b9d63a5550146f708fa8aea923107314a573dd16ab709d75"
+        "version": "ed8e724aa3f2ce4739122515c8e39216d196ca00f1ebddb473891c5c44e1974b",
+        "signature": "673ef1643cea9af12d29c64e6d81ce1a040c665721480b917c99aecc8de1153c"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts": {
         "version": "e0d20bff73530c5960b122aa6ef5779df18e897c46bb43d142a2dc9d5fb3708c",
@@ -732,7 +732,7 @@
         "version": "777545bf18f0d64f5ece9a9bd3d9af99dfd35d396df25f5362f26bf1ea523f7f"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts": {
-        "version": "46a91c381c9d4d98741ddcb1284b5a21789ab4d2bd7a813fc3ef8da73d08cafb",
+        "version": "ac75cc82cda3d375a99f977bb7c30030259d104f85d63b967566c1c44e89444b",
         "signature": "4be5bce7f8a4d34eb62819481fce8cc042081296bab0e62bfb048f9a44d7e47d"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts": {

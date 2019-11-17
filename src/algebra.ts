@@ -157,7 +157,7 @@ export class Operation {
      */
     set view(view: Layer) {
 	this._view = view;
-	this.present();
+	// this.present();
     }
     get view() : Layer {
 	if (! this._view ) {

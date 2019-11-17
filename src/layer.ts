@@ -73,6 +73,7 @@ export class Layer extends Widget {
 	    console.log("Layer.appended: ", this, host);
 	}
 	this.operation = operation;
+	if (! operation._view) { operation.view = this; }
 	this.id = operation.id || <string>options.id || $uuid.v1();
 	this.createFrame(this.node, operation, options);
 	this.node.style.resize = 'both';
@@ -295,7 +296,7 @@ export class Layer extends Widget {
 	    }
 	    this._mode = newMode;
 	    if (this.modeIcon) { this.modeIcon.className = 'dydra-mode-' + newMode;}
-	    // console.log('set mde: ', mode);
+	    // console.log('set mode: ', mode);
 	    // MessageLoop.postMessage(this, Widget.ResizeMessage.UnknownSize);
 	}
     }
@@ -309,6 +310,9 @@ export class MetadataLayer extends Layer {
     /* ensure it is visible, edit the model, save it when closed */
     _editor: CodeMirrorEditor;
 
+    constructor(operation: Operation, options: JSONObject = {}) {
+	super(operation, Object.assign({}, {width: 200, height:100}, options));
+    }
     createFrame(node: HTMLElement, operation: Operation, options: JSONObject) : HTMLElement {
 	super.createFrame(node, operation, options);
 	node.style.display= "block";
@@ -319,7 +323,7 @@ export class MetadataLayer extends Layer {
 	node.style.width = "200px";
 	node.style.height = "100px";
 	node.style.border = "solid blue 1px";
-	// console.log("metadata layer: ", this);
+	 console.log("metadata layer: ", this);
 	return( node );
     }
     createHeader (operation: Operation, options: JSONObject) : HTMLElement {
@@ -402,11 +406,22 @@ export class SparqlLayer extends Layer {
 	layers.push(this);
 	return( arrangement );
     }
-    changeMode() {
-	super.changeMode();
-	var geometry = this.geometry();
-	this.arrangeLayer(geometry.left, geometry.top);
+
+    set mode(newMode: string) {
+	if (this._mode != newMode) {
+	    super.mode = newMode;
+	    var root = this.rootParent();
+	    // root may or may not be this
+	    if (root.childLayer || root.sourceLayer) {
+		var geometry = root.geometry();
+		root.arrangeLayer(geometry.left, geometry.top);
+	    }
+	}
     }
+    get mode() {
+	return( super.mode );
+    }
+
     /* link a layer to its parent or destination layer
        recurse to respective source or child via the layer's operation
     */
@@ -428,6 +443,10 @@ export class SparqlLayer extends Layer {
 	}
 	this.printLinks('linkLayer.complete: ');
     }
+    rootParent() : SparqlLayer {
+	return( this.parentLayer ? this.parentLayer.rootParent() : this );
+    }
+	    
     printLinks(message: string) {
 	console.log(message, this, this.operation, this.sourceLayer, this.destinationLayer, this.childLayer, this.parentLayer);
     }
