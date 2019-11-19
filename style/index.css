@@ -14,12 +14,15 @@
 
 .dydra-layer-title {
     display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     width: 128px;
     max-width: 128px;
     height: 16px;
+}
+
+.dydra-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .dydra-mode-open {

@@ -19,13 +19,16 @@
   */
 
 var layers = new Array();
+import { DataModel, DataGrid } from '@phosphor/datagrid';
+//import { DataModel } from '@phosphor/datagrid/lib/datamodel';
 import { JSONObject } from '@phosphor/coreutils';
-import { Operation, SparqlOperation } from './algebra';
+import { ConnectionModel, Operation, SparqlOperation } from './algebra';
 import { Widget, DockPanel } from '@phosphor/widgets';
 import { CodeMirrorEditor } from '@jupyterlab/codemirror';
 import { CodeEditor } from '@jupyterlab/codeeditor';
 import { MessageLoop } from '@phosphor/messaging';
 import * as $uuid from './replication/lib/uuid-v1.js';
+import { OperationView } from './view';
 
 export interface SparqlLayerContext {
     parentLayer: SparqlLayer;
@@ -70,7 +73,7 @@ export class Layer extends Widget {
 	let host = <HTMLElement>(<unknown>options.host) ;//|| document.body;
 	if (host) {
 	    host.appendChild(this.node);
-	    console.log("Layer.appended: ", this, host);
+	    // console.log("Layer.appended: ", this, host);
 	}
 	this.operation = operation;
 	if (! operation._view) { operation.view = this; }
@@ -82,9 +85,9 @@ export class Layer extends Widget {
 	this.openWidth = <number> options.width || this.openWidth;
 	this.openHeight = <number> options.height || this.openHeight;
 	// setting mode will resize
-	console.log("in construct", this, this.modeIcon, this.executeIcon);
+	// console.log("in construct", this, this.modeIcon, this.executeIcon);
 	this.mode = <string>options.mode || 'open';
-	//console.log("layer.node.style: ", this.node.style);
+	// console.log("layer.node.style: ", this.node.style);
 	MessageLoop.postMessage(this, Widget.ResizeMessage.UnknownSize);
 	this.update();
     }
@@ -106,7 +109,7 @@ export class Layer extends Widget {
 	    this._top = top;
 	    this.node.style.top = Math.floor(top)+'px';
 	    MessageLoop.sendMessage(this, Widget.ResizeMessage.UnknownSize);
-	    console.log("move: ", this.operation.operator, {left: left, top: top});
+	    // console.log("move: ", this.operation.operator, {left: left, top: top});
 	}
     }
     resize(width: number, height:number) {
@@ -121,8 +124,19 @@ export class Layer extends Widget {
     geometry() : WidgetGeometry {
 	return( {left: this._left, top: this._top, width: this._width, height: this._height} );
     }
+    execute() {
+	let op = this.operation;
+	let expression = this.expression;
+	let connection : ConnectionModel = (<OperationView>this.parent).connection.model();
+	if (op) {
+	    if (op.expression != expression) {
+		op.expression = expression;
+	    }
+	    op.execute(connection);
+	}
+    }
     /*
-      create the layers html comprising the header, body and footer.
+      create the layer's html comprising the header, body and footer.
       delegate each to a respective function.
       the outer frame uses the node which was supplied tot he Widget constructor, while
       the constituent elements create their own elements.
@@ -146,14 +160,7 @@ export class Layer extends Widget {
 	}
 	if (this.executeIcon) {
 	    this.executeIcon.onclick = function(element) {
-		let op = thisLayer.operation;
-		let expression = thisLayer.expression;
-		if (op) {
-		    if (op.expression != expression) {
-			op.expression = expression;
-		    }
-		    op.execute();
-		}
+		thisLayer.execute();
 	    };
 	}
 	frame.onmousedown = function(event: DragEvent) {
@@ -201,7 +208,7 @@ export class Layer extends Widget {
 						 style: 'border solid red 1px; height: ' + this.closedHeight + '; font: plain 9pt fixed'});
 	this.modeIcon =Layer.createElement('div', {class: "dydra-mode-open dydra-mode-button",
 						 style: 'position: absolute; top: 0px; left: 0px; width: 16px; height: ' + this.closedHeight + '; font: plain 9pt fixed'});
-	this.titleItem = Layer.createElement('span', {class: "dydra-layer-title",
+	this.titleItem = Layer.createElement('span', {class: "dydra-layer-title dydra-ellipsis",
 						      style: 'position: absolute; top: 1px; left: 22px;'});
 	this.titleItem.innerText = operation.operator;
 	
@@ -217,14 +224,13 @@ export class Layer extends Widget {
     }
     createBody(operation: Operation, options: JSONObject) : HTMLElement {
 	return( Layer.createElement('div', { class: 'body',
-					     style: 'border: solid red 1px; position: absolute; top: ' + this.closedHeight + '; left: 0px; bottom:40px; right:0px'}) );
+					     style: 'border: solid red 1px; position: absolute; overflow: hidden; top: ' + this.closedHeight + 'px; left: 0px; bottom:20px; right:0px'}) );
     }
 
+    /* the base Layer class creates an invisible footer */
     createFooter(operation: Operation, options: JSONObject) : HTMLElement {
-	var footer = Layer.createElement('div', { class: "foot",
-						  style: "border: solid black 1px; position: absolute; height: 20px; left: 0px; bottom:0px; right:20px"});
-	footer.innerText = JSON.stringify(operation.form);
-	return( footer );
+	return( Layer.createElement('div', { class: "foot",
+					     style: "display: none"}) );
     }
 
     /* collect given panes into a DockPanel */
@@ -308,10 +314,10 @@ export class Layer extends Widget {
 
 export class MetadataLayer extends Layer {
     /* ensure it is visible, edit the model, save it when closed */
-    _editor: CodeMirrorEditor;
 
     constructor(operation: Operation, options: JSONObject = {}) {
-	super(operation, Object.assign({}, {width: 200, height:100}, options));
+	super(operation, Object.assign({}, {width: 400, height:100}, options));
+	this.present(operation);
     }
     createFrame(node: HTMLElement, operation: Operation, options: JSONObject) : HTMLElement {
 	super.createFrame(node, operation, options);
@@ -320,41 +326,49 @@ export class MetadataLayer extends Layer {
 	node.style.top = "0px";
 	node.style.left = null;
 	node.style.right = "0px";
-	node.style.width = "200px";
-	node.style.height = "100px";
+//	node.style.width = "400px";
+//	node.style.height = "100px";
 	node.style.border = "solid blue 1px";
-	 console.log("metadata layer: ", this);
+	// console.log("metadata layer: ", this);
 	return( node );
     }
     createHeader (operation: Operation, options: JSONObject) : HTMLElement {
 	var header = Layer.createElement('div', {class: "head",
-					     style: 'border: solid black 1px; position: absolute; top: 0px; left: 0px; width: 100%; height: ' + this.closedHeight + '; font: plain 9pt fixed'});
-	header.innerHTML =
-	    '<span style="position: absolute; top: 0px; padding-top: 2px; right: 22px; width: 16px; height: 16px;"><a href="#"><i class="dydra-execute-button"></i></a></span>' +
-	    '<span style="position: absolute; top: 0px; right: 4px; width: 16px; height: 16px;"><a href="#"><i class="dydra-close-button"></i></a></span>';
+					     style: 'border: solid black 1px; position: absolute; top: 0px; left: 0px; width: 100%; height: 20px; font: plain 9pt fixed'});
+	this.executeIcon =Layer.createElement('div', {class: "dydra-execute-button",
+						      style: 'position: absolute; top: 0px; padding-top: 4px; right: 16px; width: 16px; height: 16px; display: block;'});
+	this.closeIcon =Layer.createElement('div', {class: "dydra-close-button",
+						 style: 'position: absolute; top: 0px; right: 0px; width: 16px; height: 16px;'});
+	header.appendChild(this.executeIcon);
+	header.appendChild(this.closeIcon);
 	return( header );
     }
     createBody(operation: Operation, options: JSONObject) : HTMLElement {
 	var body = Layer.createElement('div', {class: 'body',
-					       style: 'position: absolute; top: ' + this.closedHeight + '; left: 0px; bottom: 0px; width: 100%;'});
-	this.addClass('CodeMirrorWidget');
-	this._editor = new CodeMirrorEditor({ host: body,
-					      model: new CodeEditor.Model() });
-	this._editor.setOption('lineNumbers', false);
-	this._editor.setOption('mode', 'application/json');
-	var doc = this._editor.editor.getDoc();
-	doc.setValue(JSON.stringify(operation.model(), null, 2));
+					       style: 'position: absolute; top: 20px; left: 0px; right: 0px; bottom: 0px;'});
 	return( body );
     }
 
-    createFooter(operation: Operation, options: JSONObject) : HTMLElement {
-	return( Layer.createElement('div', { class: "foot",
-					     style: "display: none"}) );
-    }
-
     present(operation: Operation) {
-	this.node.style.display = 'block';
-	this._editor.editor.getDoc().setValue(JSON.stringify(operation.model()));
+	var body = this.body;
+	while (body.firstChild) {
+	    body.removeChild(body.firstChild)
+	}
+	var table = Layer.createElement('table', {style: 'border: solid blue 1px; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; display: block;'});
+	var tbody = Layer.createElement('tbody');
+	body.appendChild(table);
+	table.appendChild(tbody);
+	Object.entries(operation.model()).map(function([key, value]) {
+	    var row = Layer.createElement('tr', {style: ''});
+	    var labelItem = Layer.createElement('td', {style: 'border-right: solid black 1px;'});
+	    var valueItem = Layer.createElement('td', {style: '', contenteditable: true});
+	    labelItem.innerText = key;
+	    console.log('present: ', key, value);
+	    valueItem.innerText = JSON.stringify(value);
+	    row.appendChild(labelItem);
+	    row.appendChild(valueItem);
+	    tbody.appendChild(row);
+	});
     }
 }
 
@@ -368,6 +382,14 @@ export class SparqlLayer extends Layer {
     constructor(operation: SparqlOperation, options: JSONObject = {}) {
 	super(operation,
 	      Object.assign({}, {title: "SPARQL"}, options));
+    }
+    createFooter(operation: Operation, options: JSONObject) : HTMLElement {
+	var footer = Layer.createElement('div', { class: "foot dydra-ellipsis",
+						  style: "border: solid black 1px; position: absolute; height: 20px; left: 0px; bottom:0px; right:20px"});
+	var expression = (<SparqlOperation>operation).queryExpression;
+	expression = expression.replace(/\n/g, ' ');
+	footer.innerText = expression;
+	return( footer );
     }
     createPanes(operation: SparqlOperation, options: JSONObject) : Array<LayerPane> {
 	return ( [ new SparqlQueryPane(operation, options),
@@ -383,7 +405,7 @@ export class SparqlLayer extends Layer {
 	var width = geometry.width;
 	var height = geometry.height;
 	//this.left = left;
-	console.log("arrangeLayer: ", this.operation.operator, {left: left, top: top});
+	// console.log("arrangeLayer: ", this.operation.operator, {left: left, top: top});
 	// console.log('arrange: ', left, top, width, height, this, this.operation);
 	// this.printLinks('arrangeLayer');
 	if (this.childLayer) {
@@ -401,7 +423,7 @@ export class SparqlLayer extends Layer {
 	//console.log('arranged text: ', this, this.operation.operator, this.node.innerText);
 	this.move(left, top);
 	var arrangement = {left: left, top: top, width: width, height: height};
-	console.log("arrangeLayer: ", this.operation.operator, arrangement);
+	// console.log("arrangeLayer: ", this.operation.operator, arrangement);
 	// console.log('arrange after: ', this.operation.operator, arrangement);
 	layers.push(this);
 	return( arrangement );
@@ -441,7 +463,7 @@ export class SparqlLayer extends Layer {
 	    this.childLayer =<SparqlLayer> child.view;
 	    this.childLayer.linkLayer({destinationLayer: null, parentLayer: this});
 	}
-	this.printLinks('linkLayer.complete: ');
+	// this.printLinks('linkLayer.complete: ');
     }
     rootParent() : SparqlLayer {
 	return( this.parentLayer ? this.parentLayer.rootParent() : this );
@@ -453,16 +475,17 @@ export class SparqlLayer extends Layer {
 }
 
 export class LayerPane extends Widget {
+    operation : Operation = null;
     constructor(operation: Operation, options: JSONObject = {}) {
-	super({node: document.createElement('div')});
+	super({node: Layer.createElement('div', {style: "display: block; position:absolute; left: 0px; top; 20px; right: 0px; bottom: 20px;"})});
 	// console.log("LayerPane.options: ", options);
 	this.createNode(this.node, options);
 	this.title.label =<string> options.title;
 	this.title.closable = false;
+	this.operation = operation;
     }
     createNode(node: HTMLElement, options: JSONObject): HTMLElement {
 //	node.innerHTML = "<span>" + (options.title || "Pane") + "</span>";
-	node.style.background = "#a0a0a0";
 	return( node );
     }
     present(operation: Operation) {} 
@@ -483,27 +506,28 @@ class ExpressionPane extends LayerPane {
 */
 export class SparqlQueryPane extends ExpressionPane {
     _editor: CodeMirrorEditor;
-    constructor(operation: Operation, options: JSONObject = {}) {
+    constructor(operation: SparqlOperation, options: JSONObject = {}) {
 	super(operation, Object.assign({}, {title: 'query'}, options['query']));
+	this.present(operation);
     }
     createNode(node: HTMLElement, options: JSONObject) : HTMLElement {
 	super.createNode(node, options);
 	this.addClass('CodeMirrorWidget');
 	this._editor = new CodeMirrorEditor({ host: node, model: new CodeEditor.Model()});
-	var doc = this._editor.editor.getDoc();
-	doc.setValue(<string>options.expression || "select * where {?s ?p ?o} limit 10");
 	this._editor.setOption('lineNumbers', true);
 	let gutter = <HTMLElement>(node.getElementsByClassName('CodeMirror-gutter CodeMirror-linenumbers').item(0));
 	if( gutter ) {
 	    gutter.style.width = '10px';
 	}
-	// console.log("query pane: ", this);
+	node.style.border = "solid green 1px";
 	return( node );
     }
-    present(operation: Operation) {
+    present(operation: SparqlOperation) {
 	var doc = this._editor.editor.getDoc();
-	var query = operation.expression;
-	doc.setValue(query);
+	var expression = operation.queryExpression;
+	console.log('sqp.present: ', doc, expression);
+	doc.setValue(expression)
+	console.log('sqp.present+: ', doc.getValue());
     }
     get expression() {
 	return ( this._editor.editor.getDoc().getValue() );
@@ -517,7 +541,7 @@ export class SparqlResultsPane extends LayerPane {
     createNode(node: HTMLElement, options: JSONObject) : HTMLElement {
 	super.createNode(node, options);
 	node.innerText =<string> options.text || "";
-	// console.log("results pane: ", this);
+	node.style.border = "solid orange 1px";
 	return( node );
     }
     present(operation: Operation) {
@@ -526,3 +550,37 @@ export class SparqlResultsPane extends LayerPane {
     }
 }
 
+class SparqlDataModel extends DataModel {
+    _columnCount : number;
+    _rowCount : number;
+    _data : Array<Array<string>> = null;
+    data() {
+	return( this._data );
+    }
+    columnCount(region : string) {
+	if (region === 'body') {
+	    return this._columnCount;
+	}
+	return 1;
+    }
+    rowCount(region : string) {
+	if (region === 'body') {
+	    return this._rowCount;
+	}
+	return 1;
+    }
+}
+export class FieldDataModel extends SparqlDataModel {
+}
+export class GraphDataModel extends SparqlDataModel {
+}
+
+export class SparqlFieldResultsPane extends SparqlResultsPane {
+    datagrid : DataGrid;
+    datamodel : FieldDataModel;
+    constructor(operation: Operation, options: JSONObject = {}) {
+	super(operation, options);
+	this.datagrid = new DataGrid();
+	this.datamodel = new FieldDataModel();
+    }
+}

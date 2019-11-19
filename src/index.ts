@@ -48,7 +48,7 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
 	super();
 	let thisWidget = this;
 	
-	console.log("canvas.node: ", this.node, options);
+	// console.log("canvas.node: ", this.node, options);
 	this.addClass(CLASS_NAME);
 	this.mimeType = options.mimeType;
 	this.node.style.resize = 'both';
@@ -133,15 +133,16 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
    * - construct and display the linked layers
    */
   renderModel(model: IRenderMime.IMimeModel): Promise<void> {
-      console.log("renderModel this: ", this);
-      console.log("renderModel.model: ", model);
+      // console.log("renderModel this: ", this);
+      // console.log("renderModel.model: ", model);
       // console.log("renderModel.model.data: ", model.data);
       let data = model.data[this.mimeType] as JSONObject;
-      console.log("renderModel.data: ", data);
+      // console.log("renderModel.data: ", data);
       let location : string =<string> data.location;
       let authentication : string =<string> data.authentication;
       let view = data.view;
-      this.connectionOperation = new ConnectionOperation({location: location});
+      let connectionModel = {location: location, authentication: authentication};
+      this.connectionOperation = new ConnectionOperation({connection: connectionModel});
       
       var thisCanvas = this;
       let handleQueryResponse = function(response: Response) : Response {
@@ -152,7 +153,8 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
       let handleResponseText = function(text: string) : SparqlOperationView {
 	  var operation : SparqlOperation = SparqlOperation.translateSparqlExpression(text)
 	  if (operation) {
-	      return ( new SparqlOperationView(operation, {host: <JSONValue>(<unknown>thisCanvas.graph)}) );
+	      return ( new SparqlOperationView(operation, {host: <JSONValue>(<unknown>thisCanvas.graph),
+							   connection: this.connectionOperation}) );
 
 	      /*operation.mapSourceTree(function(operation: SparqlOperation, location: JSONObject) {
 		  var position = (100 + (count * 20)) + "px";
@@ -167,12 +169,13 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
 	  }
 	  return( null );
       };
-      new MetadataLayer(new ConnectionOperation({location: "https://nl4.dydra.com/james/test"}),
+
+      new MetadataLayer(this.connectionOperation,
 			{host: <JSONValue>(<unknown>this.graph)});
       var requestString = location + '/' + view;
       SPARQL.get(requestString, "", {authentication: authentication, Accept: 'application/sparql-query'}).
 	  then(handleQueryResponse);
-      console.log("renderModel: retrieving text: ");
+      // console.log("renderModel: retrieving text: ");
       return Promise.resolve();
   }
 

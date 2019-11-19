@@ -125,14 +125,6 @@
         "version": "cc0fca544c9ee63d754899e93ebae35c8ba8304a100126b9c3dadee2c91a2250",
         "signature": "cc0fca544c9ee63d754899e93ebae35c8ba8304a100126b9c3dadee2c91a2250"
       },
-      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxengine.d.ts": {
-        "version": "518f0974b55341500d4234068f32fa9750c3d373f41edebbb99c47798b2d102b",
-        "signature": "518f0974b55341500d4234068f32fa9750c3d373f41edebbb99c47798b2d102b"
-      },
-      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts": {
-        "version": "6d4bce054cce22306edccc85e738a800ea0364a82e85f9bf61156ed03604d24f",
-        "signature": "6d4bce054cce22306edccc85e738a800ea0364a82e85f9bf61156ed03604d24f"
-      },
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/array.d.ts": {
         "version": "5275faae938513e793a5ea551efa77b43a47bbfac8ed8550753ec217376f24ca",
         "signature": "5275faae938513e793a5ea551efa77b43a47bbfac8ed8550753ec217376f24ca"
@@ -205,6 +197,178 @@
         "version": "30a8688575aeada46c1268d671b2a1de78705ebc0d5343e75b96c25f149caa98",
         "signature": "30a8688575aeada46c1268d671b2a1de78705ebc0d5343e75b96c25f149caa98"
       },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts": {
+        "version": "e29b5eb559a057d36584ec480d49711f0c81bed176bb6256df584e800c453760",
+        "signature": "e29b5eb559a057d36584ec480d49711f0c81bed176bb6256df584e800c453760"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts": {
+        "version": "57e52fd41767e09990c28cd092037736625b3c492c412d7b5c72282a4a97e2be",
+        "signature": "57e52fd41767e09990c28cd092037736625b3c492c412d7b5c72282a4a97e2be"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts": {
+        "version": "6d4bce054cce22306edccc85e738a800ea0364a82e85f9bf61156ed03604d24f",
+        "signature": "6d4bce054cce22306edccc85e738a800ea0364a82e85f9bf61156ed03604d24f"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxengine.d.ts": {
+        "version": "518f0974b55341500d4234068f32fa9750c3d373f41edebbb99c47798b2d102b",
+        "signature": "518f0974b55341500d4234068f32fa9750c3d373f41edebbb99c47798b2d102b"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts": {
+        "version": "02906328718f740db2bd453ed956e9b954b5ca10511695a44f6e8c25c3db8a40",
+        "signature": "02906328718f740db2bd453ed956e9b954b5ca10511695a44f6e8c25c3db8a40"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts": {
+        "version": "b532781d9096fd879f4292fbbe656fac7cf51a3d3628a562d40fe0b29cb3d8ff",
+        "signature": "b532781d9096fd879f4292fbbe656fac7cf51a3d3628a562d40fe0b29cb3d8ff"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts": {
+        "version": "5350283d2aee045bf447f38aa46474cc2dc46c5e304ff05fd71a4539c6de67f9",
+        "signature": "5350283d2aee045bf447f38aa46474cc2dc46c5e304ff05fd71a4539c6de67f9"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts": {
+        "version": "f9e8dc69b67c409b6dd500317065381e70eeb45774a2b6a2d267797277789856",
+        "signature": "f9e8dc69b67c409b6dd500317065381e70eeb45774a2b6a2d267797277789856"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": {
+        "version": "61bfa4334dbf9c4bd1d9fcd66243f15e9bd1aa9d6c57d329c1f976e706b3b07a",
+        "signature": "61bfa4334dbf9c4bd1d9fcd66243f15e9bd1aa9d6c57d329c1f976e706b3b07a"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts": {
+        "version": "d9bda13de04067b09bd723693fd3c87583b958d3593f0881e333fb75fa9e79e3",
+        "signature": "d9bda13de04067b09bd723693fd3c87583b958d3593f0881e333fb75fa9e79e3"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": {
+        "version": "6742b16104faa968b6daf0d577348e7be96c5988492c8bf5616fa79209de3906",
+        "signature": "6742b16104faa968b6daf0d577348e7be96c5988492c8bf5616fa79209de3906"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/commands/lib/index.d.ts": {
+        "version": "f7a4e242113dbee5fdbc1340ae8fa59fa1d92eeb41d3a9f2a7f34434036d8e87",
+        "signature": "f7a4e242113dbee5fdbc1340ae8fa59fa1d92eeb41d3a9f2a7f34434036d8e87"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts": {
+        "version": "e582863f95c72400f8ddadeee51f6339c484aad6815b62a646b6bbedf4f579e2",
+        "signature": "e582863f95c72400f8ddadeee51f6339c484aad6815b62a646b6bbedf4f579e2"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": {
+        "version": "1db72b5c0ab78997e0ce774d3ec782288690a3527c9afa2395fd8f0aea1d1dae",
+        "signature": "1db72b5c0ab78997e0ce774d3ec782288690a3527c9afa2395fd8f0aea1d1dae"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menu.d.ts": {
+        "version": "5d2d8228652d10324f96849e4ae8cc8eeadcf6ca72ef6e0398f6998e94d19915",
+        "signature": "5d2d8228652d10324f96849e4ae8cc8eeadcf6ca72ef6e0398f6998e94d19915"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": {
+        "version": "a58928566bd438cace363dd567a9a8df609a82166d487dff5e6820b0215fd01e",
+        "signature": "a58928566bd438cace363dd567a9a8df609a82166d487dff5e6820b0215fd01e"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts": {
+        "version": "4e34c1aefcb13a420bc0255e2ee6452110d3d4c2a58821f681d81fc51c280f50",
+        "signature": "4e34c1aefcb13a420bc0255e2ee6452110d3d4c2a58821f681d81fc51c280f50"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/docklayout.d.ts": {
+        "version": "647ef68c9129fd074bfe02783c4202c1768cd9c490632b574a246f0a5ec7ccd9",
+        "signature": "647ef68c9129fd074bfe02783c4202c1768cd9c490632b574a246f0a5ec7ccd9"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": {
+        "version": "6fb0cad19f294c0e0f12adf0d3404649a6779186d9499f9a7b4b234531736491",
+        "signature": "6fb0cad19f294c0e0f12adf0d3404649a6779186d9499f9a7b4b234531736491"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/focustracker.d.ts": {
+        "version": "269a9559f1d701c5c31cac903e6d6cecd2116321b0113a62bfe21433e85ed236",
+        "signature": "269a9559f1d701c5c31cac903e6d6cecd2116321b0113a62bfe21433e85ed236"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": {
+        "version": "cc71c2b4ac696b027eff499027d4d5febb9a6ead9cc3f81a310bb7d8e39752ff",
+        "signature": "cc71c2b4ac696b027eff499027d4d5febb9a6ead9cc3f81a310bb7d8e39752ff"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menubar.d.ts": {
+        "version": "e64e93eca04ceacfaf726ba306e41b04f7a29943aa57c36486f016e27321894c",
+        "signature": "e64e93eca04ceacfaf726ba306e41b04f7a29943aa57c36486f016e27321894c"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": {
+        "version": "2f3b5535020128e321e7e24c186ae8079267c213965315b08e29af9c93bf44df",
+        "signature": "2f3b5535020128e321e7e24c186ae8079267c213965315b08e29af9c93bf44df"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": {
+        "version": "a47f0b0ea63dc40176bfea2bd26f40e59dda410acce93594c4bd0fb25d314c08",
+        "signature": "a47f0b0ea63dc40176bfea2bd26f40e59dda410acce93594c4bd0fb25d314c08"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": {
+        "version": "07f9bd74c94fc6337534679f78e91e113bfbbec0e6994e4ea4d12002800a9221",
+        "signature": "07f9bd74c94fc6337534679f78e91e113bfbbec0e6994e4ea4d12002800a9221"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": {
+        "version": "f49aecef81c20d28b6c02d0b541aa6fd27c92cb577eb8b6cc809fee5cfb4c87d",
+        "signature": "f49aecef81c20d28b6c02d0b541aa6fd27c92cb577eb8b6cc809fee5cfb4c87d"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": {
+        "version": "6e771f66549892608000cb2ced46e2f6b1bd32498357166d2b972edb996e917e",
+        "signature": "6e771f66549892608000cb2ced46e2f6b1bd32498357166d2b972edb996e917e"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": {
+        "version": "e669ba06b92a6457dbd3d8fa2a2cc8652f17f177a985ad8d7d4a716be960496f",
+        "signature": "e669ba06b92a6457dbd3d8fa2a2cc8652f17f177a985ad8d7d4a716be960496f"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": {
+        "version": "e0b9646e6407be4123c23fd79c53f899f8484cfe6af5f7dd1ed6f12eda7e0dbe",
+        "signature": "e0b9646e6407be4123c23fd79c53f899f8484cfe6af5f7dd1ed6f12eda7e0dbe"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/index.d.ts": {
+        "version": "ce75ab9766be65e1b6837cba39ea25ebfbe25f431e0f97e1863743817fad2d91",
+        "signature": "ce75ab9766be65e1b6837cba39ea25ebfbe25f431e0f97e1863743817fad2d91"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts": {
+        "version": "b16badd064d39a93bf693cb705c631b5c255baa3d20de6e6f7ce94adec4d4d10",
+        "signature": "b16badd064d39a93bf693cb705c631b5c255baa3d20de6e6f7ce94adec4d4d10"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/graphicscontext.d.ts": {
+        "version": "c98fd9f2ae6d6d9668be7c4916639650dfef9cfb7bc45b527d08e1818b9171e3",
+        "signature": "c98fd9f2ae6d6d9668be7c4916639650dfef9cfb7bc45b527d08e1818b9171e3"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts": {
+        "version": "c5b8519e9363eb9e765c59e727b13dfc6088f257c4427e6dc07e39040e976991",
+        "signature": "c5b8519e9363eb9e765c59e727b13dfc6088f257c4427e6dc07e39040e976991"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/renderermap.d.ts": {
+        "version": "1eeddfb3db85311d62570990420b5a43398d502e127c533942b313f022d284de",
+        "signature": "1eeddfb3db85311d62570990420b5a43398d502e127c533942b313f022d284de"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/selectionmodel.d.ts": {
+        "version": "75fd71a8eef8bc454e11bd81fb1b4410fc7fb7f2f768651496a95ac3a2d8ee33",
+        "signature": "75fd71a8eef8bc454e11bd81fb1b4410fc7fb7f2f768651496a95ac3a2d8ee33"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datagrid.d.ts": {
+        "version": "d3ffd83add7bd704937631ecad1fcdc7af8ed23a8a95df83cc5e15a64824d283",
+        "signature": "d3ffd83add7bd704937631ecad1fcdc7af8ed23a8a95df83cc5e15a64824d283"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basickeyhandler.d.ts": {
+        "version": "faaa33f302dabef3ef3385e9f33f00bd8d5ea964e92de99fa9beee631b7b20de",
+        "signature": "faaa33f302dabef3ef3385e9f33f00bd8d5ea964e92de99fa9beee631b7b20de"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicmousehandler.d.ts": {
+        "version": "d5e7e457fe75c637a7139654b3fab6720f2162934432653f93004b98bb2b86eb",
+        "signature": "d5e7e457fe75c637a7139654b3fab6720f2162934432653f93004b98bb2b86eb"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicselectionmodel.d.ts": {
+        "version": "25c443c1b507141e88422fda0c825dfc53ebc3ff6d5a50e6a123013623f36770",
+        "signature": "25c443c1b507141e88422fda0c825dfc53ebc3ff6d5a50e6a123013623f36770"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/jsonmodel.d.ts": {
+        "version": "cb1c08bbca7287fd5cc7695f45f83c54b00d0ced8e9798c367cd8924eb6121a8",
+        "signature": "cb1c08bbca7287fd5cc7695f45f83c54b00d0ced8e9798c367cd8924eb6121a8"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/textrenderer.d.ts": {
+        "version": "020f14dab5186be34d6ca52c8645c152bb120cb5aa2204965ca6d6ba12e9bad9",
+        "signature": "020f14dab5186be34d6ca52c8645c152bb120cb5aa2204965ca6d6ba12e9bad9"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/index.d.ts": {
+        "version": "4be504cfcfa6395c5b75c65ed659b88c6c101e00c5d79246b975e52d20dca08d",
+        "signature": "4be504cfcfa6395c5b75c65ed659b88c6c101e00c5d79246b975e52d20dca08d"
+      },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxengine.d.ts": {
+        "version": "518f0974b55341500d4234068f32fa9750c3d373f41edebbb99c47798b2d102b",
+        "signature": "518f0974b55341500d4234068f32fa9750c3d373f41edebbb99c47798b2d102b"
+      },
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts": {
         "version": "c8a24a2440a34aea602f23947c59ce8d9d3bbd5301fd80160e9067b3ac3cce6b",
         "signature": "c8a24a2440a34aea602f23947c59ce8d9d3bbd5301fd80160e9067b3ac3cce6b"
@@ -244,10 +408,6 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts": {
         "version": "f7a4e242113dbee5fdbc1340ae8fa59fa1d92eeb41d3a9f2a7f34434036d8e87",
         "signature": "f7a4e242113dbee5fdbc1340ae8fa59fa1d92eeb41d3a9f2a7f34434036d8e87"
-      },
-      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts": {
-        "version": "e582863f95c72400f8ddadeee51f6339c484aad6815b62a646b6bbedf4f579e2",
-        "signature": "e582863f95c72400f8ddadeee51f6339c484aad6815b62a646b6bbedf4f579e2"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": {
         "version": "1db72b5c0ab78997e0ce774d3ec782288690a3527c9afa2395fd8f0aea1d1dae",
@@ -684,9 +844,13 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js": {
         "version": "2197c68845f6c9de0c375c4af1810f50256458991a18a9ef8803f39e837716be"
       },
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/view.ts": {
+        "version": "948cca884d7b711e0d551fd8c50f8708a2133ed73fdf1ab79b1165e655904605",
+        "signature": "b7ca01ad94a4b457b70efb3a935c170722d463d2b4105a876ffd83b9e8573461"
+      },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts": {
-        "version": "ed8e724aa3f2ce4739122515c8e39216d196ca00f1ebddb473891c5c44e1974b",
-        "signature": "673ef1643cea9af12d29c64e6d81ce1a040c665721480b917c99aecc8de1153c"
+        "version": "f41ab6c4fb078769ded5cd5e799625f939c52310786cde07a944b19950eac384",
+        "signature": "40bf298cb6153bfb11dcbdc0861a25cc06e343df74d4e420e327e058b033868a"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts": {
         "version": "e0d20bff73530c5960b122aa6ef5779df18e897c46bb43d142a2dc9d5fb3708c",
@@ -708,7 +872,7 @@
         "version": "424f8637a7496d8172bdd2efa12cce3f220a58a8350b3843925db3fb118fdcdd"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/graph-object.js": {
-        "version": "e0c77fd0b42287afb01eb68c7b7bca188072123fde143907786923cca6118920"
+        "version": "76a58de76cc0ba1ab461f45490f8f2b3527fdd61520f630a5e361c98543fae89"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/rdf-environment.js": {
         "version": "facdcfdc8a7a1c90d7ec0be0e7b0dd4c4e78b52a58870daf9b18c3a033b4e2ca"
@@ -732,8 +896,8 @@
         "version": "777545bf18f0d64f5ece9a9bd3d9af99dfd35d396df25f5362f26bf1ea523f7f"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts": {
-        "version": "ac75cc82cda3d375a99f977bb7c30030259d104f85d63b967566c1c44e89444b",
-        "signature": "4be5bce7f8a4d34eb62819481fce8cc042081296bab0e62bfb048f9a44d7e47d"
+        "version": "5b5da05d566702b4cc7faf64c36e3c63904e9a4b462ecca34aa5b13254162903",
+        "signature": "9124cd5b9bab214ed3b374dd10d2143fed15c223254e37dd18dd292b9581bb60"
       },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts": {
         "version": "e5ea8b6292e04a385538cd09a2937a7921ce901e12a1ef0301f7fb17c4ea481d",
@@ -743,12 +907,8 @@
         "version": "600398810bc4abd29d85cb566f2a2c6a8925aa500934b52014d00008f6c805d7",
         "signature": "600398810bc4abd29d85cb566f2a2c6a8925aa500934b52014d00008f6c805d7"
       },
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/view.ts": {
-        "version": "08112c2f672082296f568298339027db17154c744f9600ae0c77af857329262a",
-        "signature": "1806fe63a3894b6dd0ca0a36587745b72b46b68d12943221ea1cef5af1cee385"
-      },
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts": {
-        "version": "157c47afe820cd7600c9bb35262426c7e1479fecfed7285a77ec3c737b89137f",
+        "version": "c43083f1974ac931016704cf85c657a5d23f072b0d35c1debd291d19e433f3f8",
         "signature": "53bc54aaf8ccaae2cb5510d086dd768be199b7d862a446a899371fd1f60b7f7d"
       }
     },
@@ -845,6 +1005,236 @@
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/take.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/zip.d.ts"
       ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/commands/lib/index.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menu.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menu.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/docklayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/focustracker.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menubar.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menu.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/index.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menu.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menubar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/graphicscontext.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/graphicscontext.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/renderermap.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/selectionmodel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datagrid.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/renderermap.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/selectionmodel.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basickeyhandler.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datagrid.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicmousehandler.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datagrid.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicselectionmodel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/selectionmodel.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/jsonmodel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/textrenderer.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/graphicscontext.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/index.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basickeyhandler.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicmousehandler.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicselectionmodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datagrid.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/graphicscontext.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/jsonmodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/renderermap.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/selectionmodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/textrenderer.d.ts"
+      ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts"
@@ -1475,14 +1865,24 @@
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/mimetype.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/syntaxstatus.d.ts"
       ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/view.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js"
+      ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codeeditor/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js"
+        "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/src/view.ts"
       ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/multipart-grammar.js": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/moo/moo.js"
@@ -1539,14 +1939,6 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts"
-      ],
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/view.ts": [
-        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js"
       ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
@@ -1630,6 +2022,236 @@
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/take.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/zip.d.ts"
       ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxlayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxpanel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/commands/lib/index.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/commandpalette.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menu.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/contextmenu.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/commands/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menu.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/docklayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/dockpanel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/focustracker.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/gridlayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menubar.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menu.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/scrollbar.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitlayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitpanel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabpanel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/index.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menu.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menubar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/graphicscontext.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/graphicscontext.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/renderermap.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/selectionmodel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datagrid.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/renderermap.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/selectionmodel.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basickeyhandler.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datagrid.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicmousehandler.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datagrid.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicselectionmodel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/selectionmodel.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/jsonmodel.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/textrenderer.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/graphicscontext.d.ts"
+      ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/index.d.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basickeyhandler.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicmousehandler.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicselectionmodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datagrid.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/graphicscontext.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/jsonmodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/renderermap.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/selectionmodel.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/textrenderer.d.ts"
+      ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts"
@@ -2260,16 +2882,23 @@
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/mimetype.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/syntaxstatus.d.ts"
       ],
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/view.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts"
+      ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/index.d.ts"
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/index.d.ts",
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/index.d.ts"
       ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts": [
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts"
+        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts"
       ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts"
@@ -2277,12 +2906,6 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts"
-      ],
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/view.ts": [
-        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
-        "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts"
       ],
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts": [
         "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/index.d.ts",
@@ -2322,8 +2945,6 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/token.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/uuid.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/coreutils/lib/index.d.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/array.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/iter.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/chain.d.ts",
@@ -2342,6 +2963,49 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/take.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/zip.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/algorithm/lib/index.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/signaling/lib/index.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/disposable/lib/index.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/messaging/lib/index.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/title.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/widget.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/layout.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panellayout.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxlayout.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/panel.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/commands/lib/index.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menu.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabbar.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/docklayout.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/dockpanel.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/focustracker.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/gridlayout.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/menubar.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/scrollbar.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/singletonlayout.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitlayout.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/splitpanel.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedlayout.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/stackedpanel.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/tabpanel.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/node_modules/@phosphor/widgets/lib/index.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datamodel.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/graphicscontext.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/cellrenderer.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/renderermap.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/selectionmodel.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/datagrid.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basickeyhandler.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicmousehandler.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/basicselectionmodel.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/jsonmodel.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/textrenderer.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/datagrid/lib/index.d.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxengine.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/signaling/lib/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/disposable/lib/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/title.d.ts",
@@ -2352,7 +3016,6 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/panel.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/boxpanel.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/commands/lib/index.d.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/virtualdom/lib/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/commandpalette.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/menu.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@phosphor/widgets/lib/contextmenu.d.ts",
@@ -2462,6 +3125,8 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/syntaxstatus.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/codemirror/lib/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/uuid-v1.js",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/view.ts",
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@types/sparqljs/index.d.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/nearley/lib/nearley.js",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/replication/lib/moo/moo.js",
@@ -2479,9 +3144,7 @@
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/algebra.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/src/comment.ts",
       "/development/source/library/com/github/datagraph/jupyter-extensions/node_modules/@jupyterlab/rendermime-interfaces/lib/index.d.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/view.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts",
-      "/development/source/library/com/github/datagraph/jupyter-extensions/src/layer.ts"
+      "/development/source/library/com/github/datagraph/jupyter-extensions/src/index.ts"
     ]
   },
   "version": "3.5.3"

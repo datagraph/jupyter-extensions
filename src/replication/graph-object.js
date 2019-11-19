@@ -458,5 +458,5 @@ Row._persistentProperties = ['_identifier', '_mail'];
 var r = new Row("a name");
 */
 
-console.log('graph-object.js: loaded');
+// console.log('graph-object.js: loaded');
 
