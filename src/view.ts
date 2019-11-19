@@ -1,4 +1,4 @@
-/ Copyright (c) 2019 datagraph gmbh
+// Copyright (c) 2019 datagraph gmbh
 
 /* View class implementation
 
