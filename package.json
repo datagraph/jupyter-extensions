@@ -37,6 +37,7 @@
     "@types/sparqljs": "^2.1.0",
     "@types/uuid": "^3.4.5",
     "codemirror": "^5.49.2",
+    "mxgraph": "^4.0.6",
     "phosphor-dockpanel": "^0.9.7",
     "phosphor-float-area": "^0.1.2",
     "sparqljs": ""
