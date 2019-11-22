@@ -62,10 +62,7 @@ export class SparqlOperationView extends OperationView {
 	super(operation, options);
 	var thisNode = this.node;
 	var createLayer = function(operation : SparqlOperation) {
-	    var layer : SparqlLayer = new SparqlLayer(operation,
-						      {host: null,
-						       id: operation.id,
-						       mode: 'closed'});
+	    var layer : SparqlLayer =<SparqlLayer>(<unknown> operation.computeView({host: null, mode: 'closed'}));
 	    // console.log('createLayer: operation+layer:', operation, layer);
 	    return( layer );
 	};

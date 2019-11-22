@@ -19,16 +19,15 @@
   */
 
 var layers = new Array();
-import { DataModel, DataGrid } from '@phosphor/datagrid';
+// version incompatibility import { DataModel, DataGrid } from '@phosphor/datagrid';
 //import { DataModel } from '@phosphor/datagrid/lib/datamodel';
 import { JSONObject } from '@phosphor/coreutils';
-import { ConnectionModel, Operation, SparqlOperation } from './algebra';
+import { BGP, Operation, SparqlOperation } from './algebra';
 import { Widget, DockPanel } from '@phosphor/widgets';
 import { CodeMirrorEditor } from '@jupyterlab/codemirror';
 import { CodeEditor } from '@jupyterlab/codeeditor';
 import { MessageLoop } from '@phosphor/messaging';
 import * as $uuid from './replication/lib/uuid-v1.js';
-import { OperationView } from './view';
 
 export interface SparqlLayerContext {
     parentLayer: SparqlLayer;
@@ -45,17 +44,17 @@ export class Layer extends Widget {
     id: string;
     operation: Operation;
     panes: Array<LayerPane> = [];
-    panel: DockPanel = null;
+    panel: DockPanel;
     /* mode is initially null in order to cause an initial resize. */
-    _mode: string = null;
-    modeIcon: HTMLElement = null;
-    titleItem: HTMLElement = null;
-    closeIcon: HTMLElement = null;
-    executeIcon: HTMLElement = null;
-    header: HTMLElement = null;
-    body: HTMLElement = null;
-    footer: HTMLElement = null;
-    _expressionPane: ExpressionPane = null;
+    _mode: string;
+    modeIcon: HTMLElement;
+    titleItem: HTMLElement;
+    closeIcon: HTMLElement;
+    executeIcon: HTMLElement;
+    header: HTMLElement;
+    body: HTMLElement;
+    footer: HTMLElement;
+    _expressionPane: ExpressionPane;
     _left: number = 0;
     _top: number = 0;
     _width: number = 0;
@@ -64,9 +63,9 @@ export class Layer extends Widget {
     openWidth = 300;
     closedHeight = 20;
     closedWidth = 172;
-    downEvent : DragEvent = null;
-    upEvent : DragEvent = null;
-    moveEvent : MouseEvent = null;
+    downEvent : DragEvent;
+    upEvent : DragEvent;
+    moveEvent : MouseEvent;
     
     constructor(operation: Operation, options: JSONObject = {}) {
 	super({ node:  document.createElement('div') });
@@ -124,15 +123,13 @@ export class Layer extends Widget {
     geometry() : WidgetGeometry {
 	return( {left: this._left, top: this._top, width: this._width, height: this._height} );
     }
+    /* execute the layer's operation.
+       it holds the definitive expression - independent of the pane content.
+    */
     execute() {
 	let op = this.operation;
-	let expression = this.expression;
-	let connection : ConnectionModel = (<OperationView>this.parent).connection.model();
 	if (op) {
-	    if (op.expression != expression) {
-		op.expression = expression;
-	    }
-	    op.execute(connection);
+	    op.execute();
 	}
     }
     /*
@@ -196,7 +193,6 @@ export class Layer extends Widget {
 	this.panes = this.createPanes(operation, options);
 	this.panel = this.createPanel(this.panes);
 	// console.log("layer construct panel style before", this.panel.node.style);
-	this.panel.node.style.height = "180px";
 	MessageLoop.sendMessage(this.panel, Widget.Msg.BeforeAttach);
 	this.body.appendChild(this.panel.node);
 	MessageLoop.sendMessage(this.panel, Widget.Msg.AfterAttach);
@@ -246,6 +242,11 @@ export class Layer extends Widget {
 	    panel.addWidget(next, {mode: 'tab-after', ref: left});
 	    left = next;
 	});
+	panel.node.style.position = "absolute";
+	panel.node.style.top = "0px";
+	panel.node.style.left = "0px";
+	panel.node.style.bottom = "0px";
+	panel.node.style.right = "0px";
 	node.style.position = "absolute";
 	node.style.top = "0px";
 	node.style.left = "0px";
@@ -307,8 +308,13 @@ export class Layer extends Widget {
 	}
     }
 
-    present(operation: Operation = this.operation) {
-	this.panes.forEach(function(pane: LayerPane) { pane.present(operation); });
+    present(operation: Operation = this.operation, paneTitle: string = null) {
+	this.panes.forEach(function(pane: LayerPane) {
+	    if ((! paneTitle) || pane.title.label == paneTitle) {
+		console.log('pane.present: ', paneTitle, pane.title.label);
+		pane.present(operation);
+	    }
+	});
     }
 }
 
@@ -349,10 +355,10 @@ export class MetadataLayer extends Layer {
 	return( body );
     }
 
-    present(operation: Operation) {
+    present(operation: Operation, pane: string = null) {
 	var body = this.body;
 	while (body.firstChild) {
-	    body.removeChild(body.firstChild)
+	    body.removeChild(body.firstChild);
 	}
 	var table = Layer.createElement('table', {style: 'border: solid blue 1px; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; display: block;'});
 	var tbody = Layer.createElement('tbody');
@@ -474,8 +480,17 @@ export class SparqlLayer extends Layer {
     }
 }
 
+export class SparqlBgpLayer extends SparqlLayer {
+    createPanes(operation: SparqlOperation, options: JSONObject) : Array<LayerPane> {
+	return ( [ new SparqlQueryPane(operation, options),
+		   new SparqlResultsPane(operation, options),
+		   new SparqlPredicatesPane(operation, options)] );
+    }
+}
+
+
 export class LayerPane extends Widget {
-    operation : Operation = null;
+    operation : Operation;
     constructor(operation: Operation, options: JSONObject = {}) {
 	super({node: Layer.createElement('div', {style: "display: block; position:absolute; left: 0px; top; 20px; right: 0px; bottom: 20px;"})});
 	// console.log("LayerPane.options: ", options);
@@ -485,7 +500,6 @@ export class LayerPane extends Widget {
 	this.operation = operation;
     }
     createNode(node: HTMLElement, options: JSONObject): HTMLElement {
-//	node.innerHTML = "<span>" + (options.title || "Pane") + "</span>";
 	return( node );
     }
     present(operation: Operation) {} 
@@ -550,6 +564,77 @@ export class SparqlResultsPane extends LayerPane {
     }
 }
 
+export class SparqlPredicatesPane extends LayerPane {
+    predicateTBody : HTMLElement; //!!DO NOT initialize, otherwise rewritte typescript set to that value in constructor
+    constructor(operation: Operation, options: JSONObject = {}) {
+	super(operation, Object.assign({}, {title: 'predicates'}, options['predicates']));
+    }
+    createNode(node: HTMLElement, options: JSONObject) : HTMLElement {
+	super.createNode(node, options);
+	var node = this.node;
+	var table = Layer.createElement('table', {style: 'border: solid blue 1px; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; display: block;'});
+	var tbody = Layer.createElement('tbody', {style: ""});
+	node.style.overflow = "auto";
+	node.appendChild(table);
+	table.appendChild(tbody);
+	//this.predicateTBody = tbody;
+	Object.defineProperty(this, 'predicateTBody', {
+	    value: tbody,
+	    writable: false
+	});
+	console.log('spp.cn: ', this, tbody);
+	return( node );
+    }
+
+    activate() {
+	var tbody = this.predicateTBody;
+	if (! tbody.firstChild) { // first time
+	    this.present(this.operation);
+	}
+    }
+
+    present(operation: Operation) {
+	var tbody = this.predicateTBody;
+	console.log('SparqlBgpPane.present: ', this, tbody);
+	while (tbody.firstChild) {
+	    tbody.removeChild(tbody.firstChild);
+	}
+	var presentPredicates = function(predicates: string[]) {
+	    predicates.forEach(function(predicate: string) {
+		var row = Layer.createElement('tr', {style: ''});
+		var labelItem = Layer.createElement('td', {style: ''});
+		var variableItem = Layer.createElement('td', {style: 'border-right: solid black 1px;', width: "12em"});
+		var checkItem = Layer.createElement('td', {style: 'border-right: solid black 1px;', width: "32px"});
+		var handleStateChange = function(event : Event) {
+		    var checked = (<HTMLInputElement>(event.target)).checked;
+		    (<BGP>operation).setPredicateState(predicate, checked);
+		}
+		var handleTextChange = function(event : Event) {
+		    var text : string = (<HTMLInputElement>(event.target)).value;
+		    (<BGP>operation).setPredicateDimension(predicate, text);
+		}
+		var checkboxItem : HTMLInputElement =<HTMLInputElement> Layer.createElement('input', {type: 'checkbox'});
+		var textItem : HTMLInputElement =<HTMLInputElement> Layer.createElement('input', {type: 'text'});
+		checkboxItem.onchange = handleStateChange;
+		if ((<BGP>operation).getPredicateState(predicate)) {
+		    checkboxItem.checked = true;
+		}
+		textItem.onchange = handleTextChange;
+		labelItem.innerText = predicate;
+		textItem.value = (<BGP>operation).getPredicateDimension(predicate);
+		checkItem.appendChild(checkboxItem);
+		variableItem.appendChild(textItem);
+		row.appendChild(checkItem);
+		row.appendChild(variableItem);
+		row.appendChild(labelItem);
+		tbody.appendChild(row);
+	    });
+	};
+	(<SparqlOperation>operation).withPredicates(presentPredicates);
+    }
+}
+
+/* datagrid invompatibility
 class SparqlDataModel extends DataModel {
     _columnCount : number;
     _rowCount : number;
@@ -584,3 +669,4 @@ export class SparqlFieldResultsPane extends SparqlResultsPane {
 	this.datamodel = new FieldDataModel();
     }
 }
+*/

@@ -151,10 +151,11 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
 	  return( response );
       }
       let handleResponseText = function(text: string) : SparqlOperationView {
-	  var operation : SparqlOperation = SparqlOperation.translateSparqlExpression(text)
+	  var operation : SparqlOperation = SparqlOperation.translateSparqlExpression(text);
+	  operation.connect(thisCanvas.connectionOperation);
 	  if (operation) {
 	      return ( new SparqlOperationView(operation, {host: <JSONValue>(<unknown>thisCanvas.graph),
-							   connection: this.connectionOperation}) );
+							   connection: <JSONValue>(<unknown>thisCanvas.connectionOperation)}) );
 
 	      /*operation.mapSourceTree(function(operation: SparqlOperation, location: JSONObject) {
 		  var position = (100 + (count * 20)) + "px";

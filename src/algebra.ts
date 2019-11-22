@@ -35,7 +35,7 @@
 
 import { JSONObject } from '@phosphor/coreutils';
 // import { JSONValue } from '@phosphor/coreutils';
-import { Layer, SparqlLayer } from './layer';
+import { Layer, SparqlLayer, SparqlBgpLayer } from './layer';
 import { Parser, Generator,
 	 SparqlQuery, BaseQuery, Query, // Update,
 	 AskQuery, ConstructQuery, DescribeQuery, SelectQuery,
@@ -76,19 +76,62 @@ type TypedTermList = TypedTerm[];
 type PatternList = Pattern[];
 type SparqlOperationList = SparqlOperation[];
 type SparqlFormList = SparqlForm[];
+type StringList = string[];
 
 //interface Variable {termType: 'Variable'|'Wildcard', value: string}
 interface SparqlOptions extends OperationOptions {
-    dimensions?: string[],
-    variables?: TypedTermList,
-    expression?: string,
-    form?: SparqlForm
+    dimensions?: string[];
+    variables?: TypedTermList;
+    expression?: string;
+    form?: SparqlForm;
 };
-interface OperationOptions {
-    id?: string,
-    connection? : ConnectionModel,
-    mode?: string
+interface SparqlBGPOptions extends SparqlOptions {
+    subjectVariable? : string;
 }
+
+interface OperationOptions {
+    id?: string;
+    connection? : ConnectionModel;
+    mode?: string;
+}
+interface SparqlResultJson {
+    head: JSONObject;
+    results: { bindings: Array<JSONObject> };
+}
+interface TriplePattern {
+    subject?: TypedTerm;
+    predicate?: TypedTerm;
+    object?: TypedTerm;
+}
+export function tripleSubject(triple: Triple) : TypedTerm {
+    return( <TypedTerm> (<unknown>triple.subject) );
+}
+export function triplePredicate(triple: Triple) : TypedTerm {
+    return( <TypedTerm> (<unknown>triple.predicate) );
+}
+export function tripleObject(triple: Triple) : TypedTerm {
+    return( <TypedTerm> (<unknown>triple.object) );
+}
+export function setTripleObject(triple: Triple, object: TypedTerm) : TypedTerm{
+    triple.object =<Term>(<unknown>object);
+    return( object );
+}
+export function termEqual(term1: TypedTerm, term2: TypedTerm) {
+    return( term1 && term2
+	    && (term1.termType == term2.termType)
+	    && (term1.value == term2.value) );
+}
+export function findTriplePattern(triples: Triple[], triplePattern: TriplePattern) {
+    var found : Triple = null;
+    triples.forEach(function(triple: Triple) {
+	if ( (triplePattern.subject ? termEqual(triplePattern.subject, tripleSubject(triple)) : true)
+	     && (triplePattern.predicate ? termEqual(triplePattern.predicate, triplePredicate(triple)) : true)
+	     && (triplePattern.object ? termEqual(triplePattern.object, tripleObject(triple)) : true) ) {
+	    found = triple;
+	} });
+    return( found );
+}
+
 export class Operation {
     id: string;
     operator: string = undefined;
@@ -139,11 +182,14 @@ export class Operation {
     
     execute(connection : ConnectionModel = this.connection) {
     }
-    acceptResponse(response: any) {
+    acceptResponse(response: Response) {
+	var thisOperation = this;
+	console.log('ar: ', response);
 	response.text().then(function(text: string) {
-	    this.responseText = text;
-	    this.responseObject = this.parseResponse(text);
-	    if (this.view) { this.present(); }
+	    console.log('ar.text: ', thisOperation, response, text);
+	    thisOperation.responseText = text;
+	    thisOperation.responseObject = thisOperation.parseResponse(text);
+	    if (thisOperation.view) { thisOperation.view.present(thisOperation, 'results'); }
 	});
     }
     present(view: Layer = this.view) {
@@ -156,7 +202,7 @@ export class Operation {
 	return( {} );
     }
     parseResponse(text: string) {
-	return ( {} );
+	return ( {text: text} );
     }
     /* compute the expression string given a form object
      */
@@ -214,9 +260,12 @@ export class SparqlOperation extends Operation {
     _form: SparqlForm ; // the immediate sparql form object
     source: SparqlOperation = null;
     child: SparqlOperation = null;
+    destination: SparqlOperation = null;
+    parent: SparqlOperation = null;
     dimensions : Array<string> = null;
-    dimensionToProperty = {};
-    propertyToDimension = {}
+    dimensionToProperty = new Map();
+    propertyToDimension = new Map();
+    predicates: string[] = null;
     static formTranslators = new SparqlTranslatorMap();
 
     
@@ -257,7 +306,7 @@ export class SparqlOperation extends Operation {
 	var dimensions = new Array();
 	if (terms) {
 	    terms.forEach(function(term : TypedTerm) {
-		if (term.termType == 'Variable') {
+		if (isVariable(term)) {
 		    dimensions.push(term.value);
 		}});
 	}
@@ -267,21 +316,60 @@ export class SparqlOperation extends Operation {
 	var namedNodes = new Array();
 	if (terms) {
 	    terms.forEach(function(term : TypedTerm) {
-		if (term.termType == 'NamedNode') {
+		if (isNamedNode(term)) {
 		    namedNodes.push(term.value);
 		}});
 	}
 	return( namedNodes );
     }
+
+    /* withPredicates expects a continution, which will be invoked with the predicates
+       which are available in the operator's view. These are retrieved asynchronously
+       on demand and cached, whereby the retrieval is delegated to the root operation.
+    */
+    withPredicates(continuation : (predicates: StringList) => any) : void{
+	var thisOperation = this;
+	var acceptPredicates = function(predicates: string[]) {
+	    thisOperation.predicates = predicates;
+	    continuation(predicates);
+	}
+	if (this.predicates ) {
+	    return( continuation(this.predicates) );
+	} else if (this.parent || this.destination) { // delegate the retrieval to parent
+	    (this.parent || this.destination).withPredicates(acceptPredicates);
+	} else { // retrieve here
+	    this.fetchPredicates(acceptPredicates);
+	}
+    }
+		  
+    fetchPredicates(continuation : (predicates: StringList) => any, connection : ConnectionModel = this.connection) {
+	SPARQL.get(connection.location, "SELECT distinct ?p WHERE { {?s ?p ?o} UNION {GRAPH ?g {?s ?p ?o}} } ORDER BY ?p",
+		   { authentication: connection.authentication, Accept: 'application/sparql-results+json' }).
+	    then(function(response : Response) {
+		console.log("fp: response: ", response);
+		return(response.json());
+	    }).
+	    then(function(result : SparqlResultJson) {
+		console.log("fp: json: ", result);
+		var predicates : StringList = result.results.bindings.map(function(binding:JSONObject) {
+		    return( (<TypedTerm>(<unknown>binding.p)).value );
+		});
+		console.log("fp: predicates: ", predicates);
+		continuation(predicates);
+	    });
+    }
+    
     model() {
 	return( {'expression': this.expression, 'response': this.responseText,
 		 'data': this.responseObject} );
     }
     execute(connection : ConnectionModel = this.connection) {
-	SPARQL.get(connection.location, this.queryExpression).then(this.acceptResponse);
+	var thisOperation = this;
+	SPARQL.get(connection.location, this.queryExpression).
+	    then(function(response : Response) { thisOperation.acceptResponse(response); });
     }
-    computeView() : Layer {
-	let view = new SparqlLayer(this);
+    computeView(options: JSONObject = {}) : Layer {
+	let view = new SparqlLayer(this, Object.assign({}, options, {id: this.id}));
 	return( view );
     }
     computeExpression() : string {
@@ -389,6 +477,19 @@ export class SparqlOperation extends Operation {
 	}
 	return( results );
     }
+    mapOperations(op : (operation:SparqlOperation) => any) {
+	op(this);
+	if (this.source) { this.source.mapOperations(op); }
+	if (this.child) { this.child.mapOperations(op); }
+    }
+    connect(connection : ConnectionOperation) {
+	var thisOperation = this;
+	this.mapOperations(function(op: SparqlOperation) {
+	    op.connection = connection.model();
+	    if (thisOperation.child) { thisOperation.child.parent = thisOperation; }
+	    if (thisOperation.source) { thisOperation.source.destination = thisOperation; }
+	});
+    }
     get relations() : OperationRelation {
 	return( {operation: this, source: this.source} );
     }
@@ -424,12 +525,24 @@ export class Ask extends SparqlOperation {
 
 /*
  The BGP class comprises a sequence of statement patterns
+ It also catalogs the available prdicates to be included in statement patterns
  */
 export class BGP extends SparqlOperation {
     _triples: Triple[];
-    constructor(triples: Triple[], options: SparqlOptions = {}) {
+    subjectVariable : string;
+    constructor(triples: Triple[], options: SparqlBGPOptions = {}) {
 	super(options);
+	var findSubjectVariable = function (triples: Triple[]) {
+	    var found : Triple = triples.find(function(triple) {
+		var term : TypedTerm = tripleSubject(triple);
+		return( isVariable(term) );
+	    });
+	    return ( found ? tripleSubject(found).value : null );
+	}
 	this.triples = triples;
+	this.subjectVariable = <string>options.subjectVariable
+	    || findSubjectVariable(triples)
+	    || 'subject';
     }
     
     computeForm() : GroupPattern {
@@ -445,23 +558,78 @@ export class BGP extends SparqlOperation {
 			      prefixes: {}};
 	return( <SelectQuery>query );
     }
-
+    computeView(options: JSONObject = {}) : Layer {
+	let view = new SparqlBgpLayer(this, Object.assign({}, options, {id: this.id}));
+	return( view );
+    }
     set triples(triples: Triple[]) {
 	this._triples = triples;
-	this.propertyToDimension = {};
-	this.dimensionToProperty = {};
+	this.propertyToDimension.clear();
+	this.dimensionToProperty.clear();
 	triples.forEach(function(triple: Triple) {
-	    var predicate : TypedTerm = (<TypedTerm>(<unknown>triple.predicate));
-	    var object : TypedTerm = (<TypedTerm>(<unknown>triple.object));
+	    var predicate : TypedTerm = triplePredicate(triple);
+	    var object : TypedTerm = tripleObject(triple);
 	    if (isNamedNode(predicate) && isVariable(object)) {
-		this.dimensionToProperty[<string>object.value] = predicate.value;
-		this.propertyToDimension[<string>predicate.value] = object.value;
+		this.dimensionToProperty.set(object.value, predicate.value);
+		this.propertyToDimensio.set(predicate.value, object.value);
 	    };
 	});
     }
     get triples() : Triple[] {
 	return( this._triples )
     }
+    getPredicateDimension(predicate: string) {
+	var variable = this.propertyToDimension.get(predicate);
+	if (! variable) {
+	    variable = new URL(predicate).pathname.split('/').pop();
+	    this.setPredicateDimension(predicate, variable);
+	}
+	return( variable );
+    }
+    setPredicateDimension(predicate: string, variable: string) {
+	this.propertyToDimension.set(predicate, variable);
+	this.dimensionToProperty.set(variable, predicate);
+	var triple: Triple = findTriplePattern(this.triples, {predicate: makeNamedNode(predicate)})
+	if (triple) {
+	    setTripleObject(triple, {termType: 'Variable', value: variable});
+	}
+    }
+    getPredicateState(predicate: string) : boolean {
+	return( findTriplePattern(this.triples, {predicate: makeNamedNode(predicate)}) ? true : false );
+    }
+    setPredicateState(predicate: string, state: boolean) {
+	var subject = this.subjectVariable;
+	var thisOperation = this;
+	var modified = false;
+	console.log('sps: ', this, predicate, state)
+	if (state) { // add triple
+	    if (! this._triples.some(function(triple) { return( triplePredicate(triple).value == predicate ); }) ) {
+		// add the triple
+		this._triples.push(<Triple><unknown>{subject: makeVariable(subject),
+						     predicate: makeNamedNode(predicate),
+						     object: makeVariable(thisOperation.getPredicateDimension(predicate))});
+		modified = true;
+	    }
+	} else {
+	    if (this._triples.some(function(triple) { return( triplePredicate(triple).value == predicate ); }) ) {
+		// remove triple
+		var triple: Triple = findTriplePattern(this.triples, {predicate: makeNamedNode(predicate)});
+		if (triple) {
+		    this.triples = this.triples.filter(function(test) { return( test !== triple ); });
+		    modified = true;
+		}
+	    }
+	}
+	console.log('sps: ', this, this.view, modified);
+	if (modified) { this.view.present(this, "query") };
+    }
+}
+
+export function makeNamedNode (predicate: string) : TypedTerm {
+    return( {termType: 'NamedNode', value: predicate} );
+}
+export function makeVariable (name: string) : TypedTerm {
+    return( {termType: 'Variable', value: name} );
 }
 
 function isNamedNode(object: TypedTerm) {
