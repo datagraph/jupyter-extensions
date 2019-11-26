@@ -1,6 +1,7 @@
 // Copyright (c) 2019 datagraph gmbh
 
-/* Layer abstract class implementation w/ concrete variations as per pane alternatives
+/** @overview
+  Layer abstract class implementation w/ concrete variations as per pane alternatives
 
   Widget
   -> Layer
@@ -16,13 +17,17 @@
   When its state changes, it invokes its layers present operation.
   The layer delegates that to each pane, in turn, which interogates the operation for data to display and
   performs the actual display.
+
+  data-flow between the layer and its respective operation is
+
+  operation.form -> operation.expression|queryExpression -> layer.expression -> pane.expresion
   */
 
 var layers = new Array();
 // version incompatibility import { DataModel, DataGrid } from '@phosphor/datagrid';
 //import { DataModel } from '@phosphor/datagrid/lib/datamodel';
 import { JSONObject } from '@phosphor/coreutils';
-import { BGP, Operation, SparqlOperation } from './algebra';
+import { BGP, Filter, Operation, SparqlOperation, } from './algebra';
 import { Widget, DockPanel } from '@phosphor/widgets';
 import { CodeMirrorEditor } from '@jupyterlab/codemirror';
 import { CodeEditor } from '@jupyterlab/codeeditor';
@@ -54,7 +59,6 @@ export class Layer extends Widget {
     header: HTMLElement;
     body: HTMLElement;
     footer: HTMLElement;
-    _expressionPane: ExpressionPane;
     _left: number = 0;
     _top: number = 0;
     _width: number = 0;
@@ -97,10 +101,20 @@ export class Layer extends Widget {
 	return( element );
     }
 
+    get expressionPane() : SparqlPane {
+	var expressionPane : SparqlPane = null;
+	this.panes.forEach(function(pane: LayerPane) {
+	    if (pane.title.label == 'query') {
+		expressionPane =<SparqlPane> pane;
+	    }
+	});
+	return( expressionPane );
+    }
     get expression() : string {
-	var pane = this._expressionPane;
+	var pane : SparqlPane = this.expressionPane;
 	return ( pane ? pane.expression : null);
     }
+
     move(left: number, top: number) {
 	if (this._left != left || this._top != top) {
 	    this._left = left;
@@ -236,9 +250,7 @@ export class Layer extends Widget {
 	var left: LayerPane = null;
 	var thisLayer = this;
 	panes.forEach(function(next) {
-	    if (next instanceof ExpressionPane) {
-		thisLayer._expressionPane = next;
-	    }
+	    next.layer = thisLayer;
 	    panel.addWidget(next, {mode: 'tab-after', ref: left});
 	    left = next;
 	});
@@ -316,6 +328,7 @@ export class Layer extends Widget {
 	    }
 	});
     }
+    
 }
 
 export class MetadataLayer extends Layer {
@@ -478,19 +491,37 @@ export class SparqlLayer extends Layer {
     printLinks(message: string) {
 	console.log(message, this, this.operation, this.sourceLayer, this.destinationLayer, this.childLayer, this.parentLayer);
     }
+    mapParentLayers(operator : (layer : SparqlLayer) => any) {
+	operator(this);
+	if (this.destinationLayer) { this.destinationLayer.mapParentLayers(operator); }
+	if (this.parentLayer) { this.parentLayer.mapParentLayers(operator); }
+    }
+    mapChildLayers(operator : (layer : SparqlLayer) => any) {
+	operator(this);
+	if (this.sourceLayer) { this.destinationLayer.mapChildLayers(operator); }
+	if (this.childLayer) { this.parentLayer.mapChildLayers(operator); }
+    }
 }
 
 export class SparqlBgpLayer extends SparqlLayer {
     createPanes(operation: SparqlOperation, options: JSONObject) : Array<LayerPane> {
-	return ( [ new SparqlQueryPane(operation, options),
+	return ( [ new SparqlPredicatesPane(operation, options),
 		   new SparqlResultsPane(operation, options),
-		   new SparqlPredicatesPane(operation, options)] );
+		   new SparqlQueryPane(operation, options)] );
     }
 }
 
+export class SparqlFilterLayer extends SparqlLayer {
+    createPanes(operation: SparqlOperation, options: JSONObject) : Array<LayerPane> {
+	return ( [ new SparqlFilterPane(operation, options),
+		   new SparqlResultsPane(operation, options),
+		   new SparqlQueryPane(operation, options)] );
+    }
+}
 
 export class LayerPane extends Widget {
     operation : Operation;
+    layer : Layer;
     constructor(operation: Operation, options: JSONObject = {}) {
 	super({node: Layer.createElement('div', {style: "display: block; position:absolute; left: 0px; top; 20px; right: 0px; bottom: 20px;"})});
 	// console.log("LayerPane.options: ", options);
@@ -502,23 +533,29 @@ export class LayerPane extends Widget {
     createNode(node: HTMLElement, options: JSONObject): HTMLElement {
 	return( node );
     }
-    present(operation: Operation) {} 
+    present(operation: Operation) {}
 }
 
 /**
- An ExpressionPane indicates that it is the pane which presents the operation's expression.
- It is intended that the layer contain just one Expression pane.
+ An SparqlPane indicates that it is the pane in a SparqlLayer and presents some
+ SPARQL expression which presents from the operation.
  @extends LayerPane
 */
-class ExpressionPane extends LayerPane {
+class SparqlPane extends LayerPane {
+    constructor(operation: SparqlOperation, options: JSONObject = {}) {
+	super(operation, options);
+    }
     get expression(): string { return( "" ); }
+    get sparqlLayer() : SparqlLayer {
+	return( <SparqlLayer> (this.layer) );
+    }
 }
 
 /**
  A SparqlQueryPane presents a SPARQL expression in a CodeMirror editor
- @extends ExpressionPane
+ @extends SparqlPane
 */
-export class SparqlQueryPane extends ExpressionPane {
+export class SparqlQueryPane extends SparqlPane {
     _editor: CodeMirrorEditor;
     constructor(operation: SparqlOperation, options: JSONObject = {}) {
 	super(operation, Object.assign({}, {title: 'query'}, options['query']));
@@ -529,16 +566,16 @@ export class SparqlQueryPane extends ExpressionPane {
 	this.addClass('CodeMirrorWidget');
 	this._editor = new CodeMirrorEditor({ host: node, model: new CodeEditor.Model()});
 	this._editor.setOption('lineNumbers', true);
-	let gutter = <HTMLElement>(node.getElementsByClassName('CodeMirror-gutter CodeMirror-linenumbers').item(0));
+	/*let gutter = <HTMLElement>(node.getElementsByClassName('CodeMirror-gutter CodeMirror-linenumbers').item(0));
 	if( gutter ) {
 	    gutter.style.width = '10px';
-	}
+	}*/
 	node.style.border = "solid green 1px";
 	return( node );
     }
     present(operation: SparqlOperation) {
 	var doc = this._editor.editor.getDoc();
-	var expression = operation.queryExpression;
+	var expression = operation.expression;
 	console.log('sqp.present: ', doc, expression);
 	doc.setValue(expression)
 	console.log('sqp.present+: ', doc.getValue());
@@ -564,9 +601,90 @@ export class SparqlResultsPane extends LayerPane {
     }
 }
 
-export class SparqlPredicatesPane extends LayerPane {
+export class SparqlFilterPane extends SparqlPane {
+    //!!DO NOT initialize, otherwise rewritte typescript set to that value in constructor
+    sourceElement : HTMLInputElement;
+    constraintElement : HTMLInputElement;
+    _editor : CodeMirrorEditor;
+
+    constructor(operation: SparqlOperation, options: JSONObject = {}) {
+	super(operation, Object.assign({}, {title: 'constraint'}, options['constraint']));
+    }
+    createNode(node: HTMLElement, options: JSONObject) : HTMLElement {
+	super.createNode(node, options);
+	var thisPane = this;
+	var node = this.node;
+	var sourceElement =<HTMLInputElement> Layer.createElement('input', {type: 'text', readonly: true, width: "20em"});
+	var constraintElement =<HTMLInputElement> Layer.createElement('div');
+	constraintElement.style.overflow = "auto";
+	let div : HTMLElement = null;
+	div = node.appendChild(Layer.createElement('div'));
+	div.appendChild(Layer.createElement('span')).innerText = 'source: ';
+	div.appendChild(sourceElement);
+	div = node.appendChild(Layer.createElement('div'));
+	div.appendChild(Layer.createElement('span')).innerText = 'constraint: ';
+	div.appendChild(constraintElement);
+	this.addClass('CodeMirrorWidget');
+	this._editor = new CodeMirrorEditor({ host: constraintElement, model: new CodeEditor.Model()});
+	this._editor.setOption('lineNumbers', true);
+	this.constraintElement = constraintElement;
+	this.sourceElement = sourceElement;
+	console.log('sfp.cn: ', this);
+
+	var handleTextChange = function(instance: any) {
+	    (<Filter>(thisPane.operation)).expression = thisPane.expression;
+	    console.log('sfp.hte: expression: ', thisPane.expression);
+	    console.log('sfp.hte: form: ', (<SparqlOperation>thisPane.operation).computeForm());
+	    var updateQueryText = function(layer : Layer) : void {
+		console.log('sfp.hte.uqt: ', layer);
+		layer.present(layer.operation, "query");
+	    }
+	    thisPane.sparqlLayer.mapParentLayers(updateQueryText);
+	}
+	this._editor.editor.on('blur', handleTextChange);
+
+	return( node );
+
+    }
+
+    activate() {
+	this.present(<Filter>(this.operation));
+    }
+
+    /* present a FILTER operation as its constraint expression and the source uuid
+     */
+
+    get expression() {
+	var expression : string = this._editor.editor.getDoc().getValue();
+	if (! expression.toUpperCase().startsWith('FILTER') ) {
+	    expression = 'FILTER ' + expression;
+	}
+	console.log("sfp: expression", expression);
+	return ( expression );
+    }
+    set expression(expression: string) {
+	var doc = this._editor.editor.getDoc();
+	doc.setValue(expression)
+	console.log('sfp.set-expression: ', doc.getValue());
+    }
+
+    present(operation: SparqlOperation) {
+	var sourceElement = this.sourceElement;
+	var filterOperation : Filter =<Filter> this.operation;
+	var sourceOperation = filterOperation.source;
+	var expression = filterOperation.computeExpression();
+	console.log('sfp.present: ', this, expression);
+	
+	sourceElement.value = (sourceOperation ? sourceOperation.id : "");
+	this.expression = expression;
+	console.log('sfp.present+: ', this, this.expression);
+    }
+
+}
+
+export class SparqlPredicatesPane extends SparqlPane {
     predicateTBody : HTMLElement; //!!DO NOT initialize, otherwise rewritte typescript set to that value in constructor
-    constructor(operation: Operation, options: JSONObject = {}) {
+    constructor(operation: SparqlOperation, options: JSONObject = {}) {
 	super(operation, Object.assign({}, {title: 'predicates'}, options['predicates']));
     }
     createNode(node: HTMLElement, options: JSONObject) : HTMLElement {
@@ -577,12 +695,8 @@ export class SparqlPredicatesPane extends LayerPane {
 	node.style.overflow = "auto";
 	node.appendChild(table);
 	table.appendChild(tbody);
-	//this.predicateTBody = tbody;
-	Object.defineProperty(this, 'predicateTBody', {
-	    value: tbody,
-	    writable: false
-	});
-	console.log('spp.cn: ', this, tbody);
+	this.predicateTBody = tbody;
+	console.log('spp.cn: ', this);
 	return( node );
     }
 
@@ -595,7 +709,7 @@ export class SparqlPredicatesPane extends LayerPane {
 
     present(operation: Operation) {
 	var tbody = this.predicateTBody;
-	console.log('SparqlBgpPane.present: ', this, tbody);
+	console.log('sbp.present: ', this);
 	while (tbody.firstChild) {
 	    tbody.removeChild(tbody.firstChild);
 	}
