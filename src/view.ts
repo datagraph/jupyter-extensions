@@ -20,7 +20,7 @@
 import { MessageLoop } from '@phosphor/messaging';
 import { JSONObject } from '@phosphor/coreutils';
 import { ConnectionOperation, Operation, SparqlOperation } from './algebra';
-import { SparqlLayer } from './layer';
+import { Layer, SparqlLayer } from './layer';
 import { Widget } from '@phosphor/widgets';
 import * as $uuid from './replication/lib/uuid-v1.js';
 
@@ -28,22 +28,26 @@ export class View extends Widget {
 }
 export class OperationView extends View {
     id: string;
+    name: string;
     operation: Operation;
     connection: ConnectionOperation;
     constructor(operation: Operation, options: JSONObject = {}) {
 	super();
 	var host =<HTMLElement>(<unknown>options.host) || document.body;
 	this.id = operation.id || <string>options.id || $uuid.v1();
+	this.name = <string>options.name || "?";
 	this.operation = operation;
 	this.connection = <ConnectionOperation> (<unknown>options.connection);
 	this.node.style.position = 'absolute';
 	this.node.style.display = 'block';
-	this.node.style.top = '100px';
-	this.node.style.left = '0px';
+	this.node.style.top = '110px';
+	this.node.style.left = '10px';
 	this.node.style.width = '1000px';
 	this.node.style.height = '500px';
 	this.node.style.border = "inset 2px";
 	this.node.style.resize = "both";
+	this.node.appendChild(Layer.createElement('div', {style: 'position: absolute; display: block; top: 0px; right: 0px'})).
+	    innerText = this.name;
 	MessageLoop.sendMessage(this, Widget.Msg.BeforeAttach);
 	host.appendChild(this.node);
 	MessageLoop.sendMessage(this, Widget.Msg.AfterAttach);

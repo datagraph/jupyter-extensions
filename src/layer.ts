@@ -27,7 +27,7 @@ var layers = new Array();
 // version incompatibility import { DataModel, DataGrid } from '@phosphor/datagrid';
 //import { DataModel } from '@phosphor/datagrid/lib/datamodel';
 import { JSONObject } from '@phosphor/coreutils';
-import { BGP, Filter, Operation, SparqlOperation, } from './algebra';
+import { BGP, Filter, Operation, Service, SparqlOperation, } from './algebra';
 import { Widget, DockPanel } from '@phosphor/widgets';
 import { CodeMirrorEditor } from '@jupyterlab/codemirror';
 import { CodeEditor } from '@jupyterlab/codeeditor';
@@ -88,8 +88,8 @@ export class Layer extends Widget {
 	this.openWidth = <number> options.width || this.openWidth;
 	this.openHeight = <number> options.height || this.openHeight;
 	// setting mode will resize
-	// console.log("in construct", this, this.modeIcon, this.executeIcon);
 	this.mode = <string>options.mode || 'open';
+	console.log("layer.c", this, this.operation, this.mode);
 	// console.log("layer.node.style: ", this.node.style);
 	MessageLoop.postMessage(this, Widget.ResizeMessage.UnknownSize);
 	this.update();
@@ -401,6 +401,7 @@ export class SparqlLayer extends Layer {
     constructor(operation: SparqlOperation, options: JSONObject = {}) {
 	super(operation,
 	      Object.assign({}, {title: "SPARQL"}, options));
+	this.mode = 'closed';
     }
     createFooter(operation: Operation, options: JSONObject) : HTMLElement {
 	var footer = Layer.createElement('div', { class: "foot dydra-ellipsis",
@@ -519,6 +520,38 @@ export class SparqlFilterLayer extends SparqlLayer {
     }
 }
 
+export class SparqlJoinLayer extends SparqlLayer {
+    createPanes(operation: SparqlOperation, options: JSONObject) : Array<LayerPane> {
+	return ( [ new SparqlComponentsPane(operation, options),
+		   new SparqlResultsPane(operation, options),
+		   new SparqlQueryPane(operation, options)] );
+    }
+}
+
+export class SparqlOptionalLayer extends SparqlLayer {
+    createPanes(operation: SparqlOperation, options: JSONObject) : Array<LayerPane> {
+	return ( [ new SparqlComponentsPane(operation, options),
+		   new SparqlResultsPane(operation, options),
+		   new SparqlQueryPane(operation, options)] );
+    }
+}
+
+export class SparqlUnionLayer extends SparqlLayer {
+    createPanes(operation: SparqlOperation, options: JSONObject) : Array<LayerPane> {
+	return ( [ new SparqlComponentsPane(operation, options),
+		   new SparqlResultsPane(operation, options),
+		   new SparqlQueryPane(operation, options)] );
+    }
+}
+
+export class SparqlServiceLayer extends SparqlLayer {
+    createPanes(operation: SparqlOperation, options: JSONObject) : Array<LayerPane> {
+	return ( [ new SparqlServicePane(operation, options),
+		   new SparqlResultsPane(operation, options),
+		   new SparqlQueryPane(operation, options)] );
+    }
+}
+
 export class LayerPane extends Widget {
     operation : Operation;
     layer : Layer;
@@ -549,6 +582,7 @@ class SparqlPane extends LayerPane {
     get sparqlLayer() : SparqlLayer {
 	return( <SparqlLayer> (this.layer) );
     }
+    get sparqlOperation(): SparqlOperation { return( <SparqlOperation>(this.operation) ); }
 }
 
 /**
@@ -669,8 +703,8 @@ export class SparqlFilterPane extends SparqlPane {
     }
 
     present(operation: SparqlOperation) {
+	var filterOperation : Filter =<Filter> operation;
 	var sourceElement = this.sourceElement;
-	var filterOperation : Filter =<Filter> this.operation;
 	var sourceOperation = filterOperation.source;
 	var expression = filterOperation.computeExpression();
 	console.log('sfp.present: ', this, expression);
@@ -679,7 +713,6 @@ export class SparqlFilterPane extends SparqlPane {
 	this.expression = expression;
 	console.log('sfp.present+: ', this, this.expression);
     }
-
 }
 
 export class SparqlPredicatesPane extends SparqlPane {
@@ -703,11 +736,11 @@ export class SparqlPredicatesPane extends SparqlPane {
     activate() {
 	var tbody = this.predicateTBody;
 	if (! tbody.firstChild) { // first time
-	    this.present(this.operation);
+	    this.present(this.sparqlOperation);
 	}
     }
 
-    present(operation: Operation) {
+    present(operation: SparqlOperation) {
 	var tbody = this.predicateTBody;
 	console.log('sbp.present: ', this);
 	while (tbody.firstChild) {
@@ -744,9 +777,109 @@ export class SparqlPredicatesPane extends SparqlPane {
 		tbody.appendChild(row);
 	    });
 	};
-	(<SparqlOperation>operation).withPredicates(presentPredicates);
+	operation.withPredicates(presentPredicates);
     }
 }
+
+
+/** a SparqlComponentsPane lists just the identities and roles of the operation's
+ * constituent operations
+ */
+export class SparqlComponentsPane extends SparqlPane {
+    sourceElement : HTMLInputElement;
+    childElement : HTMLInputElement;
+
+    constructor(operation: SparqlOperation, options: JSONObject = {}) {
+	super(operation, Object.assign({}, {title: 'components'}, options['components']));
+    }
+    createNode(node: HTMLElement, options: JSONObject) : HTMLElement {
+	super.createNode(node, options);
+	var node = this.node;
+	var sourceElement =<HTMLInputElement> Layer.createElement('input', {type: 'text', readonly: true, width: "20em"});
+	var childElement =<HTMLInputElement> Layer.createElement('input', {type: 'text', readonly: true, width: "20em"});
+	let div : HTMLElement = null;
+	div = node.appendChild(Layer.createElement('div'));
+	div.appendChild(Layer.createElement('span')).innerText = 'source: ';
+	div.appendChild(sourceElement);
+	div = node.appendChild(Layer.createElement('div'));
+	div.appendChild(Layer.createElement('span')).innerText = 'child: ';
+	div.appendChild(childElement);
+	this.childElement = childElement;
+	this.sourceElement = sourceElement;
+	console.log('scp.cn: ', this);
+	return( node );
+    }
+
+    activate() {
+	this.present(this.sparqlOperation);
+    }
+
+    /* present a two-component operation as its source and child uuid
+     */
+    present(operation: SparqlOperation) {
+	var sourceElement = this.sourceElement;
+	var childElement = this.childElement;
+	var childOperation = operation.child;
+	var sourceOperation = operation.source;
+
+	console.log('scp.present: ', this, childOperation, sourceOperation);
+	sourceElement.value = (sourceOperation ? sourceOperation.id : "----");
+	childElement.value = (childOperation ? childOperation.id : "????");
+	console.log('scp.present+: ', this, childElement, sourceElement);
+    }
+}
+
+/** a SparqlServicePane adds the service location, silent setting to the
+ * constituent operation ids
+ */
+export class SparqlServicePane extends SparqlComponentsPane {
+    locationElement : HTMLInputElement;
+    silentElement : HTMLInputElement;
+    
+    constructor(operation: SparqlOperation, options: JSONObject = {}) {
+	super(operation, Object.assign({}, {title: 'components'}, options['components']));
+    }
+    createNode(node: HTMLElement, options: JSONObject) : HTMLElement {
+	super.createNode(node, options);
+	var node = this.node;
+	var locationElement =<HTMLInputElement> Layer.createElement('input', {type: 'text', width: "20em"});
+	var silentElement =<HTMLInputElement> Layer.createElement('input', {type: 'checkbox'});
+	let div : HTMLElement = null;
+	
+	div = node.appendChild(Layer.createElement('div'));
+	div.appendChild(Layer.createElement('span')).innerText = 'location: ';
+	div.appendChild(locationElement);
+	div = node.appendChild(Layer.createElement('div'));
+	div.appendChild(Layer.createElement('span')).innerText = 'silent: ';
+	div.appendChild(silentElement);
+	this.locationElement = locationElement;
+	this.silentElement = silentElement;
+	console.log('ssp.cn: ', this);
+	return( node );
+    }
+
+    activate() {
+	this.present(this.sparqlOperation);
+    }
+
+    /* present a two-component operation as its source and child uuid
+     */
+    present(operation: SparqlOperation) {
+	var serviceOperation =<Service> operation;
+	var locationElement = this.locationElement;
+	var silentElement = this.silentElement;
+	var location = serviceOperation.location;
+	var silent = serviceOperation.silent;
+
+	super.present(operation);
+	console.log('ssp.present: ', this, location, silent);
+	locationElement.value = (location ? location.value: "");
+	silentElement.checked = (silent ? true : false);
+	console.log('ssp.present+: ', this);
+    }
+}
+
+
 
 /* datagrid invompatibility
 class SparqlDataModel extends DataModel {

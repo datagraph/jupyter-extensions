@@ -155,7 +155,8 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
 	  operation.connect(thisCanvas.connectionOperation);
 	  if (operation) {
 	      return ( new SparqlOperationView(operation, {host: <JSONValue>(<unknown>thisCanvas.graph),
-							   connection: <JSONValue>(<unknown>thisCanvas.connectionOperation)}) );
+							   connection: <JSONValue>(<unknown>thisCanvas.connectionOperation),
+							   name: view}) );
 
 	      /*operation.mapSourceTree(function(operation: SparqlOperation, location: JSONObject) {
 		  var position = (100 + (count * 20)) + "px";

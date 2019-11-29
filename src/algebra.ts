@@ -35,11 +35,12 @@
 
 import { JSONObject } from '@phosphor/coreutils';
 // import { JSONValue } from '@phosphor/coreutils';
-import { Layer, SparqlLayer, SparqlBgpLayer, SparqlFilterLayer } from './layer';
+import { Layer, SparqlLayer, SparqlBgpLayer, SparqlFilterLayer, SparqlJoinLayer, SparqlOptionalLayer,
+	 SparqlServiceLayer, SparqlUnionLayer } from './layer';
 import { Parser, Generator,
 	 SparqlQuery, BaseQuery, Query, // Update,
 	 AskQuery, ConstructQuery, DescribeQuery, SelectQuery,
-	 Pattern, BgpPattern, BindPattern, BlockPattern, FilterPattern, GraphPattern, GroupPattern, ValuesPattern,
+	 Pattern, BgpPattern, BindPattern, BlockPattern, FilterPattern, GraphPattern, GroupPattern, ServicePattern, ValuesPattern,
 	 ValuePatternRow, Variable, Term, PropertyPath, Expression,
 	 Triple} from 'sparqljs';
 var parser = new Parser();
@@ -103,6 +104,14 @@ interface TriplePattern {
     predicate?: TypedTerm;
     object?: TypedTerm;
 }
+
+function TypedTerm(object : any) : TypedTerm {
+    return(<TypedTerm> (<unknown> object) );
+}
+function Term(object : TypedTerm) : Term {
+    return(<Term> (<unknown> object) );
+}
+
 export function tripleSubject(triple: Triple) : TypedTerm {
     return( <TypedTerm> (<unknown>triple.subject) );
 }
@@ -277,7 +286,7 @@ class SparqlTranslatorMap extends Map {
 	// console.log("translator map:", type, translator);
 	return( translator ||
 		function(sparqlObject: SparqlForm) {
-		    // console.log(`translation failed: ${sparqlObject.type}: ${JSON.stringify(sparqlObject)}`);
+		    console.log(`translation unknown: ${sparqlObject.type}: ${JSON.stringify(sparqlObject)}`);
 		    return( new Unit({form: sparqlObject}) );
 		} );
     };
@@ -537,9 +546,6 @@ export class SparqlOperation extends Operation {
 	    if (thisOperation.source) { thisOperation.source.destination = thisOperation; }
 	});
     }
-    get relations() : OperationRelation {
-	return( {operation: this, source: this.source} );
-    }
 }
 
 /* concreate sparql classes - one for each operator
@@ -617,6 +623,7 @@ export class BGP extends SparqlOperation {
 	return( view );
     }
     set triples(triples: Triple[]) {
+	var thisBGP = this;
 	this._triples = triples;
 	this.propertyToDimension.clear();
 	this.dimensionToProperty.clear();
@@ -624,8 +631,8 @@ export class BGP extends SparqlOperation {
 	    var predicate : TypedTerm = triplePredicate(triple);
 	    var object : TypedTerm = tripleObject(triple);
 	    if (isNamedNode(predicate) && isVariable(object)) {
-		this.dimensionToProperty.set(object.value, predicate.value);
-		this.propertyToDimensio.set(predicate.value, object.value);
+		thisBGP.dimensionToProperty.set(object.value, predicate.value);
+		thisBGP.propertyToDimension.set(predicate.value, object.value);
 	    };
 	});
     }
@@ -799,6 +806,7 @@ export class Filter extends SparqlOperation {
 		    }
 	return( <SelectQuery>query );
     }
+
     computeView(options: JSONObject = {}) : Layer {
 	let view = new SparqlFilterLayer(this, Object.assign({}, options, {id: this.id}));
 	return( view );
@@ -851,10 +859,6 @@ export class Graph extends SparqlOperation {
 	}
 	return( results );
     }
-
-    get relations() {
-	return( Object.assign({}, {child: this.child} , super.relations) );
-    }
 }
 
 /*
@@ -886,6 +890,7 @@ export class Join extends SparqlOperation {
 			      prefixes: {}}
 	return( <SelectQuery>query );
     }
+
     mapSourceTree(op : (operation:SparqlOperation, location: JSONObject) => any, results: Array<any> = new Array(), state: JSONObject = {}) : Array<any>{
 	super.mapSourceTree(op, results, state);
 	if (this.child) {
@@ -893,8 +898,10 @@ export class Join extends SparqlOperation {
 	}
 	return( results );
     }
-    get relations() {
-	return( Object.assign({}, {child: this.child} , super.relations) );
+
+    computeView(options: JSONObject = {}) : Layer {
+	let view = new SparqlJoinLayer(this, Object.assign({}, options, {id: this.id}));
+	return( view );
     }
 }
 
@@ -935,8 +942,9 @@ export class Optional extends SparqlOperation {
 	return( results );
     }
 
-    get relations() {
-	return( Object.assign({}, {child: this.child} , super.relations) );
+    computeView(options: JSONObject = {}) : Layer {
+	let view = new SparqlOptionalLayer(this, Object.assign({}, options, {id: this.id}));
+	return( view );
     }
 }
 
@@ -983,6 +991,7 @@ export class Union extends SparqlOperation {
 			      prefixes: {}}
 	return( <SelectQuery>query );
     }
+
     mapSourceTree(op : (operation:SparqlOperation, location: JSONObject) => any, results: Array<any> = new Array(), state: JSONObject = {}) : Array<any>{
 	super.mapSourceTree(op, results, state);
 	if (this.child) {
@@ -991,13 +1000,53 @@ export class Union extends SparqlOperation {
 	return( results );
     }
 
-    get relations() {
-	return( Object.assign({}, {child: this.child} , super.relations) );
+    computeView(options: JSONObject = {}) : Layer {
+	let view = new SparqlUnionLayer(this, Object.assign({}, options, {id: this.id}));
+	return( view );
     }
 }
 
 
-/*
+/**
+ * a Service represent a request to a remote SPARQL endpoint
+ */
+
+export class Service extends SparqlOperation {
+    silent : boolean;
+    location : TypedTerm;
+    constructor(location: TypedTerm, child: SparqlOperation, silent: boolean = false, options: SparqlOptions = {}) {
+	super(options);
+	this.location = location;
+	this.child = child;
+	this.silent = silent;
+    }
+
+    computeExpression() : string {
+	var form : ServicePattern = this.computeForm();
+	var expression : string = generator.createGenerator().service(form);
+	return( expression );
+    }
+
+    computeForm() : ServicePattern {
+	var childPattern =<Pattern> this.child.computeForm();
+	return( {type: 'service',
+		 name: Term(this.location),
+		 silent: this.silent,
+		 patterns: [ childPattern ] } );
+    }
+    computeQuery(): SelectQuery {
+	var where =<SparqlForm[]> SparqlOperation.mapSources(this, function(operation: SparqlOperation) { return( operation.form ); });	
+	var form = {type: 'query', queryType: 'SELECT', variables: SparqlOperation.wildcardVariableList, prefixes: {},
+		    where: where.reverse() };
+	return( <SelectQuery>form );
+    }
+    computeView(options: JSONObject = {}) : Layer {
+	let view = new SparqlServiceLayer(this, Object.assign({}, options, {id: this.id}));
+	return( view );
+    }
+}
+
+/**
  * a Unit represents a dimensioned, null field with no source.
  */
 
@@ -1023,6 +1072,7 @@ export class Unit extends SparqlOperation {
     }
 
 }
+
 
 
 export class Values extends SparqlOperation {
@@ -1203,6 +1253,19 @@ function translateUnionForm (sparqlForm: BlockPattern) : SparqlOperation {
     return( translationErrorUnit("invalid UNION form", sparqlForm) );
 }
 SparqlOperation.formTranslators.set('union', translateUnionForm);
+
+function translateServiceForm(sparqlForm: ServicePattern) : SparqlOperation {
+    var location = TypedTerm(sparqlForm.name);
+    var silent = sparqlForm.silent || false;
+    var patterns =<SparqlFormList> (<unknown> sparqlForm.patterns);
+    // console.log("tuf: patterns", patterns);
+    if (patterns && patterns.length == 1) {
+	var child = SparqlOperation.translateSparqlForm(patterns[0]);
+	return( new Service(location, child, silent) );
+    }
+    return( translationErrorUnit("invalid SERVICE form", sparqlForm) );
+}
+SparqlOperation.formTranslators.set('service', translateServiceForm);
 
 function translateUnitForm(sparqlForm: SelectQuery) : SparqlOperation {
     var variables =<TypedTermList> (<unknown>sparqlForm.variables);
