@@ -26,13 +26,18 @@
 var layers = new Array();
 // version incompatibility import { DataModel, DataGrid } from '@phosphor/datagrid';
 //import { DataModel } from '@phosphor/datagrid/lib/datamodel';
+import ResizeObserver from 'resize-observer-polyfill';
 import { JSONObject } from '@phosphor/coreutils';
 import { BGP, Filter, Operation, Service, SparqlOperation, } from './algebra';
 import { Widget, DockPanel } from '@phosphor/widgets';
+import { Message } from '@phosphor/messaging';
 import { CodeMirrorEditor } from '@jupyterlab/codemirror';
 import { CodeEditor } from '@jupyterlab/codeeditor';
 import { MessageLoop } from '@phosphor/messaging';
 import * as $uuid from './replication/lib/uuid-v1.js';
+import  ulog from "ulog";
+ulog.level = ulog.DEBUG;
+const log = ulog('view');
 
 export interface SparqlLayerContext {
     parentLayer: SparqlLayer;
@@ -264,6 +269,11 @@ export class Layer extends Widget {
 	node.style.left = "0px";
 	node.style.bottom = "0px";
 	node.style.right = "0px";
+
+	var observer = new ResizeObserver(function(entries) {
+	    panel.update();
+	});
+	observer.observe(node);
 	return( panel );
     }
 
@@ -329,6 +339,11 @@ export class Layer extends Widget {
 	});
     }
     
+    onActivateRequest(msg : Message) {
+	super.onActivateRequest(msg);
+	this.panel.update();
+    }
+
 }
 
 export class MetadataLayer extends Layer {
@@ -393,11 +408,11 @@ export class MetadataLayer extends Layer {
 
 export class SparqlLayer extends Layer {
     /* bind the source/destination operations' layers reciprocally */
-    sourceLayer : SparqlLayer = null;
-    destinationLayer : SparqlLayer = null;
+    sourceLayer : SparqlLayer;
+    destinationLayer : SparqlLayer;
     /* bind the group/pattern/expression operation's layer */
-    childLayer : SparqlLayer = null;
-    parentLayer : SparqlLayer = null;
+    childLayer : SparqlLayer;
+    parentLayer : SparqlLayer;
     constructor(operation: SparqlOperation, options: JSONObject = {}) {
 	super(operation,
 	      Object.assign({}, {title: "SPARQL"}, options));
@@ -471,7 +486,7 @@ export class SparqlLayer extends Layer {
 	var operation : SparqlOperation =<SparqlOperation> this.operation;
 	var source : SparqlOperation = operation.source;
 	var child : SparqlOperation = operation.child;
-	// console.log('linkLayer: ', this, operation, context, source, child);
+	console.log('linkLayer: ', this, operation, context, source, child);
 	this.parentLayer = context.parentLayer;
 	this.destinationLayer = context.destinationLayer;
 
@@ -483,7 +498,7 @@ export class SparqlLayer extends Layer {
 	    this.childLayer =<SparqlLayer> child.view;
 	    this.childLayer.linkLayer({destinationLayer: null, parentLayer: this});
 	}
-	// this.printLinks('linkLayer.complete: ');
+	this.printLinks('linkLayer.complete: ');
     }
     rootParent() : SparqlLayer {
 	return( this.parentLayer ? this.parentLayer.rootParent() : this );
@@ -611,11 +626,15 @@ export class SparqlQueryPane extends SparqlPane {
 	var doc = this._editor.editor.getDoc();
 	var expression = operation.expression;
 	console.log('sqp.present: ', doc, expression);
-	doc.setValue(expression)
+	doc.setValue(expression);
 	console.log('sqp.present+: ', doc.getValue());
     }
     get expression() {
 	return ( this._editor.editor.getDoc().getValue() );
+    }
+    onActivateRequest(msg : Message) {
+	super.onActivateRequest(msg);
+	this._editor.editor.refresh();
     }
 }
 
@@ -681,8 +700,10 @@ export class SparqlFilterPane extends SparqlPane {
 
     }
 
-    activate() {
+    onActivateRequest(msg : Message) {
+	super.onActivateRequest(msg);
 	this.present(<Filter>(this.operation));
+	this._editor.editor.refresh();
     }
 
     /* present a FILTER operation as its constraint expression and the source uuid
@@ -733,8 +754,9 @@ export class SparqlPredicatesPane extends SparqlPane {
 	return( node );
     }
 
-    activate() {
+    onActivateRequest(msg : Message) {
 	var tbody = this.predicateTBody;
+	super.onActivateRequest(msg);
 	if (! tbody.firstChild) { // first time
 	    this.present(this.sparqlOperation);
 	}
@@ -742,11 +764,18 @@ export class SparqlPredicatesPane extends SparqlPane {
 
     present(operation: SparqlOperation) {
 	var tbody = this.predicateTBody;
-	console.log('sbp.present: ', this);
+	log.debug('spp.present: ', this, operation);
 	while (tbody.firstChild) {
 	    tbody.removeChild(tbody.firstChild);
 	}
 	var presentPredicates = function(predicates: string[]) {
+	    log.debug('spp.present: predicates: ', predicates);
+	    var head = Layer.createElement('tr', {style: ''});
+	    ['enable', 'name', 'iri'].forEach(function(text:string) {
+		var header = Layer.createElement('th', {style: 'border-bottom: solid black 2px; border-right: solid black 1px;'});
+		head.appendChild(header).innerText = text;
+	    });
+	    tbody.appendChild(head);
 	    predicates.forEach(function(predicate: string) {
 		var row = Layer.createElement('tr', {style: ''});
 		var labelItem = Layer.createElement('td', {style: ''});
@@ -810,7 +839,8 @@ export class SparqlComponentsPane extends SparqlPane {
 	return( node );
     }
 
-    activate() {
+    onActivateRequest(msg : Message) {
+	super.onActivateRequest(msg);
 	this.present(this.sparqlOperation);
     }
 
@@ -858,7 +888,8 @@ export class SparqlServicePane extends SparqlComponentsPane {
 	return( node );
     }
 
-    activate() {
+    onActivateRequest(msg : Message) {
+	super.onActivateRequest(msg);
 	this.present(this.sparqlOperation);
     }
 

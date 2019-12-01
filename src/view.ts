@@ -23,6 +23,10 @@ import { ConnectionOperation, Operation, SparqlOperation } from './algebra';
 import { Layer, SparqlLayer } from './layer';
 import { Widget } from '@phosphor/widgets';
 import * as $uuid from './replication/lib/uuid-v1.js';
+import  ulog from "ulog";
+ulog.level = ulog.DEBUG;
+const log = ulog('view');
+
 
 export class View extends Widget {
 }
@@ -65,14 +69,16 @@ export class SparqlOperationView extends OperationView {
     constructor(operation: SparqlOperation, options: JSONObject = {}) {
 	super(operation, options);
 	var thisNode = this.node;
+	var layers : SparqlLayer[] = new Array();
 	var createLayer = function(operation : SparqlOperation) {
 	    var layer : SparqlLayer =<SparqlLayer>(<unknown> operation.computeView({host: null, mode: 'closed'}));
-	    // console.log('createLayer: operation+layer:', operation, layer);
+	    log.debug('createLayer: operation+layer:', operation, layer);
+	    layers.push(layer);
 	    return( layer );
 	};
 
-	var layers : SparqlLayer[] = operation.mapSourceTree(createLayer);
-	// console.log('layers: ', layers)
+	operation.mapOperations(createLayer);
+	log.debug('layers: ', layers)
 	layers[0].linkLayer({destinationLayer: null, parentLayer: null});
 	// var positionRootLayer = function(layer : SparqlLayer) {
 	//     console.log("pRL: layer: ", layer);
@@ -86,6 +92,7 @@ export class SparqlOperationView extends OperationView {
 	//     }
 	// }
 	var addLayer = function(layer: SparqlLayer) {
+	    log.debug('addLayer: ', layer);
 	    thisNode.appendChild(layer.node);
 	}
 	layers.forEach(addLayer);

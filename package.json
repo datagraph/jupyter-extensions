@@ -40,7 +40,9 @@
     "codemirror": "^5.49.2",
     "phosphor-dockpanel": "^0.9.7",
     "phosphor-float-area": "^0.1.2",
-    "sparqljs": "file:/development/source/library/com/github/datagraph/sparqljs"
+    "resize-observer-polyfill": "^1.5.1",
+    "sparqljs": "file:/development/source/library/com/github/datagraph/sparqljs",
+    "ulog": "^1.1.0"
   },
   "devDependencies": {
     "rimraf": "^2.6.3",
