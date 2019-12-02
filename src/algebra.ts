@@ -47,6 +47,10 @@ var parser = new Parser();
 var generator = new Generator({});
 import { SPARQL } from './replication/rdf-client';
 import * as $uuid from './replication/lib/uuid-v1.js';
+import ulog from "ulog";
+ulog.level = ulog.DEBUG;
+const log = ulog('view');
+
 
 interface VariableForm {
     type: string,
@@ -214,7 +218,7 @@ export class Operation {
      */
     acceptResponse(response: Response) {
 	var thisOperation = this;
-	console.log('ar: ', response);
+	log.debug('ar: response:', response);
 	response.text().then(function(text: string) {
 	    console.log('ar.text: ', thisOperation, response, text);
 	    thisOperation.responseText = text;
@@ -302,10 +306,10 @@ export class SparqlOperation extends Operation {
      * source/destination v/s child/parent distinguisn the lexical relation between
      * operation constituents and serves to arrange presentation layers
      */
-    source: SparqlOperation = null;
-    child: SparqlOperation = null;
-    destination: SparqlOperation = null;
-    parent: SparqlOperation = null;
+    _source: SparqlOperation;
+    _child: SparqlOperation;
+    _destination: SparqlOperation;
+    _parent: SparqlOperation;
     /** enumerate the variable names present in the composite query expression
      */
     dimensions : Array<string> = null;
@@ -378,6 +382,42 @@ export class SparqlOperation extends Operation {
 	return( namedNodes );
     }
 
+    get source() : SparqlOperation {
+	return( this._source );
+    }
+    set source(source : SparqlOperation) {
+	if (this._source != source) {
+	    this._source = source;
+	    if (source) { source.destination = this; }
+	}
+    }
+    get destination() : SparqlOperation {
+	return( this._destination );
+    }
+    set destination(destination : SparqlOperation) {
+	if (this._destination != destination) {
+	    this._destination = destination;
+	    if (destination) { destination.source = this; }
+	}
+    }
+    get child() : SparqlOperation {
+	return( this._child );
+    }
+    set child(child : SparqlOperation) {
+	if (this._child != child) {
+	    this._child = child;
+	    if (child) { child.parent = this; }
+	}
+    }
+    get parent() : SparqlOperation {
+	return( this._parent );
+    }
+    set parent(parent : SparqlOperation) {
+	if (this._parent != parent) {
+	    this._parent = parent;
+	    if (parent) { parent.child = this; }
+	}
+    }
     /* withPredicates expects a continution, which will be invoked with the predicates
        which are available in the operator's view. These are retrieved asynchronously
        on demand and cached, whereby the retrieval is delegated to the root operation.
@@ -399,7 +439,8 @@ export class SparqlOperation extends Operation {
 		  
     fetchPredicates(continuation : (predicates: StringList) => any, connection : ConnectionModel = this.connection) {
 	SPARQL.get(connection.location, "SELECT distinct ?p WHERE { {?s ?p ?o} UNION {GRAPH ?g {?s ?p ?o}} } ORDER BY ?p",
-		   { authentication: connection.authentication, Accept: 'application/sparql-results+json' }).
+		   { authentication: connection.authentication,
+		     Accept: 'application/sparql-results+json' }).
 	    then(function(response : Response) {
 		console.log("fp: response: ", response);
 		return(response.json());
@@ -420,8 +461,14 @@ export class SparqlOperation extends Operation {
     }
     execute(connection : ConnectionModel = this.connection) {
 	var thisOperation = this;
-	SPARQL.get(connection.location, this.queryExpression).
-	    then(function(response : Response) { thisOperation.acceptResponse(response); });
+	log.debug('execute...');
+	SPARQL.get(connection.location, this.queryExpression,
+		   { authentication: connection.authentication,
+		     Accept: this.acceptMediaType}).
+	    then(function(response : Response) {
+		log.debug('execute: response: ', response);
+		thisOperation.acceptResponse(response);
+	    });
     }
     computeView(options: JSONObject = {}) : Layer {
 	let view = new SparqlLayer(this, Object.assign({}, options, {id: this.id}));
@@ -480,7 +527,7 @@ export class SparqlOperation extends Operation {
 	if (queryObject) {
 	    return( SparqlOperation.translateSparqlForm(queryObject) );
 	} else {
-	    alert(`failed to parse: '${text}'`);
+	    log.warn(`failed to parse: '${text}'`);
 	    return( null );
 	}
     }
@@ -519,11 +566,21 @@ export class SparqlOperation extends Operation {
     static mapSources(operation : SparqlOperation, op : (operation:SparqlOperation) => any, results: Array<any> = new Array()) : Array<any>{
 	if (operation) {
 	    var result = op(operation);
-	    results.push(result);
+	    if (results) { results.push(result); }
 	    SparqlOperation.mapSources(operation.source, op, results);
 	}
 	return( results )
     }
+    static mapParents(operation : SparqlOperation, op : (operation:SparqlOperation) => any, results: Array<any> = new Array()) : Array<any>{
+	log.debug('mP: ', operation);
+	if (operation) {
+	    var result = op(operation);
+	    if (results) { results.push(result); }
+	    SparqlOperation.mapParents(operation.parent, op, results);
+	}
+	return( results )
+    }
+    
     mapSourceTree(op : (operation:SparqlOperation, location: JSONObject) => any, results: Array<any> = new Array(), state: JSONObject = {}) : Array<any>{
 	var result = op(this, state);
 	var source = this.source;
@@ -546,6 +603,28 @@ export class SparqlOperation extends Operation {
 	    if (thisOperation.source) { thisOperation.source.destination = thisOperation; }
 	});
     }
+
+    acceptResponse(response: Response) {
+	var thisOperation = this;
+	log.debug('ar: response:', response);
+	//for (var [k,v] of response.headers.entries()) { log.debug('ar: header:', [k,v])};
+	var acceptResponseObject = function(responseObject : JSONObject) {
+	    log.debug('ar: result: ', responseObject);
+	    thisOperation.responseObject = responseObject;
+	    if (thisOperation.view) { thisOperation.view.present(thisOperation, 'results'); }
+	};
+	SPARQL.decode(response, acceptResponseObject);
+    }
+    
+    withResults(continuation : (dimensions: StringList, values: Array<Array<Object>>) => any) : void {
+	log.debug('withResults: ', this.responseObject);
+	// do not invoke unless they have alredy been retrieved
+	if (this.responseObject) {
+	    continuation(<string[]>(this.responseObject.dimensions),
+			 <Array<Array<Object>>>(this.responseObject.solutions));
+	}
+    }
+
 }
 
 /* concreate sparql classes - one for each operator
@@ -658,6 +737,12 @@ export class BGP extends SparqlOperation {
     getPredicateState(predicate: string) : boolean {
 	return( findTriplePattern(this.triples, {predicate: makeNamedNode(predicate)}) ? true : false );
     }
+
+    /**
+     * de/activate the givrn predicate according to the state.
+     * as a side-effect regenerate the query
+     */
+    
     setPredicateState(predicate: string, state: boolean) {
 	var subject = this.subjectVariable;
 	var thisOperation = this;
@@ -681,8 +766,13 @@ export class BGP extends SparqlOperation {
 		}
 	    }
 	}
-	console.log('sps: ', this, this.view, modified);
-	if (modified) { this.view.present(this, "query") };
+	log.debug('sps: ', this, this.view, modified);
+	if (modified) {
+	    SparqlOperation.mapParents(this, function(operation: SparqlOperation) {
+		log.debug('sps.mp', operation);
+		return( operation.view.present(operation, 'query') );
+	    }, null);
+	}
     }
 }
 

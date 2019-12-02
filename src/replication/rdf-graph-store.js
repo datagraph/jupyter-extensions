@@ -8,20 +8,26 @@
  The operations are defined as static functions for the GSP and SPARQL classes.
  */
 
+import { NamedNode, BlankNode, Literal } from './rdf-environment';
+import ulog from "ulog";
+ulog.level = ulog.DEBUG;
+const log = ulog('view');
+
 const now = Date.now;
 
 function logFetch(location, args) {
-  console.log('fetch:', location, args);
+  log.debug('fetch: location: ', location, 'args: ', args);
   var headers = args.headers;
-  // for (var [k,v] of headers.entries()) {console.log('fetch:', [k,v])};
+  for (var [k,v] of headers.entries()) { log.debug('fetch: header:', [k,v])};
   var p = fetch(location, args);
   p.location = location;
   p = p.then(function(response) {
         if (response.ok) {
           return (response);
         } else {
-          console.log("fetch response: ${response.status}");
-          return (response);
+            log.debug("fetch response: ${response.status}");
+	    for (var [k,v] of response.headers.entries()) { log.debug('response: header:', [k,v])};
+            return (response);
         }
       });
   // console.log(p);
@@ -41,10 +47,54 @@ GSP.fetchOp = logFetch;
  The SPARQL class comprises the interface operators for the SPARQL Protocol
  */
 export class SPARQL {
+    static decode(response, continuation, mediaType = (response.headers['content-type'] || SPARQL.get.acceptMediaType)) {
+	log.debug('SPARQL.decode: ', response);
+	SPARQL.decode[mediaType](response, continuation);
+    }
+
 }
 window.SPARQL = SPARQL;
 SPARQL.locationSuffix = "/sparql";
 SPARQL.fetchOp = logFetch;
+
+/**
+ * decode json representation as per
+ *    https://www.w3.org/TR/sparql11-results-json/#select-encode-terms
+ */
+
+SPARQL.decode['application/sparql-results+json'] = function(response, continuation) {
+    log.debug("SPARQL: response: ", response);
+    response.json().then(function(result) {
+	console.log("SPARQL: json: ", result);
+	var dimensions = result.head.vars;
+	var field = result.results.bindings.map(function(solution) {
+	    var values = dimensions.map(function(dimension) {
+		var valueObject = solution[dimension];
+		var value = valueObject.value;
+		var type = valueObject.type;
+		switch (type) {
+		case 'URI':
+		case 'uri':
+		    return( new NamedNode(value) );
+		case 'bnode':
+		case 'BNODE':
+		    return( new BlankNode(value) );
+		case 'literal':
+		case 'literal':
+		    var lang = valueObject['xml:lang'] || null;
+		    var datatype = valueObject['datatype'] || null;
+		    return( new Literal(value, language, datatype) );
+		default:
+		    log.warn('SPARQL.decode: unknown type: ', type, value);
+		    return( new Literal(`${type}(${value})`, null, null) );
+		}
+	    });
+	    return( values );
+	});
+	console.log("SPARQL: field: ", field);
+	return( {dimensions: dimensions, solutions: field} );
+    }).then(continuation);
+}
 
 // provide default encoding functions
 String.prototype.encode = {

@@ -410,6 +410,9 @@ export class NamedNode extends Node {
   encode(mediaType, continuation) {
     return (this.encode[mediaType](this, continuation));
   }
+  toString() {
+    return( `<${this.lexicalForm}>` );
+  }
 }
 
 /**

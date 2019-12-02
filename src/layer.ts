@@ -35,7 +35,7 @@ import { CodeMirrorEditor } from '@jupyterlab/codemirror';
 import { CodeEditor } from '@jupyterlab/codeeditor';
 import { MessageLoop } from '@phosphor/messaging';
 import * as $uuid from './replication/lib/uuid-v1.js';
-import  ulog from "ulog";
+import ulog from "ulog";
 ulog.level = ulog.DEBUG;
 const log = ulog('view');
 
@@ -130,13 +130,14 @@ export class Layer extends Widget {
 	    // console.log("move: ", this.operation.operator, {left: left, top: top});
 	}
     }
-    resize(width: number, height:number) {
+    resize(width: number, height: number) {
 	if (this._width != width || this._height != height) {
 	    this._width = width;
 	    this.node.style.width = Math.floor(width)+'px';
 	    this._height = height;
 	    this.node.style.height = Math.floor(height)+'px';
 	    MessageLoop.sendMessage(this, Widget.ResizeMessage.UnknownSize);
+	    this.arrangeLayer(this._left, this._top);
 	}
     }
     geometry() : WidgetGeometry {
@@ -205,6 +206,16 @@ export class Layer extends Widget {
 	    // console.log("offset: ", offsetX, offsetY);
 	    // console.log("frame location: ", frame.style.left, frame.style.top);
 	}
+	var observer = new ResizeObserver(function(entries) {
+	    log.debug('Layer.resize: ', thisLayer, entries);
+	    if (entries[0]) {
+		// nb. left.top are observed to be 0,0
+		const resizeRect : DOMRect =<DOMRect> (entries[0].contentRect);
+		thisLayer.resize(resizeRect.width, resizeRect.height);
+	    }
+	});
+	observer.observe(frame);
+
 
 	// cannot use Widget.attach as that fails because the layer dom element is not yet in the document
 	//Widget.attach(this.panel, bodyDiv);
@@ -281,6 +292,15 @@ export class Layer extends Widget {
     createPanes(operation: Operation, options: JSONObject) : Array<LayerPane> {
 	return ( [ ] );
     }
+    findPane(paneTitle : string) : LayerPane {
+	var foundPane : LayerPane = null;
+	this.panes.forEach(function(pane: LayerPane) {
+	    if (pane.title.label == paneTitle) {
+		foundPane = pane;
+	    }
+	});
+	return( foundPane );
+    }
 
     changeMode() {
 	switch (this._mode) {
@@ -337,6 +357,11 @@ export class Layer extends Widget {
 		pane.present(operation);
 	    }
 	});
+    }
+    
+    /** provide base method which does nothing as reaction to resize/reposition.
+     */
+    arrangeLayer(left: number, top:number) {
     }
     
     onActivateRequest(msg : Message) {
@@ -517,6 +542,16 @@ export class SparqlLayer extends Layer {
 	if (this.sourceLayer) { this.destinationLayer.mapChildLayers(operator); }
 	if (this.childLayer) { this.parentLayer.mapChildLayers(operator); }
     }
+
+    highlightDimension(dimension : string) {
+	var pane = this.findPane('results');
+	if (pane) {
+	    (<SparqlResultsPane>pane).highlightDimension(dimension);
+	}
+	if (this.parentLayer) {
+	    this.parentLayer.highlightDimension(dimension);
+	}
+    }
 }
 
 export class SparqlBgpLayer extends SparqlLayer {
@@ -639,18 +674,79 @@ export class SparqlQueryPane extends SparqlPane {
 }
 
 export class SparqlResultsPane extends LayerPane {
+    tbody : HTMLElement; //!!DO NOT initialize, otherwise rewritte typescript set to that value in constructor
     constructor(operation: Operation, options: JSONObject = {}) {
 	super(operation, Object.assign({}, {title: 'results'}, options['results']));
     }
+
     createNode(node: HTMLElement, options: JSONObject) : HTMLElement {
 	super.createNode(node, options);
-	node.innerText =<string> options.text || "";
-	node.style.border = "solid orange 1px";
+	var node = this.node;
+	var table = Layer.createElement('table', {style: 'border: solid blue 1px; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; display: block;'});
+	var tbody = Layer.createElement('tbody', {style: ""});
+	node.style.overflow = "auto";
+	node.appendChild(table);
+	table.appendChild(tbody);
+	this.tbody = tbody;
+	log.debug('srp.cn: ', this);
 	return( node );
     }
-    present(operation: Operation) {
-	var text = operation.responseText;
-	this.node.innerText = text;
+
+    present(operation: SparqlOperation) {
+	var thisPane = this;
+	var tbody = this.tbody;
+	log.debug('srp.present: ', this, operation);
+	while (tbody.firstChild) {
+	    tbody.removeChild(tbody.firstChild);
+	}
+	var presentResults = function(dimensions : string[], values : Array<Array<Object>>) {
+	    log.debug('srp.present: dimensions: ', dimensions);
+	    var head = Layer.createElement('tr', {style: ''});
+	    dimensions.forEach(function(text:string) {
+		var header = Layer.createElement('th', {style: 'border-bottom: solid black 2px; border-right: solid black 1px;'});
+		header.onclick = function(event: Event) { (<SparqlLayer>thisPane.parent).highlightDimension(text); };
+		head.appendChild(header).innerText = text;
+	    });
+	    tbody.appendChild(head);
+	    values.forEach(function(solution : Array<Object>) {
+		var row = Layer.createElement('tr', {style: ''});
+		solution.forEach(function (value: Object) {
+		    var stringValue = value.toString();
+		    var valueItem = Layer.createElement('td', {style: 'border-right: solid black 1px;'});
+		    valueItem.innerText = stringValue;
+		    row.appendChild(valueItem);
+		});
+		tbody.appendChild(row);
+	    });
+	};
+	// does not present unless they have alredy been retrieved
+	operation.withResults(presentResults);
+}
+    highlightDimension(dimension: string) {
+	var index : number = null;
+	var tbody = this.tbody;
+	log.debug('hd: dimension: ', dimension);
+	if (tbody.firstChild) {
+	    var header : HTMLElement =<HTMLElement> tbody.firstChild;
+	    var testIndex : number = 0;
+	    header.childNodes.forEach(function(elt : HTMLElement) {
+		var testText : string = elt.innerText;
+		log.debug('hd: testText: ', testText);
+		if (testText == dimension) {
+		    index = testIndex;
+		}
+		testIndex ++;
+	    });
+	    log.debug('hd: index', index);
+	    if ( index != null) {
+		tbody.childNodes.forEach(function(row : HTMLElement) {
+		    var cell : HTMLElement = <HTMLElement> row.childNodes[index];
+		    if ( cell) {
+			cell.style.backgroundColor = 'yellow';
+		    }
+		});
+	    }
+	}
     }
 }
 
