@@ -545,6 +545,7 @@ export class SparqlLayer extends Layer {
 
     highlightDimension(dimension : string) {
 	var pane = this.findPane('results');
+	log.debug('layer.hd: dim, pane', dimension, pane, this.parentLayer);
 	if (pane) {
 	    (<SparqlResultsPane>pane).highlightDimension(dimension);
 	}
@@ -675,6 +676,7 @@ export class SparqlQueryPane extends SparqlPane {
 
 export class SparqlResultsPane extends LayerPane {
     tbody : HTMLElement; //!!DO NOT initialize, otherwise rewritte typescript set to that value in constructor
+    highlitIndex : number = null;
     constructor(operation: Operation, options: JSONObject = {}) {
 	super(operation, Object.assign({}, {title: 'results'}, options['results']));
     }
@@ -704,7 +706,10 @@ export class SparqlResultsPane extends LayerPane {
 	    var head = Layer.createElement('tr', {style: ''});
 	    dimensions.forEach(function(text:string) {
 		var header = Layer.createElement('th', {style: 'border-bottom: solid black 2px; border-right: solid black 1px;'});
-		header.onclick = function(event: Event) { (<SparqlLayer>thisPane.parent).highlightDimension(text); };
+		header.onclick = function(event: Event) {
+		    log.debug('p.onclick: ', thisPane, thisPane.layer);
+		    (<SparqlLayer>thisPane.layer).highlightDimension(text);
+		};
 		head.appendChild(header).innerText = text;
 	    });
 	    tbody.appendChild(head);
@@ -725,7 +730,8 @@ export class SparqlResultsPane extends LayerPane {
     highlightDimension(dimension: string) {
 	var index : number = null;
 	var tbody = this.tbody;
-	log.debug('hd: dimension: ', dimension);
+	var thisPane = this;
+	log.debug('pane.hd: dimension: ', dimension, this);
 	if (tbody.firstChild) {
 	    var header : HTMLElement =<HTMLElement> tbody.firstChild;
 	    var testIndex : number = 0;
@@ -737,15 +743,25 @@ export class SparqlResultsPane extends LayerPane {
 		}
 		testIndex ++;
 	    });
-	    log.debug('hd: index', index);
-	    if ( index != null) {
-		tbody.childNodes.forEach(function(row : HTMLElement) {
-		    var cell : HTMLElement = <HTMLElement> row.childNodes[index];
+	    log.debug('pane.hd: index, hi', index, thisPane.highlitIndex, thisPane.highlitIndex != index);
+	    tbody.childNodes.forEach(function(row : HTMLElement) {
+		var cell : HTMLElement;
+		if (thisPane.highlitIndex != null) {
+		    cell = <HTMLElement> row.childNodes[thisPane.highlitIndex];
+		    log.debug('pane.hd: to clear ', cell);
+		    if ( cell) {
+			cell.style.backgroundColor = 'white';
+		    }
+		}
+		if (index != null && thisPane.highlitIndex != index) {
+		    cell = <HTMLElement> row.childNodes[index];
+		    log.debug('pane.hd: to color ', cell);
 		    if ( cell) {
 			cell.style.backgroundColor = 'yellow';
 		    }
-		});
-	    }
+		}
+	    });
+	    this.highlitIndex = (this.highlitIndex == index ? null : index);
 	}
     }
 }
