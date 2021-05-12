@@ -36,7 +36,7 @@
     "@types/codemirror": "0.0.79",
     "@types/sparqljs": "^2.1.0",
     "@types/uuid": "^3.4.5",
-    "codemirror": "^5.49.2",
+    "codemirror": "^5.58.2",
     "phosphor-dockpanel": "^0.9.7",
     "phosphor-float-area": "^0.1.2",
     "sparqljs": ""
